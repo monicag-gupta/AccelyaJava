@@ -1,0 +1,20 @@
+javac - Compiles Java source files into bytecode.
+java - Executes Java applications from compiled bytecode.
+jdb - Starts the Java Debugger for debugging Java programs.
+javadoc - Generates HTML documentation from Java source code comments.
+jar - Packages multiple files into a single JAR (Java Archive) file.
+javap - Disassembles Java class files to view bytecode.
+javaws - Launches Java Web Start applications.
+jps - Lists all Java processes running on a system.
+jstack - Prints Java thread stack traces for a given process.
+jmap - Prints memory-related statistics for a given process.
+jstat - Monitors various JVM statistics.
+jhat - Analyzes heap dump files.
+jinfo - Prints configuration information for a given process.
+jcmd - Sends diagnostic command requests to a JVM.
+jconsole - Starts the Java Monitoring and Management Console.
+jdeps - Analyzes class files and lists their dependencies.
+jshell - Starts the Java Shell (REPL) for interactive programming.
+keytool - Manages keystores and certificates.
+rmic - Generates stubs and skeletons for remote objects.
+policytool - GUI tool for managing Java security policies.
