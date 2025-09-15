@@ -215,4 +215,111 @@ public class MainPkgClass {
 
 
 
+package Day1;
+
+import java.util.Objects;
+
+public class Employee {
+	public int id;
+	public String name;
+
+	public Employee() { // default constructor
+		System.out.println(id + " : " + name);
+	}
+
+	public Employee(int id, String name) {
+		this.id = id;
+		this.name = name;
+		System.out.println(id + " : " + name);
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return id;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Employee other = (Employee) obj;
+		return id == other.id;
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		System.out.println("This will clean up the Object");
+	}
+
+	public static void main(String[] args) {
+		{
+			Employee e1 = new Employee();
+			System.out.println(e1);
+			Employee e2 = new Employee();
+			System.out.println(e2);
+			if (e1.equals(e2))
+				System.out.println("e1==e2");
+			else
+				System.out.println("e1!=e2");
+		}
+		
+		System.gc();
+		
+		System.out.println("e1, e2 Out of Range ");
+	}
+
+}
+
+
+
+
+
+
+package Day1;
+
+public class POJO {
+	private int field1;
+	public int getField1() {
+		return field1;
+	}
+	public void setField1(int field1) {
+		this.field1 = field1;
+	}	
+	public POJO(int field1) {
+		super();
+		this.field1 = field1;
+	}	
+	public POJO() {}		
+	@Override
+	public String toString() {
+		return "POJO [field1=" + field1 + "]";
+	}	
+	//override hashCode and equals methods together
+	//main() not allowed
+}
+
+
+
+Class of Java applying to compliances is a Java Bean:
+1. If any Constructor is planned, have a default constructor also
+2. Every attribute should have properties , if they are private
+3. Every behaviour should be public 
+4. The class should override toString()
+5. If Serializable, the Object should have a strong uuid.
+6. All classes should be public 
+7. If equals operator is overridden, hashCode should also be overridden
+8. If Scoped objects are not created, destroy the objects by forcefully calling System.gc() and finalizing the object
+
+
+
+
+
+
+
+
+
 
