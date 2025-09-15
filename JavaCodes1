@@ -17,3 +17,38 @@ public class HelloWorld {
 	}
 
 }
+
+
+
+
+
+
+package Day1;
+
+class A{
+	public int instanceVar=10;
+	public static int classVar=20;
+	public void  local(int paramVar) {
+		int localVar=40;
+		System.out.println("Parameter Var : " + paramVar);
+		System.out.println("Local Var : " + localVar);
+	}	
+}
+public class HelloWorld {
+
+	public static void main(String[] args) {
+		System.out.println("Instance of A() Var : " + new A().instanceVar);
+		System.out.println("Class/static var of A: " + A.classVar);
+		new A().local(30);
+
+	}
+
+}
+
+/*
+ * Instance of A() Var : 10
+Class/static var of A: 20
+Parameter Var : 30
+Local Var : 40
+*/
+
