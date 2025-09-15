@@ -199,6 +199,28 @@ public class HelloWorld {
 
 
 
+class Main { 
+    public static void main(String args[])     { 
+    first: // First label 
+        for (int i = 0; i < 3; i++) { 
+          second: 		// Second label 
+            for (int j = 0; j < 3; j++) { 
+                if (i == 1 && j == 1) { 
+                      // Using break statement with label 
+                    break first; 
+                } 
+                if(j == 2)
+  		 break;     //break from loop
+                System.out.println(i + " " + j); 
+            } 
+        } 
+    } 
+}
+
+
+
+
+
 
 
 
