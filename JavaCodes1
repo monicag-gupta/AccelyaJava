@@ -52,3 +52,153 @@ Parameter Var : 30
 Local Var : 40
 */
 
+
+
+
+
+
+package aa;
+import java.util.Scanner;
+public class Hi {
+	public static void main(String[] args) {
+		System.out.print("Enter Week day's number: ");
+		int day;
+		day = (new Scanner(System.in)).nextInt();
+		String dayName;
+		switch (day) {
+		    case 1: dayName = "Monday";   break;
+		    case 2: dayName = "Tuesday";  break;
+		    case 3: dayName = "Wednesday";   break;
+		    case 4: dayName = "Thursday";   break;
+		    case 5: dayName = "Friday";     break;
+		    case 6: dayName = "Saturday";   break;
+		    case 7: dayName = "Sunday";   break;
+		    default:dayName = "Invalid day"; break;
+		}
+		System.out.println(dayName); // Output: Wednesday
+	}
+}
+
+
+package aa;
+import java.util.Scanner;
+public class Hi {
+	public static void main(String[] args) {
+		System.out.print("Enter Week day's number: ");
+		int day;
+		day = (new Scanner(System.in)).nextInt();
+		String dayName;
+		switch (day) {
+		    case 1: 
+		    case 2: 
+		    case 3: 
+		    case 4:
+		    case 5: dayName = "Working Day";     break;
+		    case 6: 
+		    case 7: dayName = "Week end";   break;
+		    default:dayName = "Invalid day"; break;
+		}
+		System.out.println(dayName); // Output: Wednesday
+	}
+}
+
+
+
+
+//Java 21 enhances the switch statement to support switch expressions, which can return values and can be more concise. 
+package aa;
+import java.util.Scanner;
+public class Hi {
+	public static void main(String[] args) {
+		System.out.print("Enter Week day's number: ");
+		int day;
+		day = (new Scanner(System.in)).nextInt();
+		String dayName = switch (day) {
+		    case 1 -> "Monday";
+		    case 2 -> "Tuesday";
+		    case 3 -> "Wednesday";
+		    case 4 -> "Thursday";
+		    case 5 -> "Friday";
+		    case 6 -> "Saturday";
+		    case 7 -> "Sunday";
+		    default -> "Invalid day";
+		};
+		System.out.println(dayName); // Output: Wednesday for day 3
+	}
+}
+
+
+
+
+//Java 21 allows multiple labels and block statements within a switch expression:
+package aa;
+import java.util.Scanner;
+public class Hi {
+	public static void main(String[] args) {
+		System.out.print("Enter Week day's number: ");
+		int day;
+		day = (new Scanner(System.in)).nextInt();
+		String dayType = switch (day) {
+		    case 1, 2, 3, 4, 5 -> "Weekday";
+		    case 6, 7 -> "Weekend";
+		    default -> {
+		        yield "Invalid day"; 
+		        //The yield keyword is used to return a value from 
+		        // the case block in a switch expression.
+		        //It allows you to use block statements (enclosed in curly braces) 
+		        // and provide a value to be returned from the switch expression.
+		    }
+		};
+		System.out.println(dayType); // Output: Weekday for day 3
+	}
+}
+
+
+
+
+//You can also use switch expressions with enums:
+package aa;
+import java.util.Scanner;
+public class Hi {
+	public static void main(String[] args) {
+		System.out.print("Enter Week day's name in full: ");
+		enum Day {
+		    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+		}
+		Day day = Day.valueOf((new Scanner(System.in)).nextLine().toUpperCase());
+		String dayType = switch (day) {
+		    case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> "Weekday";
+		    case SATURDAY, SUNDAY -> "Weekend";
+		    //default ->{yield "NoDay";}
+		};
+		System.out.println(dayType); // Output: Weekday for Monday
+	}
+}
+
+
+
+
+
+
+//Java 21 introduces pattern matching for switch, enabling more expressive and concise code:
+package aa;
+public class Hi {
+	public static void main(String[] args) {
+		Object obj = "Hello, World!";
+		String result = switch (obj) {
+		    case Integer i -> "Integer: " + i;  //Integer i=obj instanceof Integer?(Integer)obj:null;
+		    case String s -> "String: " + s;
+		    case null -> "Null value";
+		    default -> "Unknown type";
+		};
+		System.out.println(result); // Output: String: Hello, World!
+	}
+}
+
+
+
+
+
+
+
+
