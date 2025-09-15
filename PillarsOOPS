@@ -1,0 +1,27 @@
+Pillars:
+  Encapsulation : Binding the codes together
+    Class capturing the entire blueprint of an object
+    Data Hiding : private, protected, default 
+  Abstraction : Showing necessary details via abstracting
+    Public : shown to the entire client code
+    Abstract : Helps in building s/w framework / Plan
+  Inheritance: child either gets or abides to the parent functionalities
+    Extending : functionalities of Parent
+    Implementing : realization of Parent plans
+    Types:
+      Multiple : by Interfaces: Inherit from multiple parents
+      Multi-level : by both classes and interfaces
+      Single : by classes, interfaces : eligible for Multi-level
+      Hybrid: extended + implemented
+  Polymorphism: One function name => different outcomes
+    Overriding/Runtime : Child extending the feature of the parent and giving different functionalities
+    Overloading/Compile : Function name is same in same class, param is different
+      Fn() -> takes no params
+      Fn(int x, int y) -> different no of params
+      Fn(int x, double y) -> different data type in params
+      Fn(double x, int y) -> different series in params
+
+
+
+
+
