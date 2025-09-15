@@ -95,3 +95,124 @@ public class EmpMain {
 
 
 
+
+
+
+
+package Day1.pkg1;
+
+public class Ambani {
+	public void Reliance() {
+		System.out.print(" Reliance ; ");
+	}
+	private void CC() {
+		System.out.print(" CC  ; ");
+	}
+	protected void NetBank() {
+		System.out.print("  Net Banking Account ; ");
+	}
+	void Gold() {
+		System.out.print(" Almirah full of gold ; ");
+	}
+	public void print() {
+		System.out.println("\nThis is Ambani in pkg1: I can access : ");
+		Reliance();
+		NetBank();
+		Gold();
+		CC();			
+	}
+
+}
+
+
+
+package Day1.pkg1;
+
+public class Akash extends Ambani{
+	
+	public void print() {
+		System.out.println("\nThis is AKash : Ambani in same pkg1: I can access : ");
+		Reliance();
+		NetBank();
+		Gold();
+		//CC();			
+	}
+}
+
+
+
+
+package Day1.pkg2;
+
+import Day1.pkg1.Ambani;
+
+public class Anant extends Ambani{
+	
+	public void print() {
+		System.out.println("\nThis is Anant : Ambani in pkg2: I can access : ");
+		Reliance();
+		NetBank();
+		//Gold();
+		//CC();			
+	}
+}
+
+
+
+
+package Day1.pkg1;
+
+public class Kaka {
+	public void print() {
+		System.out.println("\nThis is Kaka in pkg1: I can access : ");
+		Ambani a =new Ambani();
+		a.Reliance();
+		a.NetBank();
+		a.Gold();
+		//a.CC();			
+	}
+
+}
+
+
+
+
+package Day1.pkg2;
+
+import Day1.pkg1.Ambani;
+
+public class Radhe {
+	public void print() {
+		System.out.println("\nThis is Radhe in pkg2:  I can access : ");
+		Ambani a =new Ambani();
+		a.Reliance();
+		//a.NetBank();
+		//a.Gold();
+		//a.CC();			
+	}
+}
+
+
+
+
+package Day1;
+import Day1.pkg1.*;
+import Day1.pkg2.*;
+
+public class MainPkgClass {
+
+	public static void main(String[] args) {
+		new Ambani().print();
+		new Akash().print();
+		new Anant().print();
+		new Kaka().print();
+		new Radhe().print();
+
+	}
+
+}
+
+
+
+
+
