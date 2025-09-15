@@ -1,9 +1,9 @@
 package Day1;
 
 public class Emp { //encapsulated: Capsulating/blueprint of the Emp Object 
-	private int empId;  // encapsulated : Data hiding via private 
-	private int sal;
-	private String name;
+	protected int empId;  // encapsulated : Data hiding via protected 
+	protected int sal;
+	protected String name;
 	public void input(int id, int s, String n) { //Abstraction via public keyword
 		empId=id;
 		sal=s;
@@ -12,4 +12,62 @@ public class Emp { //encapsulated: Capsulating/blueprint of the Emp Object
 	public void print() {
 		System.out.println("The Emp object : ID : " + empId + " with Name : " + name + " earning Rs." + sal);
 	}
+}
+
+
+
+package Day1;
+
+public class Developers extends Emp {
+	private int projectId; // encapsulated : Data hiding via protected 
+	public void input(int id, int s, String n, int pid) {  //overloading with Inheritance
+		projectId=pid;
+		input(id,  s, n);
+	}
+	public void print() { //Overriding
+		System.out.println("The Emp object : ID : " + 
+			empId + " with Name : " + name + " earning Rs." + 
+				sal + " Handling the Project : " + projectId);
+	}
+	
+
+}
+
+
+
+
+package Day1;
+
+public class Main {  //Polymorphism : Overloading
+	public void print() { //Case 1
+		System.out.println("Print()");
+	}
+	public void print(int i) { //case 2: Overloading 1, as no of parameters are diff
+		System.out.println("Print(int i)");
+	}
+	public void print(int i, String s) { //case 3: Overloading 1,2 as no of parameters are diff
+		System.out.println("Print(int i, String s)");
+	}
+	public void print(String s, int i) { 
+		//case 4: Overloading 1,2 as no of parameters are diff
+		//: Overloading 3, as series of parameter are diff
+		System.out.println("Print(String s, int i)");
+	}
+	public void print(String s) { 
+		//case 5: Overloading 1,3,4 as no of parameters are diff
+		//: Overloading 2, as data type of parameter are diff
+		System.out.println("Print(String s)");
+	}
+	
+	public static void main(String[] args) {
+		Main m=new Main();
+		m.print();
+		m.print("Hello");
+		m.print(10,"H");
+		m.print("H",10);
+		m.print(10);
+		
+
+	}
+
 }
