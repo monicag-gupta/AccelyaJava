@@ -1,0 +1,15 @@
+package Day1;
+
+public class Emp { //encapsulated: Capsulating/blueprint of the Emp Object 
+	private int empId;  // encapsulated : Data hiding via private 
+	private int sal;
+	private String name;
+	public void input(int id, int s, String n) { //Abstraction via public keyword
+		empId=id;
+		sal=s;
+		name=n;
+	}
+	public void print() {
+		System.out.println("The Emp object : ID : " + empId + " with Name : " + name + " earning Rs." + sal);
+	}
+}
