@@ -18,7 +18,7 @@ public class Emp { //encapsulated: Capsulating/blueprint of the Emp Object
 
 package Day1;
 
-public class Developers extends Emp {
+public class Developers extends Emp {   //Inheritance
 	private int projectId; // encapsulated : Data hiding via protected 
 	public void input(int id, int s, String n, int pid) {  //overloading with Inheritance
 		projectId=pid;
