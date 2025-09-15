@@ -57,9 +57,9 @@ Local Var : 40
 
 
 
-package aa;
+package Day1;
 import java.util.Scanner;
-public class Hi {
+public class HelloWorld {
 	public static void main(String[] args) {
 		System.out.print("Enter Week day's number: ");
 		int day;
@@ -80,9 +80,9 @@ public class Hi {
 }
 
 
-package aa;
+package Day1;
 import java.util.Scanner;
-public class Hi {
+public class HelloWorld {
 	public static void main(String[] args) {
 		System.out.print("Enter Week day's number: ");
 		int day;
@@ -106,9 +106,9 @@ public class Hi {
 
 
 //Java 21 enhances the switch statement to support switch expressions, which can return values and can be more concise. 
-package aa;
+package Day1;
 import java.util.Scanner;
-public class Hi {
+public class HelloWorld {
 	public static void main(String[] args) {
 		System.out.print("Enter Week day's number: ");
 		int day;
@@ -131,9 +131,9 @@ public class Hi {
 
 
 //Java 21 allows multiple labels and block statements within a switch expression:
-package aa;
+package Day1;
 import java.util.Scanner;
-public class Hi {
+public class HelloWorld {
 	public static void main(String[] args) {
 		System.out.print("Enter Week day's number: ");
 		int day;
@@ -157,9 +157,9 @@ public class Hi {
 
 
 //You can also use switch expressions with enums:
-package aa;
+package Day1;
 import java.util.Scanner;
-public class Hi {
+public class HelloWorld {
 	public static void main(String[] args) {
 		System.out.print("Enter Week day's name in full: ");
 		enum Day {
@@ -181,8 +181,8 @@ public class Hi {
 
 
 //Java 21 introduces pattern matching for switch, enabling more expressive and concise code:
-package aa;
-public class Hi {
+package Day1;
+public class HelloWorld {
 	public static void main(String[] args) {
 		Object obj = "Hello, World!";
 		String result = switch (obj) {
