@@ -71,3 +71,27 @@ public class Main {  //Polymorphism : Overloading
 	}
 
 }
+
+
+
+
+package Day1;
+
+public class EmpMain {
+
+	public static void main(String[] args) {
+		Emp e1 = new Emp();
+		e1.input(101, 10, "John Doe");
+		Developers e2 =new Developers();
+		e2.input(101, 10, "John Doe",103);
+		e1.print();
+		e2.print();
+		
+
+	}
+
+}
+
+
+
+
