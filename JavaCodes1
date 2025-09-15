@@ -1,0 +1,19 @@
+package Day1;
+
+class MySystem{
+	public static myPrintStream myout=new myPrintStream();
+}
+class myPrintStream{
+	public void myprint(String s) {
+		System.out.println(s);
+	}
+}
+
+public class HelloWorld {
+
+	public static void main(String[] args) {
+		MySystem.myout.myprint("Hello");
+
+	}
+
+}
