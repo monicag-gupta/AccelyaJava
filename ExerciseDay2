@@ -34,3 +34,38 @@ public class CmdLineEg {
 
 }
 
+
+
+
+
+
+A comma separated list  containing pairs of topic name and time in hours 
+( Java 14, JEE 64, JME 28) will be entered in the a string statement(input by the user) or 
+command line argument. 
+If a day consists of 8 hours, list out the topics that will be covered day-wise. 
+Define all necessary exception for the program. 
+Catch them and all the other possible exceptions.
+	If the hours and the course is not separated from other values by comma: 
+		Raise an exception
+	If the input is not in pairs: Raise an exception : 
+		input[].length is not even
+	If hours are not given as numbers: Raise an exception
+Example:	
+	If Input is : 
+		Java Fourteen, .. ;; 
+		java 14, jee 56, mysql ;; 
+		java 14; jee 46; mysql 45;
+	Output: Sample Run:
+	>java prog 
+	INPUT: Java_AdvJava 73, JEE 104, MySQL 15, go 24
+	OUTPUT:
+	Java_AdvJava : 10 Days
+	JEE : 13 Days
+	MySQL : 2 Days
+	React : 3 Days
+	
+
+
+
+
+
