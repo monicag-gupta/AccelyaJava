@@ -140,6 +140,55 @@ public class ExceptEg2 {
 
 
 
+package Day2;
+class Pa{
+	public void fnIOExcept() throws java.io.IOException{}
+	public void fnArithExcept() throws ArithmeticException{}
+	public void fn() {}
+}
+class Child1 extends Pa{
+	@Override
+	public void fnIOExcept() throws java.io.IOException{}
+	@Override
+	public void fnArithExcept() throws ArithmeticException{}
+	@Override
+	public void fn() {}
+}
+
+class Child2 extends Pa{
+	@Override
+	public void fnIOExcept() {}
+	@Override
+	public void fnArithExcept() {}
+	@Override
+	public void fn() {}
+}
+class Child3 extends Pa{
+	@Override
+	public void fnIOExcept() {}//throws Exception{}  
+	//Not allowed: Parent Exception class in overridden method
+	@Override
+	public void fnArithExcept() {} //throws ClassNotFoundException{}
+	@Override
+	public void fn() {}
+}
+class Child4 extends Pa{
+	@Override
+	public void fnIOExcept() throws ArithmeticException{}
+	@Override
+	public void fnArithExcept() throws ArithmeticException{}
+	@Override
+	public void fn() {}
+}
+
+public class ExceptInheritEg {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
 
 
 
