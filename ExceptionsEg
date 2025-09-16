@@ -107,6 +107,40 @@ public class ExceptEg2 {
 
 
 
+package Day2;
+
+public class ExceptEg2 {
+	public void validateAge(int age) throws java.io.IOException{
+		if(age<18) {
+			throw new java.io.IOException("Invalid Age for Voting!!");
+		}
+		System.out.println("Age is valid for voting!");
+	}
+	
+	public void takeAge() throws java.io.IOException {
+		System.out.println("Enter Age:");
+		int age=new java.util.Scanner(System.in).nextInt();
+		validateAge(age);
+	}
+
+	public static void main(String[] args) {
+		try {
+		new ExceptEg2().takeAge();
+		}
+		catch(Exception e) {System.out.println(e);}
+		
+		System.out.println("Program Continues..");
+	}
+
+}
+
+
+
+
+
+
+
+
 
 
 
