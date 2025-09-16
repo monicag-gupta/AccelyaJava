@@ -191,6 +191,39 @@ public class FinalEg {
 
 
 
+package Day2;
+
+class GP{
+	protected void gold() {
+		System.out.println("Gold");
+	}
+}
+class Pa extends GP {
+	@Override
+	public void gold() {
+		System.out.println("My Gold");
+	}
+}
+
+
+public class InheritanceEg2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
