@@ -16,3 +16,41 @@ Fills the stack trace of this Throwable object with the current stack trace, add
 
 
 
+
+package Day2;
+
+public class ExceptEg {
+
+	public static void main(String[] args) {
+		java.util.Scanner sc = new java.util.Scanner(System.in);
+		int[] a = new int[2];
+		try {
+			System.out.println("Enter Numerator: ");
+			a[0] = sc.nextInt();
+			System.out.println("Enter Denominator: ");
+			a[1] = sc.nextInt();
+			a[2] = a[0]/a[1];
+			System.out.println("Division : " + a[2]);
+		}
+		catch(ArithmeticException e) {
+			System.out.println(e);
+		}
+		catch(java.util.InputMismatchException e) {
+			System.out.println(e);
+		}
+		catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println(e);
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+		System.out.println("Program Continues..");
+	}
+
+}
+
+
+
+
+
+
