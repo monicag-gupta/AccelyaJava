@@ -47,6 +47,33 @@ public class ExceptEg {
 		System.out.println("Program Continues..");
 	}
 
+
+
+
+
+
+
+package Day2;
+
+public class ExceptEg2 {
+
+	public static void main(String[] args) {
+		System.out.println("Enter Age:");
+		int age=new java.util.Scanner(System.in).nextInt();
+		try {
+		if(age<18) {
+			throw new ArithmeticException("Invalid Age for Voting!!");
+		}
+		}
+		catch(ArithmeticException e) {
+			System.out.println(e);
+		}
+		System.out.println("Program Continues..");
+	}
+
+}
+
+
 }
 
 
