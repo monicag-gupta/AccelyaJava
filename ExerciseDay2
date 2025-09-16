@@ -1,0 +1,16 @@
+Interface Iter -> 
+next() -> navigates to next element
+Iter() -> it points to the 1st element in the array
+Hasnext() -> Check for End of Array
+
+Int[5] arr
+Add(int ele)
+Remove(int ele) -> first occurring ele
+Delete(int position/index) -> ele at index
+
+Exceptions:
+Add more than capacity
+Next() without checking hasnext()
+Delete from negative index
+Remove ele not in arr
+
