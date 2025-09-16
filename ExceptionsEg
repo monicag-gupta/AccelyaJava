@@ -238,4 +238,38 @@ public class ExceptFinallyEg {
 
 
 
+package Day2;
+class AgeException extends Exception{
+//RuntimeException{
+	String msg;
+	public AgeException(String msg) {
+		super(msg);
+		this.msg=msg;
+	}
+
+	@Override
+	public String toString() {
+		return msg;
+	}
+	
+}
+public class CustomExceptEg {
+
+	public static void main(String[] args) throws AgeException {
+		int age=-20;
+		if(age<18) {
+			throw new AgeException("UnderAge");
+		}
+
+	}
+
+}
+
+
+
+
+
+
+
+
 
