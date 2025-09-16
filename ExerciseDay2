@@ -14,3 +14,23 @@ Next() without checking hasnext()
 Delete from negative index
 Remove ele not in arr
 
+
+
+
+
+
+
+package Day2;
+
+public class CmdLineEg {
+
+	public static void main(String[] args) {
+		for(String s : args) {
+			System.out.println(s);
+		}
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
