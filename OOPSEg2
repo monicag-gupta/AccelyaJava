@@ -143,3 +143,57 @@ public class InheritanceEg {
 	}
 
 }
+
+
+
+
+
+package Day2;
+final class myLinux{
+	public final int year = 2004;
+	public final int space;
+	public myLinux() {
+		space=1024;
+	}
+	public myLinux(int sp) {
+		space=sp;
+	}
+	public final void author() {
+		System.out.println("Author: Limus");
+		System.out.println("In year: " + year + " space required : " + space);
+	}
+}
+class myUbunto
+//extends myLinux{
+{
+//	@Override
+//	public void author() {
+//		System.out.println("Author: Jim");
+//	}
+}
+public class FinalEg {
+
+	public static void main(String[] args) {
+		myLinux l=new myLinux(9078);
+		l.author();
+		
+		myLinux l2=new myLinux();
+		l2.author();
+		//l2.year =2009;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
