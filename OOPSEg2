@@ -390,4 +390,45 @@ public class IntializerEg {
 
 
 
+package Day2;
+interface Operation{
+	int op(int x, int y);
+}
+
+public class AnonymousEg {
+	static class Mul implements Operation{  //AnonymousEg$Mul.class
+		public Mul() {
+			System.out.println("This is a Contructor of Mul");
+		}
+		public int op(int x, int y) {
+			return x*y;
+		}
+	}
+
+	public static void main(String[] args) {
+		Operation mul= new AnonymousEg.Mul();
+		System.out.println(mul.op(10,20));
+		Operation Add = new Operation() {   //AnonymousEg$1.class
+			{
+				System.out.println("This is constructing Add obj");
+			}
+			public int op(int x, int y) {
+				return x+y;
+			}
+		};
+		Operation Sub = new Operation() {   //AnonymousEg$2.class
+			public int op(int x, int y) {
+				return x-y;
+			}
+		};
+		System.out.println(Add.op(20,10));
+		
+
+	}
+
+}
+
+
+
+
 
