@@ -222,6 +222,74 @@ public class InheritanceEg2 {
 
 
 
+package Day2;
+interface Iter{
+	void navigate();
+}
+class myArray {
+	private int[] a=new int[100];
+	private int tos=0;
+	public myArray(){}
+	public void add(int ele) {
+		if(tos<100)
+			a[tos++]=ele;
+	}
+	public Iter iter() {
+		return this.new AryIter();
+	}
+	class AryIter implements Iter{
+		public void navigate() {
+			for(int i=0; i<tos;i++) {
+				System.out.println(a[i]);
+			}
+		}
+	}
+}
+class Outer{
+	class Inner{
+		public void innerfn() {
+			System.out.println("InnerFn");
+		}
+	}
+	static class staticInner{
+		public void innerfn2() {
+			System.out.println("InnerFn");
+		}
+	}
+	static class Inner2{
+		public static void staticinnerfn() {
+			System.out.println("InnerFn");
+		}
+	}
+	
+}
+public class InnerClassEg {
+
+	public static void main(String[] args) {
+		Outer o=new Outer();
+		Outer.Inner i = o.new Inner();
+		i.innerfn();
+		Outer.staticInner i2 = new Outer.staticInner();
+		i2.innerfn2();
+		Outer.Inner2.staticinnerfn();
+		myArray arr=new myArray();
+		arr.add(10);arr.add(20);arr.add(30);arr.add(40);
+		Iter I=arr.iter();
+		I.navigate();
+		
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
