@@ -194,3 +194,48 @@ public class ExceptInheritEg {
 
 
 
+package Day2;
+class Res implements AutoCloseable{
+	public void close() {
+		System.out.println("Res closed");
+	}
+	public void toDo() {
+		System.out.println("Res working..");
+	}
+}
+
+
+public class ExceptFinallyEg {
+	public static int fn(Res r) {
+		r.toDo();
+		try {
+			int x=10;
+			int y=0;
+			int z=x/y;
+			if(z!=0)
+				return z;
+		}
+		catch(ArithmeticException e) {
+			System.out.println(e);
+			return 0;
+		}
+		finally { //either line by line execute it, or run this block before returning from the fn
+			r.close();
+		}
+		return 0;
+	}
+
+	public static void main(String[] args) {
+		int result=fn(new Res());
+		System.out.println("Result: " + result);
+		System.out.println("Program Continue..");
+	}
+
+}
+
+
+
+
+
+
+
