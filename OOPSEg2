@@ -1,0 +1,145 @@
+package Day2;
+
+interface MathOperations {
+	void sum(int a, int b);
+
+	void multiply(int a, int b);
+
+	void sum(String a, String b);
+
+	void multiply(String a, int b);
+
+	default void sub(int a, int b) {
+		System.out.println(a > b ? a - b : b - a);
+	}
+
+	default void div(int a, int b) {
+		System.out.println(b == 0 ? 0 : a / b);
+	}
+}
+
+interface StringOperations {
+	void sum(String a, String b);
+
+	void multiply(String a, int b);
+
+	default void sub(int a, int b) {
+		System.out.println(a > b ? a - b : b - a);
+	}
+
+	default void div(int a, int b) {
+		System.out.println(b == 0 ? 0 : a / b);
+	}
+}
+
+class Child implements MathOperations, StringOperations {
+	@Override
+	public void sum(int a, int b) {
+		System.out.println(a + b);
+	}
+
+	@Override
+	public void multiply(int a, int b) {
+		System.out.println(a * b);
+	}
+
+	@Override
+	public void sum(String a, String b) {
+		System.out.println(a + b);
+	}
+
+	@Override
+	public void multiply(String a, int b) {
+		String s = a;
+		for (int i = 0; i < b; i++) {
+			s = s + a;
+		}
+		System.out.println(s);
+	}
+
+	public void sub(int a, int b) {
+		System.out.println(a > b ? a - b : b - a);
+	}
+
+	public void div(int a, int b) {
+		System.out.println(b == 0 ? 0 : a / b);
+	}
+}
+
+interface Being {
+	void breathe();
+}
+
+abstract class Animal implements Being {
+	public void eat() {
+		System.out.println("All animals eat");
+	}
+
+	public abstract void move();
+}
+
+class Dog extends Animal implements Being {
+	public void breathe() {
+		System.out.println("All dogs breathe");
+	}
+
+	public void move() {
+		System.out.println("Dogs move on four legs");
+	}
+
+	public void bark() {
+		System.out.println("Dogs Bark");
+	}
+}
+
+class Cat extends Animal implements Being {
+	public void breathe() {
+		System.out.println("All Cats breathe");
+	}
+
+	public void move() {
+		System.out.println("Cats move on four legs");
+	}
+
+	public void Meow() {
+		System.out.println("Cats Meow");
+	}
+}
+
+class Horse extends Animal implements Being {
+	public void breathe() {
+		System.out.println("All Horse breathe");
+	}
+
+	public void move() {
+		System.out.println("Horse move on four legs");
+	}
+
+	public void Run() {
+		System.out.println("Horse runs fast");
+	}
+}
+
+public class InheritanceEg {
+
+	public static void AnimalTrainer(Animal a) { // up casting
+		a.breathe();
+		a.eat();
+		a.move();
+		if (a instanceof Dog) {
+			Dog d = (Dog) a; // down casting
+			d.bark();
+		}
+		if (a instanceof Cat) {
+			Cat d = (Cat) a; // down casting
+			d.Meow();
+		}
+	}
+
+	public static void main(String[] args) {
+		AnimalTrainer(new Dog());
+		AnimalTrainer(new Cat());
+		AnimalTrainer(new Horse());
+	}
+
+}
