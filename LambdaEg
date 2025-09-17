@@ -1,0 +1,16 @@
+package Day3;
+interface IndraVerma{
+	void ChotaBheem();   //Single Abstract Method : SAM
+}
+
+public class FIEg {
+
+	public static void main(String[] args) {
+		IndraVerma k=()->System.out.println("Kalaripayettu");
+		k.ChotaBheem();
+		
+	}
+
+}
+
+
