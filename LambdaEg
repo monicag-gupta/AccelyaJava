@@ -14,3 +14,39 @@ public class FIEg {
 }
 
 
+
+
+
+
+
+package Day3;
+interface Animal{
+	void train();
+}
+
+public class FIEg {
+	static void AnimalTrainer(Animal a) {
+		a.train();
+	}
+
+	public static void main(String[] args) {
+		Animal dog=new Animal() {
+			public void train() {
+				System.out.println("Dog trained");
+			}
+		};
+		AnimalTrainer(dog);
+		Animal cat = () -> System.out.println("Cat trained");
+		AnimalTrainer(cat);
+		AnimalTrainer(()->System.out.println("Horse Trained"));
+		
+		
+	}
+
+}
+
+
+
+
+
+
