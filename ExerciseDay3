@@ -4,3 +4,110 @@ List<Employee> emps …
 Hint: override toString() in Employees
 
 
+package Day3;
+
+
+
+import java.util.ArrayList;
+
+
+
+public class Employee{
+
+	
+
+	public static ArrayList<Employee> EmpList = new ArrayList<>();
+
+	
+
+	int empId;
+
+	String empName;
+
+	double empSal;
+
+	
+
+	public Employee(int empId, String empName,double empSal){
+
+		this.empId=empId;
+
+		this.empName=empName;
+
+		this.empSal=empSal;
+
+		for(Employee e:EmpList) {
+
+			System.out.println(e);
+
+		}
+
+	}
+
+	
+
+	public Employee() {
+
+		for(Employee e:EmpList) {
+
+			System.out.println(e);
+
+		}
+
+	}
+
+	
+
+	public int EmpId() {
+
+		return empId;
+
+	}
+
+	public String EmpName() {
+
+		return empName;
+
+	}
+
+	public double EmpSal() {
+
+		return empSal;
+
+	}
+
+	
+
+	@Override
+
+	public String toString() {
+
+		return (empId+" "+empName+" "+empSal);
+
+	}
+
+	
+
+	public static void main(String[] args) {
+
+		
+
+		EmpList.add(new Employee(1,"Vibhuti",30000));
+
+		EmpList.add(new Employee(2,"Rohit",40000));
+
+		EmpList.add(new Employee(3,"Sam",20000));
+
+		EmpList.add(new Employee(4,"Pankaj",50000));
+
+		EmpList.add(new Employee(5,"Rushikesh",60000));
+
+	}
+
+}
+
+
+
+
+
+
