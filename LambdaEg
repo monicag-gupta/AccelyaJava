@@ -473,5 +473,44 @@ public class MethodChain {
 
 
 
+Consumer<T> with void accept(T)
+Predicate<T> with bool test(T)
+Function<T,R> with R apply(T)
+Supplier<T>  with T get()
+
+
+
+import java.util.function.*;
+
+
+
+
+package Day3;
+import java.util.function.*;
+
+public class FIFnsEg {
+
+	public static void main(String[] args) {
+		Consumer<String> print = System.out :: println;
+		print.accept("Hello World");
+		
+		Predicate<Integer> evn = x -> x%2==0;
+		System.out.println(evn.test(21)?"Even":"Odd");
+
+		Function<String, Integer> len = String :: length;
+		System.out.println("The length of 'Hello World' is: " + len.apply("Hello World"));
+		
+		Supplier<String> producer = () -> "Hello World";
+		System.out.println(producer.get());
+		
+		
+		
+	}
+
+}
+
+
+
+
 
 
