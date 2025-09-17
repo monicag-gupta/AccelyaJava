@@ -286,6 +286,57 @@ public class FIEg {
 
 
 
+package Day3;
+interface I1{
+	void fn();
+}
+
+interface I2{
+	int fn(String s);
+}
+
+
+
+class Abc{
+	public void a() {
+		System.out.println("This is new A()->a");
+	}
+	public int b(String s) {
+		System.out.println("This is new A()->b");
+		return s.length();
+	}
+	
+}
+
+public class FIEg {
+	public static void main(String[] args) {
+		//Lambda
+		I1 i1=()->new Abc().a();
+		i1.fn();
+		I1 i2 = new Abc() :: a;
+		i2.fn();
+		
+		
+		I2 i3 =(s) -> new Abc().b(s);
+		System.out.println(i3.fn("Hello"));
+		I2 i4 = new Abc() :: b;
+		System.out.println(i4.fn("Hello"));
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
