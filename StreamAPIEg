@@ -25,4 +25,36 @@ public class StreamEg {
 
 
 
+package Day3;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class StreamEg {
+	public static void main(String[] args) {
+		List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
+		List<Integer> oddNums=numbers.stream()
+			.peek(x->System.out.print(x + " -> "))
+			.map(x->x*x)
+			.peek(x->System.out.print(x + " "))
+			.filter(x->x%2!=0)
+			.distinct()
+			.sorted()
+			.collect(Collectors.toList());
+		
+		System.out.println("\n\n" + oddNums);
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
 
