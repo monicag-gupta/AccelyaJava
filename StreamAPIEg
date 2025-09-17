@@ -1,0 +1,28 @@
+package Day3;
+import java.util.*;
+import java.util.function.*;
+
+public class StreamEg {
+	static void myforeach(Consumer<Integer> c, int x) {
+		c.accept(x);
+	}
+
+	public static void main(String[] args) {
+		ArrayList<Integer> ints = new ArrayList<>();
+		ints.add(1); ints.add(2);
+		ints.forEach((x)->System.out.print(x + ", "));
+		
+		
+		System.out.println("\n");
+		myforeach(System.out::println,10);
+
+	}
+
+}
+
+
+
+
+
+
+
