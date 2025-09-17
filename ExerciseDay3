@@ -1,0 +1,6 @@
+Create a list(ArrayList) of Employees. Add at least 5 employees to the list. Print the list of employees every time a new employee is added.
+Employee is a class{empId, empName, empSal} + both constructors + getters and setters
+List<Employee> emps …
+Hint: override toString() in Employees
+
+
