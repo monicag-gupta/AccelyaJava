@@ -118,6 +118,90 @@ public class FIEg {
 
 
 
+package Day3;
+
+@FunctionalInterface
+interface I1{
+	void fn1();
+}
+
+@FunctionalInterface
+interface I2{
+	void fn2(int x);
+}
+
+@FunctionalInterface
+interface I3{
+	void fn3(int x, String s);
+}
+
+@FunctionalInterface
+interface I4{
+	String fn4();
+}
+
+@FunctionalInterface
+interface I5{
+	int fn5(String s);
+}
+
+public class FIEg {
+	public static void main(String[] args) {
+		I1 i11= ()->System.out.println("I1");
+		I1 i12= ()->{
+			System.out.println("I12");
+			System.out.println("I12 again");
+			};
+			
+		I2 i21 = x -> System.out.println(x);
+		I2 i22 = (x) -> System.out.println(x);
+		I2 i23 = (int x) -> System.out.println(x);
+		
+		I3 i31 = (x,y) -> System.out.println(x + " " + y);
+		I3 i32 = (int x, String y) -> System.out.println(x + " " + y);
+		
+		I4 i41 = () -> "Hello World";
+		I4 i42 = () -> {return "Hello World";};
+		I4 i43 = () -> {
+			String s=new java.util.Scanner(System.in).nextLine();
+			return s;
+			};
+		
+		I5 i51 = x -> x.length();
+		
+		
+		i11.fn1();
+		i12.fn1();
+		
+		i21.fn2(10);
+		i22.fn2(10);
+		i23.fn2(10);
+		
+		i31.fn3(10, "Hi");
+		i32.fn3(10, "Hi");
+		
+		System.out.println(i41.fn4());
+		System.out.println(i42.fn4());
+		System.out.println(i43.fn4());
+		
+		System.out.println(i51.fn5("Hello"));
+		
+		
+		
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
