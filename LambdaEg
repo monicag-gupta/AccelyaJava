@@ -338,6 +338,93 @@ public class FIEg {
 
 
 
+package Day3;
+interface I1{
+	void fn();
+}
+
+interface I2{
+	int fn(String s);
+}
+
+interface I3{
+	void fn(String s);
+}
+
+
+
+class Abc{
+	
+	public Abc() {
+		System.out.println("Abc() constructor");
+	}
+	public Abc(String s) {
+		System.out.println("Abc("+s+") constructor");
+	}
+	public void a() {
+		System.out.println("This is new A()->a");
+	}
+	public int b(String s) {
+		System.out.println("This is new A()->b");
+		return s.length();
+	}
+	
+	public static int c(String s) {
+		System.out.println("This is new A()->b");
+		return s.length();
+	}
+	
+}
+
+public class FIEg {
+	public static void main(String[] args) {
+		//Lambda
+		I1 i1=()->new Abc().a();
+		i1.fn();
+		I1 i2 = new Abc() :: a;
+		i2.fn();
+		
+		
+		I2 i3 =(s) -> new Abc().b(s);
+		System.out.println(i3.fn("Hello"));
+		I2 i4 = new Abc() :: b;
+		System.out.println(i4.fn("Hello"));
+		
+		
+		
+		//:: -> link to a Constructor
+		// any no of parameters but return value should be void in the FI -> SAM
+		I1 i5=() -> new Abc();
+		I1 i6 = Abc :: new;
+		
+		I3 i7=Abc :: new;
+		
+		
+		//:: -> link to an object's method
+		
+		I1 i8=new Abc()::a;
+		
+		//:: -> link to a static method
+		
+		I2 i9 = Abc :: c;
+		
+		
+		I2 i11 = (s) -> s.length();
+		//:: -> link to arbitrary method
+		I2 i10 = String :: length;
+		
+		
+		I3 i12 = System.out :: println;
+		
+		
+		
+		
+		
+	}
+
+}
+
+
 
 
 
