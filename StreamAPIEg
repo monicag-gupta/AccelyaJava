@@ -54,6 +54,24 @@ public class StreamEg {
 
 
 
+Intermediate Operations:
+	Stream.filter()
+	Stream.map()
+	Stream.distinct()
+	Stream.peek()
+	Stream.sorted()
+	
+Terminal Operations:
+	Stream.collect()
+	Stream.min() / Stream.max()
+	Stream.findAny().orElse()
+	Stream.findFirst().orElse()
+	Stream.count()
+
+
+
+
+
 
 
 
