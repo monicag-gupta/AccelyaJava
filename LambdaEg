@@ -429,3 +429,49 @@ public class FIEg {
 
 
 
+package Day3;
+
+class A{
+	String s;
+	A(String s){
+		this.s=s;
+	}
+	public B fna() {
+		return new B(s + " In fna() ");
+	}
+}
+class B{
+	String s;
+	B(String s){
+		this.s=s;
+	}
+	public C fnb() {
+		return new C(s + " In fnb() ");
+	}
+}
+class C{
+	String s;
+	C(String s){
+		this.s=s;
+	}
+	public String fnc() {
+		return s + " In fnc() ";
+	}
+}
+
+
+public class MethodChain {
+
+	public static void main(String[] args) {
+		System.out.println(new A("Hello").fna().fnb().fnc());
+	}
+
+}
+
+
+
+
+
+
+
+
