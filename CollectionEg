@@ -450,3 +450,62 @@ public class PriorityQueueEg {
 
 
 
+
+
+package Day3;
+import java.util.*;
+class Emp implements Comparable<Emp>, Comparator<Emp>{
+	int id;
+	String name;
+	public Emp(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	public Emp() {}
+	@Override
+	public String toString() {
+		return "\nEmp [id=" + id + ", name=" + name + "]";
+	}
+	@Override
+	public int compareTo(Emp o) {
+		return this.id - o.id;
+	}
+	@Override
+	public int compare(Emp o1, Emp o2) {
+		return o1.name.compareTo(o2.name);
+	}
+	
+}
+
+class CompareEmpIDDesc implements Comparator<Emp>{
+
+	@Override
+	public int compare(Emp o1, Emp o2) {
+		return o2.id - o1.id;
+	}
+	
+}
+
+public class ColEmpEg {
+
+	public static void main(String[] args) {
+		ArrayList<Emp> emps=new ArrayList<Emp>();
+		emps.add(new Emp(101,"John"));
+		emps.add(new Emp(107,"John2"));
+		emps.add(new Emp(103,"John3"));
+		System.out.println(emps);
+		Collections.sort(emps);
+		System.out.println("\n The Sorted List by ID: \n:"+emps);
+		Collections.sort(emps, new CompareEmpIDDesc());
+		System.out.println("\n The Sorted List by ID Desc: \n:"+emps);
+		Collections.sort(emps, new Emp());
+		System.out.println("\n The Sorted List by Name: \n:"+emps);
+
+	}
+
+}
+
+
+
+
+
