@@ -31,7 +31,7 @@ CREATE TABLE hire_dates       (id          NUMBER(8),
          hire_date DATE DEFAULT SYSDATE);
 
 
-CREATE TABLE dept        (deptno      NUMBER(2),
+CREATE TABLE dept        (deptno      NUMBER(2),
          dname       VARCHAR2(14),
          loc         VARCHAR2(13),
          create_date DATE DEFAULT SYSDATE);
@@ -102,6 +102,17 @@ insert into leave values(null,'CL',2);
 
 create table myEmp7(empid int not null, 
 ename varchar(26),esal int, constraint chkmyEmp7 check(esal>0));
+
+
+insert into myEmp7 values(102, 'A1',0);
+
+insert into myEmp7 values(102, 'A1',10);
+
+
+select * from myEmp7;
+
+
+
 
 
 
