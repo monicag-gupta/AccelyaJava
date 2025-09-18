@@ -22,6 +22,110 @@ delete from myEmp where empid=104;
 
 
 
+SELECT table_name FROM user_tables;
+
+
+
+
+CREATE TABLE hire_dates        (id          NUMBER(8),
+         hire_date DATE DEFAULT SYSDATE);
+
+
+CREATE TABLE dept        (deptno      NUMBER(2),
+         dname       VARCHAR2(14),
+         loc         VARCHAR2(13),
+         create_date DATE DEFAULT SYSDATE);
+
+
+
+DESCRIBE dept
+
+DESC dept
+
+
+CREATE TABLE hire_dates (id  NUMBER(8),  hire_date DATE DEFAULT SYSDATE);
+ insert into hire_dates(id) values (1011);
+ insert into hire_dates values (1011, DEFAULT);
+ insert into hire_dates values (1011,'17-Jan-22');
+  
+  select * from hire_dates;
+
+
+
+
+
+create table myEmp2(empid int not null, ename varchar(26),esal int);
+
+select * from myEmp;
+
+
+insert into myEmp2(ename,esal) values('C123',3000); -- NA
+
+insert into myEmp2(ename,empid) values('C123',3000);
+
+
+select * from myEmp2;
+
+
+create table myEmp5(empid int primary key, ename varchar(26), esal int);
+
+create table myEmp6(
+empid int, ename varchar(26),
+esal int, 
+constraint PK_myEmp6Empid primary key(empid));
+
+
+insert into myEmp5 values(102,'C123',3000);
+insert into myEmp6 values(101,'C123',3000);
+insert into myEmp6 values(102,'C123',3000);
+
+insert into myEmp5 values(102,'C123',3000);  -- NA
+
+
+
+create table leave(
+empid int not null, type varchar(26), 
+noOfDays int, 
+constraint fkLeaveEmpid foreign key(empid) references myEmp6(empid));
+
+
+
+insert into myEmp6 values(102,'C123',3000);
+
+insert into myEmp6 values(103,'C123',3000);  -- NA
+
+insert into leave values(102,'CL',2);
+insert into leave values(null,'CL',2);
+
+
+
+
+create table myEmp7(empid int not null, 
+ename varchar(26),esal int, constraint chkmyEmp7 check(esal>0));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
