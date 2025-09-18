@@ -27,7 +27,7 @@ SELECT table_name FROM user_tables;
 
 
 
-CREATE TABLE hire_dates        (id          NUMBER(8),
+CREATE TABLE hire_dates       (id          NUMBER(8),
          hire_date DATE DEFAULT SYSDATE);
 
 
