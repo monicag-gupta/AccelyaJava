@@ -4,10 +4,10 @@ Eg Passengers Collection should be a collection of Passengers Class
 where passenger_id should be unique and required field.
 
 The Menu should :
-    Display all records
-    Get a particular record via ID
-    Insert a record
-    Delete a record
-    Update a record
+    Display all records  : forEach() of Stream API
+    Get a particular record via ID : findAny().Else()
+    Insert a record : Add()
+    Delete a record : Remove()
+    Update a record : filter according to ID/findAny(), use map() of Stream API to update
 
 
