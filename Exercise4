@@ -1,0 +1,13 @@
+Java Exercise:
+Design a Java Menu driven CRUD code for any one of the collections given in the image. 
+Eg Passengers Collection should be a collection of Passengers Class 
+where passenger_id should be unique and required field.
+
+The Menu should :
+    Display all records
+    Get a particular record via ID
+    Insert a record
+    Delete a record
+    Update a record
+
+
