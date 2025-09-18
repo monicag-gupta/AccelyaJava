@@ -104,12 +104,245 @@ create table myEmp7(empid int not null,
 ename varchar(26),esal int, constraint chkmyEmp7 check(esal>0));
 
 
-insert into myEmp7 values(102, 'A1',0);
+insert into myEmp7 values(102, 'A1',0);  -- NA
 
-insert into myEmp7 values(102, 'A1',10);
+insert into myEmp7 values(102, 'A1',10);  
 
 
 select * from myEmp7;
+
+
+
+
+
+
+CREATE TABLE Departments (
+    department_id   NUMBER(3) PRIMARY KEY,
+    department_name VARCHAR2(50) NOT NULL,
+    manager_id      NUMBER(5),
+    location_id     NUMBER(5)
+);
+
+INSERT INTO Departments VALUES (10,  'Administration', 200, 1700);
+INSERT INTO Departments VALUES (20,  'Marketing',      201, 1800);
+INSERT INTO Departments VALUES (50,  'Shipping',       124, 1500);
+INSERT INTO Departments VALUES (60,  'IT',             103, 1400);
+INSERT INTO Departments VALUES (80,  'Sales',          149, 2500);
+INSERT INTO Departments VALUES (90,  'Executive',      100, 1700);
+INSERT INTO Departments VALUES (110, 'Accounting',     205, 1700);
+INSERT INTO Departments VALUES (190, 'Contracting',    NULL, 1700);
+
+
+SELECT * FROM Departments;
+
+
+CREATE TABLE employees
+    ( employee_id    NUMBER(6) CONSTRAINT     emp_employee_id   PRIMARY KEY
+    , first_name     VARCHAR2(20)
+    , last_name      VARCHAR2(25) CONSTRAINT     emp_last_name_nn  NOT NULL
+    , email          VARCHAR2(25)
+        CONSTRAINT     emp_email_nn      NOT NULL
+        CONSTRAINT     emp_email_uk      UNIQUE
+    , phone_number   VARCHAR2(20)
+    , hire_date      DATE
+        CONSTRAINT     emp_hire_date_nn  NOT NULL
+    , job_id         VARCHAR2(10)
+        CONSTRAINT     emp_job_nn        NOT NULL
+    , salary         NUMBER(8,2)
+        CONSTRAINT     emp_salary_ck     CHECK (salary>0)
+    , commission_pct NUMBER(2,2)
+    , manager_id     NUMBER(6)
+	CONSTRAINT emp_manager_fk REFERENCES employees (employee_id)
+    , department_id  NUMBER(4)
+        CONSTRAINT     emp_dept_fk       REFERENCES
+           departments (department_id));
+
+
+
+-- First insert top-level managers (no manager_id)
+INSERT INTO employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id)
+VALUES (100, 'Steven', 'King', 'SKING', '515.123.4567', DATE '2003-06-17', 'AD_PRES', 24000, NULL, NULL, 90);
+
+INSERT INTO employees VALUES (101, 'Neena', 'Kochhar', 'NKOCHHAR', '515.123.4568', DATE '2005-09-21', 'AD_VP', 17000, NULL, 100, 90);
+
+INSERT INTO employees VALUES (102, 'Lex', 'De Haan', 'LDEHAAN', '515.123.4569', DATE '2001-01-13', 'AD_VP', 17000, NULL, 100, 90);
+
+-- Department 60 - IT
+INSERT INTO employees VALUES (103, 'Alexander', 'Hunold', 'AHUNOLD', '590.423.4567', DATE '2006-01-03', 'IT_PROG', 9000, NULL, 102, 60);
+
+-- Department 50 - Shipping
+INSERT INTO employees VALUES (124, 'Kevin', 'Mourgos', 'KMOURGOS', '650.123.1234', DATE '2007-11-16', 'ST_MAN', 5800, NULL, 100, 50);
+
+-- Department 10 - Administration
+INSERT INTO employees VALUES (200, 'Jennifer', 'Whalen', 'JWHALEN', '515.123.4444', DATE '2003-09-17', 'AD_ASST', 4400, NULL, 101, 10);
+
+-- Department 20 - Marketing
+INSERT INTO employees VALUES (201, 'Michael', 'Hartstein', 'MHARTSTE', '515.123.5555', DATE '2004-02-17', 'MK_MAN', 13000, NULL, 100, 20);
+
+-- Department 80 - Sales
+INSERT INTO employees VALUES (149, 'Eleni', 'Zlotkey', 'EZLOTKEY', '515.123.6666', DATE '2004-01-29', 'SA_MAN', 10500, 0.2, 100, 80);
+
+-- Department 110 - Accounting
+INSERT INTO employees VALUES (205, 'Shelley', 'Higgins', 'SHIGGINS', '515.123.7777', DATE '2002-06-07', 'AC_MGR', 12000, NULL, 101, 110);
+
+
+UPDATE employees SET    department_id = 55 WHERE  department_id = 110;  -- NA
+
+DELETE FROM departments WHERE department_id = 60;  -- NA
+
+DROP TABLE dept80;
+
+TRUNCATE TABLE copy_emp;
+
+CREATE TABLE locations (
+    location_id     NUMBER(4) PRIMARY KEY,
+    street_address  VARCHAR2(40),
+    postal_code     VARCHAR2(12),
+    city            VARCHAR2(30) NOT NULL,
+    state_province  VARCHAR2(25),
+    country_id      CHAR(2)
+);
+
+INSERT INTO locations VALUES (1700, '2004 Charade Rd', '98199', 'Seattle', 'Washington', 'US');
+INSERT INTO locations VALUES (1800, '2011 Interiors Blvd', '99236', 'Toronto', 'Ontario', 'CA');
+INSERT INTO locations VALUES (1500, '2014 Jabberwocky Rd', '26192', 'South San Francisco', 'California', 'US');
+INSERT INTO locations VALUES (1400, '2011 Rainbow Dr', '77889', 'Southlake', 'Texas', 'US');
+INSERT INTO locations VALUES (2500, '123 Universal Blvd', '10101', 'Oxford', 'England', 'UK');
+
+
+
+SELECT department_id, department_name,
+       location_id, city
+FROM   departments
+NATURAL JOIN locations ;
+
+
+
+SELECT employee_id, last_name, 
+       location_id, department_id
+FROM   employees JOIN departments
+USING (department_id) ;
+
+
+
+SELECT e.employee_id, e.last_name, e.department_id, 
+       d.department_id, d.location_id
+FROM   employees e JOIN departments d
+ON     (e.department_id = d.department_id);
+
+
+SELECT employee_id, city, department_name
+FROM   employees e 
+JOIN   departments d
+ON     d.department_id = e.department_id 
+JOIN   locations l
+ON     d.location_id = l.location_id;
+
+
+
+
+SELECT e.employee_id, e.last_name, e.department_id, 
+       d.department_id, d.location_id
+FROM   employees e JOIN departments d
+ON     (e.department_id = d.department_id)
+AND    e.manager_id = 149 ;
+
+
+SELECT e.employee_id, e.last_name, e.department_id, 
+       d.department_id, d.location_id
+FROM   employees e JOIN departments d
+ON     (e.department_id = d.department_id)
+WHERE   e.manager_id = 149 ;
+
+
+
+SELECT worker.last_name emp, manager.last_name mgr
+FROM   employees worker JOIN employees manager
+ON    (worker.manager_id = manager.employee_id);
+
+
+
+
+CREATE TABLE job_grades (
+    grade_level  CHAR(1) PRIMARY KEY,
+    lowest_sal   NUMBER(6,0) NOT NULL,
+    highest_sal  NUMBER(6,0) NOT NULL
+);
+
+
+
+INSERT INTO job_grades VALUES ('A', 1000,  2999);
+INSERT INTO job_grades VALUES ('B', 3000,  5999);
+INSERT INTO job_grades VALUES ('C', 6000,  9999);
+INSERT INTO job_grades VALUES ('D', 10000, 14999);
+INSERT INTO job_grades VALUES ('E', 15000, 24999);
+INSERT INTO job_grades VALUES ('F', 25000, 40000);
+
+SELECT * FROM job_grades;
+
+
+
+
+SELECT e.last_name, e.salary, j.grade_level
+FROM   employees e JOIN job_grades j
+ON     e.salary 
+       BETWEEN j.lowest_sal AND j.highest_sal;
+
+
+
+SELECT e.last_name, e.department_id, d.department_name
+FROM   employees e LEFT OUTER JOIN departments d
+ON   (e.department_id = d.department_id) ;
+
+
+
+SELECT e.last_name, d.department_id, d.department_name
+FROM   employees e RIGHT OUTER JOIN departments d
+ON    (e.department_id = d.department_id) ;
+
+
+
+SELECT e.last_name, d.department_id, d.department_name
+FROM   employees e FULL OUTER JOIN departments d
+ON   (e.department_id = d.department_id) ;
+
+
+
+SELECT last_name, department_name
+FROM   employees
+CROSS JOIN departments ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
