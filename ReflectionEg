@@ -1,0 +1,321 @@
+Reflection for Classes 
+Get Class Object
+Get Super Class
+Get Public Member Classes
+Get Declared Classes
+Get Declaring Class
+Getting Package Name
+Getting Class Modifiers
+Get Type Parameters
+Get Implemented Interfaces
+Get All Public Methods
+Get All Public Constructors
+Get All Public Fields
+Get All Annotations
+Reflection for Fields Get Public Field
+Field Declaring Class
+Get Field Type
+Get/Set Public Field Value
+Get/Set Private Field Value
+Reflection for Methods 
+Get Public Method
+Invoking Public Method
+Invoking Private Methods
+Reflection for Constructors 
+Get Public Constructor
+Instantiate Object using Constructor
+Reflection for Annotations
+
+
+
+
+import java.lang.reflect.Modifier;
+
+public class GetClassExample
+{
+   public static void main(String[] args)
+   {
+ 
+      Employee employee = new Employee();
+      
+      Class klass = employee.getClass();
+      
+      System.out.println( "Class name: " + klass.getName());
+      System.out.println( 
+            "Class super class: " + klass.getSuperclass());
+      
+      int mods = klass.getModifiers();
+      System.out.println( 
+            "Class is public: " + Modifier.isPublic(mods));
+      System.out.println( 
+            "Class is final: " +  Modifier.isFinal(mods));
+      System.out.println( 
+            "Class is abstract: " + Modifier.isAbstract(mods)); 
+
+   }
+
+}
+class Employee
+{
+   public String _firstName;
+   public String _lastName;
+   private int _salary;
+   public Employee()
+   {
+      this( "John", "Smith", 50000);
+   }
+ 
+   public Employee(String fn, String ln, int salary)
+   {
+      _firstName = fn;
+      _lastName = ln;
+      _salary = salary;
+   }
+   
+      public int getSalary()
+   {
+      return _salary;
+   }
+   
+   public void setSalary(int salary)
+   {
+      _salary = salary;
+   }
+   
+   public String toString() 
+   {
+      return "Employee: " + _firstName +  " "
+             + _lastName + " " + _salary;
+   }
+
+}
+/*
+Run the code above and you will see something like:
+
+Class name: Employee
+Class super class: class java.lang.Object
+Class is public: true
+Class is final: false
+Class is abstract: false
+*/
+
+
+
+import java.lang.reflect.*;
+import java.lang.annotation.*;
+
+public class ReflectionExample
+{
+public static void main(String[] args)
+{
+
+Class aClass = MyObject.class;
+String className = aClass.getName();
+System.out.println("ClassName: "+className);
+
+String simpleClassName = aClass.getSimpleName();
+System.out.println("SimpleClassName: "+simpleClassName);
+
+int modifiers = aClass.getModifiers();
+System.out.println("Modifiers: "+modifiers);
+
+/*
+ The modifiers are packed into an int where each modifier is a flag bit that is either set or cleared. You can check the modifiers using these methods in the class java.lang.reflect.Modifier:
+
+    Modifier.isAbstract(int modifiers)
+    Modifier.isFinal(int modifiers)
+    Modifier.isInterface(int modifiers)
+    Modifier.isNative(int modifiers)
+    Modifier.isPrivate(int modifiers)
+    Modifier.isProtected(int modifiers)
+    Modifier.isPublic(int modifiers)
+    Modifier.isStatic(int modifiers)
+    Modifier.isStrict(int modifiers)
+    Modifier.isSynchronized(int modifiers)
+    Modifier.isTransient(int modifiers)
+    Modifier.isVolatile(int modifiers)
+
+	*/
+	
+	
+//Package package = aClass.getPackage();//package info
+//System.out.println("Package : "+package);
+
+Class superclass = aClass.getSuperclass();
+String superclassName = superclass.getName();
+System.out.println("Super ClassName: "+superclassName);
+
+Class[] interfaces = aClass.getInterfaces();
+if(interfaces.length!=0)
+{
+String superInterfaceName = (interfaces[0]).getName();
+System.out.println("Super Interface Name: "+superInterfaceName);
+}
+
+
+Constructor[] constructors = aClass.getConstructors();
+if(constructors.length!=0)
+{
+String constructorsName = (constructors[0]).getName();
+System.out.println("constructors Name: "+constructorsName);
+
+Class[] parameterTypes = (constructors[0]).getParameterTypes();
+if(parameterTypes.length!=0)
+{
+String parameterTypesName = (parameterTypes[0]).getName();
+System.out.println("parameterTypes Name: "+parameterTypesName);
+}
+}
+
+Field[] fields = aClass.getFields();
+if(fields.length!=0)
+{
+String fieldsName = (fields[0]).getName();
+Object fieldType = (fields[0]).getType();
+System.out.println("fields Name: "+fieldsName+ "  fieldType : " +fieldType );
+}
+
+/* 
+Getting and Setting Field Values
+
+Once you have obtained a Field reference you can get and set its values using the Field.get() and Field.set()methods, like this: 
+
+
+Class  aClass = MyObject.class
+Field field = aClass.getField("someField");
+
+MyObject objectInstance = new MyObject();
+
+Object value = field.get(objectInstance);
+
+field.set(objetInstance, value);
+
+*/
+
+/*
+Annotation[] annotations = aClass.getAnnotations();
+if(annotations.length!=0)
+{
+String annotationsName = (annotations[0]).getName();
+System.out.println("annotations Name: "+annotationsName);
+}
+*/
+
+/*
+Instantiating Objects using Constructor Object
+
+You can instantiate an object like this:
+
+//get constructor that takes a String as argument
+Constructor constructor = MyObject.class.getConstructor(String.class);
+
+MyObject myObject = (MyObject)
+        constructor.newInstance("constructor-arg1");
+*/
+
+
+	
+Method[] methods = MyObject.class.getMethods();
+for(Method method : methods){
+    System.out.println("method = " + method.getName());
+	Class[] parameterTypes = method.getParameterTypes();
+	for(Class parameterType : parameterTypes)
+		System.out.println("parameterType = " + parameterType.getName());
+	Class returnType = method.getReturnType();
+	System.out.println("returnType = " + returnType.getName());
+
+	
+	}
+
+
+/* The class MyObject has the annotation @MyAnnotation written ontop. Annotations are defined like interfaces. Here is the MyAnnotation definition:
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+
+public @interface MyAnnotation {
+    public String name();
+    public String value();
+}
+
+The @ in front of the interface marks it as an annotation. 
+*/
+
+
+
+
+MyObject obj=new MyObject();
+try
+{
+obj.getClass().getMethod("doSomething").invoke(obj);
+}catch(Exception e)
+{
+System.out.println("oh no!");
+}
+
+
+
+
+
+Annotation[] annotations = aClass.getAnnotations();
+
+for(Annotation annotation : annotations){
+    if(annotation instanceof MyAnnotation){
+        MyAnnotation myAnnotation = (MyAnnotation) annotation;
+        System.out.println("Annotation name: " + myAnnotation.name());
+        System.out.println("Annotation value: " + myAnnotation.value());
+    }
+}
+
+
+
+int[] intArray = (int[]) Array.newInstance(int.class, 3);
+
+Array.set(intArray, 0, 123);
+Array.set(intArray, 1, 456);
+Array.set(intArray, 2, 789);
+
+System.out.println("intArray[0] = " + Array.get(intArray, 0));
+System.out.println("intArray[1] = " + Array.get(intArray, 1));
+System.out.println("intArray[2] = " + Array.get(intArray, 2));
+
+
+}
+}
+
+
+
+@interface MyAnnotation {
+    public String name();
+    public String value();
+}
+
+
+
+@MyAnnotation(name="someName",  value = "Hello World")
+class MyObject
+{
+public int a;
+public MyObject()
+{
+}
+public MyObject(int x)
+{
+a=x;
+}
+public void method1()
+{
+}
+public void doSomething()
+{
+System.out.println("Hellos");
+}
+public void method2(int x, int y)
+{
+System.out.println(x+y);
+}
+}
+
+
+
+
