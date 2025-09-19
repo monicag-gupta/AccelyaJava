@@ -232,4 +232,33 @@ public class OracleCon {
 
 
 
+package aa;
+import java.sql.*;
+public class OracleCon {
+	public static void main(String args[]) {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/orclpdb.localdomain",
+					"mydb", "oracle");
+			con.setAutoCommit(false);
+			Statement stmt=con.createStatement();
+			stmt.executeUpdate("insert into EmpTbl values(190,'abhi',40000)");
+			stmt.executeUpdate("insert into EmpTbl values(191,'umesh',50000)");
+			con.commit();
+			System.out.println("Commited");
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
 
