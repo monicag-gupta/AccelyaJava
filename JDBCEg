@@ -12,6 +12,35 @@ Insert some arbitrary records in EmpTbl
 commit;
 
 
+package Day5;
+import java.sql.*;
+public class OracleCon {
+	public static void main(String args[]) {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@//10.4.12.78:6517/coxxod12c",
+					"TST_OWNR", "test#123");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from Emptbl"); // emptbl
+			while (rs.next())
+				System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getInt(3));
+			// add ojdbc11.jar in your project library
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
