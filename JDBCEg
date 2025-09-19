@@ -9,6 +9,10 @@ Insert some arbitrary records in EmpTbl
 
 
 
+
+
+
+
 commit;
 
 
@@ -74,6 +78,31 @@ WAP in JDBC for CRUD operation on EmpTbl as a menu driven code
 -> put / update
 -> delete 
 
+package Day5;
+
+public class EmpTbl {
+  //private fields mapping the column names in the table
+	//getter and setter
+	//constructors
+	//toString()
+	
+}
+
+
+
+package Day5;
+
+public class EmpTblDAO {
+	//getCon
+	//CRUD : EmpTbl class - > table
+	// R : List<EmpTbl> getAll()
+	// R : EmpTbl get(int id)
+	// Insert/Create: save(EmplTbl e)
+	// Update : update()
+	//Delete : delete()
+	
+
+}
 
 
 
