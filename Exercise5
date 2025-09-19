@@ -1,0 +1,14 @@
+Consider the database as given in Image..
+Using JDBC, design the :
+Airline Management System
+Menu driven
+All Tables, their relationships taken care of.
+Use Stream API where ever Applicable
+Features to be Covered
+CRUD Operations:
+Add / View Passengers
+Add / View Flights
+Add / View Bookings
+Prepared Statements (to prevent SQL injection).
+Menu-driven structure for learning.
+Uses joins when viewing bookings.
