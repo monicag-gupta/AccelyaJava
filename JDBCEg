@@ -2,4 +2,12 @@ https://www.oracle.com/in/database/technologies/appdev/jdbc-downloads.html
 
 
 
+  Create table EmpTbl(id int, name varchar(30), salary int);
+Insert some arbitrary records in EmpTbl
+  insert into Emptbl values (101,'Emp1',80000);
+  insert into Emptbl values (102,'Emp2',81000);
+
+
+
+
 
