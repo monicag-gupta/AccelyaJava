@@ -618,3 +618,303 @@ public class DeleteStudent {
 
 
 
+HQLMain
+
+package com.hibernate;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class MainHQL {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n--- Hibernate HQL CRUD Menu ---");
+            System.out.println("1. Insert Student");
+            System.out.println("2. Update Student Name");
+            System.out.println("3. Delete Student");
+            System.out.println("4. Fetch Student by Roll No");
+            System.out.println("5. Fetch All Students");
+            System.out.println("6. Exit");
+            System.out.print("Enter choice: ");
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1 -> insertStudent(sc);
+                case 2 -> updateStudent(sc);
+                case 3 -> deleteStudent(sc);
+                case 4 -> fetchStudent(sc);
+                case 5 -> fetchAllStudents();
+                case 6 -> {
+                    System.out.println("Exiting...");
+                    HibernateUtil.getSessionFactory().close();
+                    System.exit(0);
+                }
+                default -> System.out.println("Invalid choice!");
+            }
+        }
+    }
+
+    // Insert
+    private static void insertStudent(Scanner sc) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+
+        System.out.print("Enter Roll No: ");
+        int roll = sc.nextInt();
+        sc.nextLine(); // consume newline
+        System.out.print("Enter Name: ");
+        String name = sc.nextLine();
+
+        Student_Info student = new Student_Info(name, roll);
+        session.persist(student);
+
+        tx.commit();
+        session.close();
+        System.out.println("Student inserted successfully.");
+    }
+
+    // Update
+    private static void updateStudent(Scanner sc) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+
+        System.out.print("Enter Roll No to update: ");
+        int roll = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Enter new Name: ");
+        String newName = sc.nextLine();
+
+        Query<?> query = session.createQuery("update Student_Info set name = :name where roll_no = :roll");
+        query.setParameter("name", newName);
+        query.setParameter("roll", roll);
+        int rows = query.executeUpdate();
+
+        tx.commit();
+        session.close();
+        System.out.println(rows > 0 ? "Updated successfully." : "Student not found.");
+    }
+
+    // Delete
+    private static void deleteStudent(Scanner sc) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+
+        System.out.print("Enter Roll No to delete: ");
+        int roll = sc.nextInt();
+
+        Query<?> query = session.createQuery("delete from Student_Info where roll_no = :roll");
+        query.setParameter("roll", roll);
+        int rows = query.executeUpdate();
+
+        tx.commit();
+        session.close();
+        System.out.println(rows > 0 ? "Deleted successfully." : "Student not found.");
+    }
+
+    // Fetch one
+    private static void fetchStudent(Scanner sc) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        System.out.print("Enter Roll No: ");
+        int roll = sc.nextInt();
+
+        Query<Student_Info> query = session.createQuery("from Student_Info where roll_no = :roll", Student_Info.class);
+        query.setParameter("roll", roll);
+        Student_Info student = query.uniqueResult();
+
+        session.close();
+        if (student != null) {
+            System.out.println("Roll No: " + student.getRoll_no() + ", Name: " + student.getName());
+        } else {
+            System.out.println("Student not found.");
+        }
+    }
+
+    // Fetch all
+    private static void fetchAllStudents() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        Query<Student_Info> query = session.createQuery("from Student_Info", Student_Info.class);
+        List<Student_Info> students = query.list();
+
+        session.close();
+        students.forEach(s ->
+                System.out.println("Roll No: " + s.getRoll_no() + ", Name: " + s.getName()));
+    }
+}
+
+
+
+
+
+
+
+
+MainSQL : CRUD in SQL
+
+package com.hibernate;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class MainSQL {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n--- Hibernate Native SQL CRUD Menu ---");
+            System.out.println("1. Insert Student");
+            System.out.println("2. Update Student Name");
+            System.out.println("3. Delete Student");
+            System.out.println("4. Fetch Student by Roll No");
+            System.out.println("5. Fetch All Students");
+            System.out.println("6. Exit");
+            System.out.print("Enter choice: ");
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1 -> insertStudent(sc);
+                case 2 -> updateStudent(sc);
+                case 3 -> deleteStudent(sc);
+                case 4 -> fetchStudent(sc);
+                case 5 -> fetchAllStudents();
+                case 6 -> {
+                    System.out.println("Exiting...");
+                    HibernateUtil.getSessionFactory().close();
+                    System.exit(0);
+                }
+                default -> System.out.println("Invalid choice!");
+            }
+        }
+    }
+
+    // Insert
+    private static void insertStudent(Scanner sc) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+
+        System.out.print("Enter Roll No: ");
+        int roll = sc.nextInt();
+        sc.nextLine(); // consume newline
+        System.out.print("Enter Name: ");
+        String name = sc.nextLine();
+
+        NativeQuery<?> query = session.createNativeQuery(
+            "INSERT INTO STUDENT_INFORMATION (roll_no, name) VALUES (:roll_no, :name)");
+        query.setParameter("roll_no", roll);
+        query.setParameter("name", name);
+
+        int rows = query.executeUpdate();
+        tx.commit();
+        session.close();
+
+        System.out.println(rows > 0 ? "Student inserted successfully." : "Insert failed.");
+    }
+
+    // Update
+    private static void updateStudent(Scanner sc) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+
+        System.out.print("Enter Roll No to update: ");
+        int roll = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Enter new Name: ");
+        String newName = sc.nextLine();
+
+        NativeQuery<?> query = session.createNativeQuery(
+            "UPDATE STUDENT_INFORMATION SET name = :name WHERE roll_no = :roll_no");
+        query.setParameter("name", newName);
+        query.setParameter("roll_no", roll);
+
+        int rows = query.executeUpdate();
+        tx.commit();
+        session.close();
+
+        System.out.println(rows > 0 ? "Updated successfully." : "Student not found.");
+    }
+
+    // Delete
+    private static void deleteStudent(Scanner sc) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+
+        System.out.print("Enter Roll No to delete: ");
+        int roll = sc.nextInt();
+
+        NativeQuery<?> query = session.createNativeQuery(
+            "DELETE FROM STUDENT_INFORMATION WHERE roll_no = :roll_no");
+        query.setParameter("roll_no", roll);
+
+        int rows = query.executeUpdate();
+        tx.commit();
+        session.close();
+
+        System.out.println(rows > 0 ? "Deleted successfully." : "Student not found.");
+    }
+
+    // Fetch one
+    private static void fetchStudent(Scanner sc) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        System.out.print("Enter Roll No: ");
+        int roll = sc.nextInt();
+
+        NativeQuery<Student_Info> query = session.createNativeQuery(
+            "SELECT * FROM STUDENT_INFORMATION WHERE roll_no = :roll_no", Student_Info.class);
+        query.setParameter("roll_no", roll);
+
+        Student_Info student = query.uniqueResult();
+        session.close();
+
+        if (student != null) {
+            System.out.println("Roll No: " + student.getRoll_no() + ", Name: " + student.getName());
+        } else {
+            System.out.println("Student not found.");
+        }
+    }
+
+    // Fetch all
+    private static void fetchAllStudents() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        NativeQuery<Student_Info> query = session.createNativeQuery(
+            "SELECT * FROM STUDENT_INFORMATION", Student_Info.class);
+        List<Student_Info> students = query.list();
+        session.close();
+
+        students.forEach(s ->
+            System.out.println("Roll No: " + s.getRoll_no() + ", Name: " + s.getName())
+        );
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
