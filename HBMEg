@@ -81,6 +81,17 @@ HBM_Prj1</description>
 
 
 
+Add a package files in src folder 
+        com.hibernate
+Add HibernateUtil.java 
+Add the hibernate.cfg.xml file directly in resources folder
+Execute the program
+
+
+
+
+
+
 
 
 
