@@ -1,0 +1,13 @@
+Create a maven project : 
+Tick : Create a simple Project
+Group id: com.hibernate
+Artifact id: HBM_Prj1
+Name: HBM_Prj1
+
+Add dependencies in pom.xml
+Add Codes
+Run the project
+
+
+
+
