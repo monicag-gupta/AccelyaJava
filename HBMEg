@@ -224,5 +224,69 @@ public class Main {
 
 
 
+HibernateUtil.java
+
+
+package com.hibernate;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class HibernateUtil {
+
+    private static final SessionFactory sessionFactory = buildSessionFactory();
+
+    private static SessionFactory buildSessionFactory() {
+        try {
+            // Create Configuration instance
+            Configuration cfg = new Configuration();
+
+            // Database connection settings
+            cfg.setProperty("hibernate.connection.driver_class", "oracle.jdbc.driver.OracleDriver");
+            cfg.setProperty("hibernate.connection.url", "jdbc:oracle:thin:@//localhost:1521/orclpdb.localdomain");
+            cfg.setProperty("hibernate.connection.username", "mydb");
+            cfg.setProperty("hibernate.connection.password", "oracle");
+
+            // JDBC connection pool
+            cfg.setProperty("hibernate.connection.pool_size", "1");
+
+            // SQL Dialect
+            cfg.setProperty("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
+
+            // Disable second-level cache
+            cfg.setProperty("hibernate.cache.provider_class", "org.hibernate.cache.NoCacheProvider");
+
+            // Show SQL
+            cfg.setProperty("hibernate.show_sql", "true");
+
+            // hbm2ddl.auto
+            cfg.setProperty("hibernate.hbm2ddl.auto", "create");
+
+            // Add annotated class
+            cfg.addAnnotatedClass(Student_Info.class);
+
+            // Build SessionFactory
+            return cfg.buildSessionFactory();
+
+        } catch (Throwable ex) {
+            System.err.println("Initial SessionFactory creation failed." + ex);
+            throw new ExceptionInInitializerError(ex);
+        }
+    }
+
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+    public static void shutdown() {
+        // Close caches and connection pools
+        getSessionFactory().close();
+    }
+}
+
+
+
+
+
 
 
