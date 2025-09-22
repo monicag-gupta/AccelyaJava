@@ -11,3 +11,79 @@ Run the project
 
 
 
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>com.hibernate</groupId>
+<artifactId>HBM_Prj1</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+<name>HBM_Prj1</name>
+<description>HBM_Prj1
+HBM_Prj1
+HBM_Prj1
+HBM_Prj1</description>
+
+
+
+
+<dependencies>
+<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+<dependency>
+<groupId>org.hibernate.orm</groupId>
+<artifactId>hibernate-core</artifactId>
+<version>7.1.1.Final</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
+<dependency>
+<groupId>com.oracle.database.jdbc</groupId>
+<artifactId>ojdbc11</artifactId>
+<version>23.9.0.25.07</version>
+</dependency>
+<!-- JPA API -->
+<dependency>
+<groupId>jakarta.persistence</groupId>
+<artifactId>jakarta.persistence-api</artifactId>
+<version>3.2.0</version>
+</dependency>
+
+        <!-- Jakarta Validation API (optional but recommended for Hibernate 7) -->
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+</dependencies>
+
+<properties>
+    <!-- Java version -->
+    <java.version>21</java.version>
+
+    <!-- Compiler settings -->
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <maven.compiler.release>${java.version}</maven.compiler.release>
+    
+
+    <!-- Encoding -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    
+    
+</properties>
+
+</project>
+
+
+
+
+
+
+
+
+
+
+
+
