@@ -1,1 +1,13 @@
+MyBatis was formerly known as IBATIS, which was started by Clinton Begin in 2002. MyBatis 3 is the latest version. It is a total makeover of IBATIS.
+
+https://mvnrepository.com/artifact/org.mybatis/mybatis/3.5.16
+
+https://github.com/mybatis/mybatis-3/releases
+
+<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>3.5.16</version>
+</dependency>
 
