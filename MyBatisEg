@@ -40,6 +40,19 @@ https://github.com/mybatis/mybatis-3/releases
 
 
 
+Drop table Student;
+create table Student( id int Primary Key, course varchar(10), roll int, name varchar(100));
+insert into Student(id, course,roll,name) values(1, 'MCA', 1, 'John1');
+insert into Student(id, course,roll,name) values(2, 'MTech', 2, 'John2');
+insert into Student(id, course,roll,name) values(3, 'MBA', 3, 'John3’);
+commit;
+select * from Student;
+
+
+
+
+
+
 
 
 
