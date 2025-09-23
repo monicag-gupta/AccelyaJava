@@ -174,3 +174,7 @@ mybatis-config.xml
 
 
 
+
+package org.mybatis
+
+
