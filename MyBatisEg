@@ -21,6 +21,8 @@ https://github.com/mybatis/mybatis-3/releases
 
 
 
+
+
 <dependencies>
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
@@ -125,6 +127,18 @@ Maps query results directly into constructor-based objects.
 
 
 
+
+
+
+
+Create a Java project with name: MyBatisCRUDAnnotation
+Add the library external jars as: ojdbc11.jar and mybatis-3.5.16.jar
+Create a MyBatis configuration file in src folder with name: mybatis-config.xml  or MyBatisConfig.java in prj package
+Create a package org.mybatis
+Create the mapper class file in the package org.mybatis as: Student_mapper.java
+Create the mapper class file in the package org.mybatis as: Student.java
+Create the main class file in the package org.mybatis as: Main.java
+Code accordingly.
 
 
 
