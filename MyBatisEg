@@ -179,6 +179,10 @@ package org.mybatis
 
 
 
+
+Student_mapper.java
+
+
 package org.mybatis;
 import java.util.List;
 import org.apache.ibatis.annotations.*;
