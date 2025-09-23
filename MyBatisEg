@@ -219,3 +219,35 @@ public interface Student_mapper {
 }
 
 
+
+
+
+
+Student.java
+
+package org.mybatis;
+public class Student {
+	private int id;
+	private String name;
+	private String course;
+	private int roll;
+	public Student(int id, String name, String course, int roll) {
+		this.id= id; this.name = name;	this.course = course;	this.roll = roll;	}	
+	public Student() {	}	
+	public String toString() {
+		return "\nID: " + id + " Name: " + name + " Roll: " + roll + " Course: " + course;	}
+	public int getId() {	return id;	}
+	public void setId(int id) {		this.id = id;	}
+	public String getName() {		return name;	}
+	public void setName(String name) {		this.name = name;	}
+	public String getCourse() {		return course;	}
+	public void setCourse(String course) {		this.course = course;	}
+	public int getRoll() {		return roll;	}
+	public void setRoll(int roll) {		this.roll = roll;	}
+}
+
+
+
+
+
+
