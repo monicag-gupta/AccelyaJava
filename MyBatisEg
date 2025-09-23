@@ -178,3 +178,40 @@ mybatis-config.xml
 package org.mybatis
 
 
+
+package org.mybatis;
+import java.util.List;
+import org.apache.ibatis.annotations.*;
+public interface Student_mapper {
+   final String getAll = "SELECT * FROM STUDENT"; 
+   final String getById = "SELECT * FROM STUDENT WHERE ID = #{id}";
+   final String deleteById = "DELETE from STUDENT WHERE ID = #{id}";
+   final String insert = "INSERT INTO STUDENT (ID, NAME, COURSE, ROLL) VALUES (#{id}, #{name}, #{course}, #{roll})";
+   final String update = "UPDATE STUDENT SET NAME = #{name}, COURSE = #{course}, ROLL = #{roll} WHERE ID = #{id}";
+   @Select(getAll)
+   @Results(value = {
+      @Result(property = "id", column = "ID"),
+      @Result(property = "name", column = "NAME"),
+      @Result(property = "course", column = "COURSE"),
+      @Result(property = "roll", column = "ROLL")
+   })
+   List<org.mybatis.Student> getAll();
+   
+   @Select(getById)
+   @Results(value = {
+      @Result(property = "id", column = "ID"),
+      @Result(property = "name", column = "NAME"),
+      @Result(property = "course", column = "COURSE"),
+      @Result(property = "roll", column = "ROLL")
+   })
+   Student getById(int id);
+   @Update(update)
+   void update(Student student);
+   @Delete(deleteById)
+   void delete(int id);
+   @Insert(insert)
+   //@Options(useGeneratedKeys = true, keyProperty = "id")
+   void insert(Student student);
+}
+
+
