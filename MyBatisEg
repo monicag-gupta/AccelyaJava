@@ -56,6 +56,81 @@ select * from Student;
 
 
 
+MyBatis provides a set of annotations that can replace the XML configuration files. These are mainly used inside Mapper interfaces.
+1. @Select
+Definition: Runs a SELECT SQL query. Example:
+@Select("SELECT * FROM STUDENT WHERE ID = #{id}")
+Student getById(int id);
+Maps query result to a Java object.
+2. @Insert
+Definition: Runs an INSERT SQL query. Example:
+@Insert("INSERT INTO STUDENT (NAME, COURSE, ROLL) VALUES (#{name}, #{course}, #{roll})")
+void insert(Student student);
+Takes values from Student object.
+3. @Update
+Definition: Runs an UPDATE SQL query. Example:
+@Update("UPDATE STUDENT SET NAME = #{name} WHERE ID = #{id}")
+void update(Student student);
+Updates a record with given values.
+4. @Delete
+Definition: Runs a DELETE SQL query. Example:
+@Delete("DELETE FROM STUDENT WHERE ID = #{id}")
+void delete(int id);
+Deletes record by ID.
+5. @Results & @Result
+Definition: Maps database columns to Java fields. Example:
+@Select("SELECT * FROM STUDENT")
+@Results({
+   @Result(property = "id", column = "ID"),
+   @Result(property = "name", column = "NAME"),
+   @Result(property = "course", column = "COURSE"),
+   @Result(property = "roll", column = "ROLL")
+})
+List<Student> getAll();
+Useful when DB column names differ from Java property names.
+6. @Options
+Definition: Adds extra execution options. Example (Auto-generated keys):
+@Insert("INSERT INTO STUDENT (NAME, COURSE, ROLL) VALUES (#{name}, #{course}, #{roll})")
+@Options(useGeneratedKeys = true, keyProperty = "id")
+void insert(Student student);
+Automatically retrieves generated key (ID) and sets it into the object.
+7. @Param
+Definition: Assigns names to method parameters when passing multiple params. Example:
+@Select("SELECT * FROM STUDENT WHERE NAME = #{name} AND COURSE = #{course}")
+Student findByNameAndCourse(@Param("name") String name, @Param("course") String course);
+Avoids confusion when multiple parameters are used.
+8. @ResultMap
+Definition: Reuses predefined result mappings. Example:
+@ResultMap("studentResultMap")
+@Select("SELECT * FROM STUDENT")
+List<Student> getAllStudents();
+Good for avoiding duplicate mappings.
+9. @ConstructorArgs & @Arg
+Definition: Maps results directly to constructor arguments. Example:
+@Select("SELECT ID, NAME FROM STUDENT WHERE ID = #{id}")
+@ConstructorArgs({
+   @Arg(column = "ID", javaType = int.class),
+   @Arg(column = "NAME", javaType = String.class)
+})
+Student getStudentById(int id);
+Maps query results directly into constructor-based objects.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
