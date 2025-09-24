@@ -705,6 +705,22 @@ SELECT COUNT(DISTINCT department_id)
 FROM   employees;
 
 
+SELECT AVG(commission_pct)
+FROM   employees;
+
+
+
+
+The NVL function forces group functions to include null values:
+
+SELECT AVG(NVL(commission_pct, 0))
+FROM   employees;
+
+
+
+
+
+
 
 
 
