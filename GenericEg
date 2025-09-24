@@ -10,6 +10,52 @@ class Emp<T>
 }
 
 
+
+package exercises;
+import java.util.function.*;
+
+interface myPredicate<T> {
+	boolean test(T o);
+	default myPredicate<T> or(myPredicate<T> other){
+		myPredicate<T> res=(o)-> this.test(o)||other.test(o);
+		return res;
+	}
+	default myPredicate<T> and(myPredicate<T> other){
+		myPredicate<T> res=(o)-> this.test(o)&&other.test(o);
+		return res;
+	}
+	default myPredicate<T> negate(){
+		myPredicate<T> res=(o)-> !this.test(o);
+		return res;
+	}
+}
+
+//void foreach(ColObj, myConsumer){
+// Iterate to each obj in ColObj, get consumed by myConsumer }
+
+public class UePredicate {
+
+	public static void main(String[] args) {
+		Consumer<String> c1=(x)->System.out.println("Consumed by c1: " + x);
+		Consumer<String> c2=(x)->System.out.println("Consumed by c2: " + x);
+		Consumer<String> c3=c1.andThen(c2);
+		Function<Integer,Integer> f1=(x)->{System.out.println("f1 : "+x +" giving " + x*x);return x*x;};
+		Function<Integer,Integer> f2=(x)->{System.out.println("f2 : "+x +" giving " + x*x*x);return x*x*x;};
+		Function<Integer,Integer> f3=f1.andThen(f2);
+		Function<Integer,Integer> f4=f1.compose(f2);
+		System.out.println(f3.apply(2));
+		System.out.println(f4.apply(2));
+		c3.accept("Hello World");
+	}
+
+}
+
+
+
+
+
+
+
 public class UePredicate {
 
 	public static void main(String[] args) {
