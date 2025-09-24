@@ -5,6 +5,15 @@ CREATE TABLE persons(
     PRIMARY KEY(person_id)
 );
 
+DESC persons;
 ALTER TABLE persons ADD birthdate DATE NOT NULL;
 DESC persons; 
 ALTER TABLE persons ADD ( phone VARCHAR(20), email VARCHAR(100) );
+
+
+ALTER TABLE persons MODIFY birthdate DATE NULL;
+ALTER TABLE persons MODIFY( phone VARCHAR2(20) NOT NULL, email VARCHAR2(255) NOT NULL );
+DESC persons;
+
+
+
