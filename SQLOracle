@@ -411,6 +411,17 @@ SELECT last_name, job_id, salary, commission_pct
 FROM   employees;
 
 
+SELECT last_name AS name, commission_pct comm
+FROM   employees;
+
+
+SELECT last_name "Name" , salary*12 "Annual Salary"
+FROM   employees;
+
+
+
+
+
 
 
 
