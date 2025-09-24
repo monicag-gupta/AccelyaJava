@@ -830,6 +830,62 @@ WHERE  salary >
 
 
 
+Enclose subqueries in parentheses.
+Place subqueries on the right side of the comparison condition for readability. 
+(However, the subquery can appear on either side of the comparison operator.)
+Use single-row operators with single-row subqueries and multiple-row operators 
+with multiple-row subqueries.
+
+
+SELECT last_name, job_id, salary
+FROM   employees
+WHERE  job_id =  
+                (SELECT job_id
+                 FROM   employees
+                 WHERE  last_name = 'Lee')
+AND    salary >
+                (SELECT salary
+                 FROM   employees
+                 WHERE  last_name = 'Lee');
+
+
+
+
+SELECT employee_id, last_name, job_id, salary
+FROM   employees
+WHERE  salary < ANY
+                    (SELECT salary
+                     FROM   employees
+                     WHERE  job_id = 'IT_PROG')
+AND    job_id <> 'IT_PROG';
+
+
+
+
+SELECT employee_id, last_name, job_id, salary
+FROM   employees
+WHERE  salary < ALL
+                    (SELECT salary
+                     FROM   employees
+                     WHERE  job_id = 'IT_PROG')
+AND    job_id <> 'IT_PROG';
+
+
+
+
+SELECT * FROM departments
+WHERE NOT EXISTS
+(SELECT * FROM employees
+ WHERE employees.department_id=departments.department_id);
+
+
+
+
+
+
+
+
+
 
 
 
