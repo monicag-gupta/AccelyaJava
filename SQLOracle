@@ -243,6 +243,16 @@ ALTER TABLE emp3
 MODIFY employee_id PRIMARY KEY;
 
 
+ALTER TABLE emp3
+ADD CONSTRAINT emp_mgr_fk 
+  FOREIGN KEY(manager_id) 
+  REFERENCES emp3(employee_id);
+
+
+
+
+
+
 
 
 
