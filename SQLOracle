@@ -552,6 +552,26 @@ UNDEFINE employee_num
 
 
 
+SELECT employee_id, last_name, department_id
+FROM   employees
+WHERE  last_name = 'taylor';
+
+
+SELECT employee_id, last_name, department_id
+FROM   employees
+WHERE  LOWER(last_name) = 'taylor';
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
