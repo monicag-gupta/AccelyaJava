@@ -812,6 +812,24 @@ GROUP BY department_id;
 
 
 
+SELECT	select_list
+FROM	table
+WHERE	expr operator
+		 	(SELECT	select_list
+		       FROM		table);
+
+
+
+
+SELECT last_name, salary
+FROM   employees
+WHERE  salary >
+               (SELECT salary
+                FROM   employees
+                WHERE  last_name = 'Lee');
+
+
+
 
 
 
