@@ -34,5 +34,8 @@ ALTER TABLE persons RENAME COLUMN first_name TO forename;
 DESC persons;
 
 
+ALTER TABLE persons RENAME TO peoples;
+
+
 
 
