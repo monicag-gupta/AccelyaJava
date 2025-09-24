@@ -401,6 +401,14 @@ ENABLE CONSTRAINT	emp_dt_fk22;
 
 
 
+Arithmetic: +, -, *, /
+
+SELECT last_name, salary, salary + 300
+FROM   employees;
+
+
+
+
 
 
 
