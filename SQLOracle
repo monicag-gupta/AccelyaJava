@@ -264,6 +264,22 @@ REFERENCES departments(department_id) ON DELETE SET NULL;
 
 
 
+ALTER TABLE emp3
+DROP CONSTRAINT emp_mgr_fk22;
+
+
+ALTER TABLE emp3
+DROP PRIMARY KEY CASCADE;
+
+
+
+
+
+
+
+
+
+
 
 
 
