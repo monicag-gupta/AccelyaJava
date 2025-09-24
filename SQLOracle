@@ -348,10 +348,11 @@ DROP CONSTRAINT emp_mgr_fk22;
 -- try to insert in emp3 values where department_id = 500
 
 INSERT INTO emp3 
-(EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID) 
+(employee_id, last_name, 
+            ANNSAL, manager_id,
+            hire_date, Department_id) 
 VALUES 
-(115, 'Jin', 'Lee', 'SLEE@HR.COM', '590.426.4569', TO_DATE('2013-09-05','YYYY-MM-DD'), 'IT_PROG', 7500, NULL, 103, 500);
-
+(115, 'Jin', 45678 , 113, TO_DATE('2013-09-05','YYYY-MM-DD'), 500);
 
 
 ALTER TABLE departments
@@ -360,10 +361,11 @@ DROP PRIMARY KEY CASCADE;
 -- try to insert in emp3 values where department_id = 500
 
 INSERT INTO emp3 
-(EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID) 
+(employee_id, last_name, 
+            ANNSAL, manager_id,
+            hire_date, Department_id) 
 VALUES 
-(115, 'Jin', 'Lee', 'SLEE@HR.COM', '590.426.4569', TO_DATE('2013-09-05','YYYY-MM-DD'), 'IT_PROG', 7500, NULL, 103, 500);
-
+(115, 'Jin', 45678 , 113, TO_DATE('2013-09-05','YYYY-MM-DD'), 500);
 
 
 
