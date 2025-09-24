@@ -563,6 +563,9 @@ WHERE  LOWER(last_name) = 'taylor';
 
 
 
+SELECT ROUND(45.923,2), ROUND(45.923,0),
+       ROUND(45.923,-1)
+FROM   DUAL;
 
 
 
