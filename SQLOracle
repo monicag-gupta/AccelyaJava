@@ -258,13 +258,54 @@ ALTER TABLE emp3 ADD CONSTRAINT emp_dt_fk22
 FOREIGN KEY (Department_id) 
 REFERENCES departments(department_id) ON DELETE CASCADE; 
 
+-- if we delete a record from departments table, corresponding records relative to the 
+-- department_id in emp3 will get deleted
+
+select * from departments;
+select * from emp3;
+
+select * from emp3 where department_id=20;
+
+201	Hartstein	156000	100	2004-02-17T00:00	20
+105	Austin	57600	102	2005-06-25T00:00	20
+
+
+ALTER TABLE emp3 drop CONSTRAINT emp_dt_fk22;
+
+ALTER TABLE emp3 ADD CONSTRAINT emp_dt_fk22 
+FOREIGN KEY (Department_id) 
+REFERENCES departments(department_id) ON DELETE CASCADE;
+
+
 
 ALTER TABLE emp3 DROP CONSTRAINT emp_dt_fk22;
+ALTER TABLE employees drop CONSTRAINT EMP_DEPT_FK;
 
 
 ALTER TABLE emp3 ADD CONSTRAINT emp_dt_fk22 
 FOREIGN KEY (Department_id) 
-REFERENCES departments(department_id) ON DELETE SET NULL; 
+REFERENCES departments(department_id) ON DELETE cascade; 
+
+
+select * from departments;
+select * from emp3;
+
+select * from emp3 where department_id=20;
+
+INSERT INTO DEPARTMENTS(DEPARTMENT_ID, DEPARTMENT_NAME, LOCATION_ID ) VALUES (20, 'Finance', 1001);
+
+drop table emp3;
+
+CREATE TABLE 	emp3
+  AS  SELECT  employee_id, last_name, 
+            salary*12 ANNSAL, manager_id,
+            hire_date, Department_id   FROM    employees;
+
+
+
+
+
+
 
 
 
