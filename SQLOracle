@@ -746,6 +746,82 @@ ORDER BY department_id;
 
 
 
+-- SELECT department_id, COUNT(last_name)
+-- FROM   employees; 
+
+-- SELECT department_id, job_id, COUNT(last_name)
+-- FROM   employees
+-- GROUP BY department_id;
+
+
+SELECT   department_id, AVG(salary)
+FROM     employees
+WHERE    AVG(salary) > 8000
+GROUP BY department_id;
+
+SELECT   department_id, AVG(salary)
+FROM     employees
+GROUP BY department_id
+WHERE    AVG(salary) > 8000;
+
+SELECT   department_id, AVG(salary)
+FROM     employees
+GROUP BY department_id
+WHERE    job_id like '%Rep%';
+
+-- Correct
+SELECT   department_id, AVG(salary)
+FROM     employees
+WHERE    job_id like '%Rep%'
+GROUP BY department_id;
+
+SELECT    column, group_function
+FROM      table
+[WHERE    condition]
+[GROUP BY group_by_expression]
+[HAVING   group_condition]
+[ORDER BY column];
+
+
+
+SELECT   department_id, MAX(salary)
+FROM     employees
+GROUP BY department_id
+HAVING   MAX(salary)>10000 ;
+
+
+SELECT   department_id, MAX(salary)
+FROM     employees
+GROUP BY department_id
+HAVING   AVG(salary)>10000 ;
+
+
+SELECT   job_id, SUM(salary) PAYROLL
+FROM     employees
+WHERE    job_id NOT LIKE '%REP%'
+GROUP BY job_id
+HAVING   SUM(salary) > 13000
+ORDER BY SUM(salary);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
