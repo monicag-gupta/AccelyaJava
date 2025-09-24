@@ -432,6 +432,61 @@ FROM   employees;
 SELECT DISTINCT department_id
 FROM   employees;
 
+DESCRIBE employees
+
+SELECT employee_id, last_name, job_id, department_id
+FROM   employees
+WHERE  department_id = 90 ;
+
+
+SELECT last_name, hire_date 
+FROM   employees
+WHERE  hire_date = '17-FEB-04' ;
+
+
+
+SELECT last_name, job_id, department_id
+FROM   employees
+WHERE  last_name = 'Whalen' ;
+
+
+
+SELECT last_name, salary
+FROM   employees
+WHERE  salary BETWEEN 7500 AND 8500 ;
+
+
+SELECT employee_id, last_name, salary, manager_id
+FROM   employees
+WHERE  manager_id IN (100, 101, 201) ;
+
+
+
+-- Wildcard char  for like clause:
+-- % : any no of chars : 0 or more
+-- _ : 1 char exactly
+-- Problem : data 20_7_25
+-- escape char \ so \_ means the data contains _ as a char
+
+SELECT	first_name
+FROM 	employees
+WHERE	first_name LIKE 'S%' ;
+
+
+
+SELECT last_name, manager_id
+FROM   employees
+WHERE  manager_id IS NULL ;
+
+
+
+
+
+
+
+
+
+
 
 
 
