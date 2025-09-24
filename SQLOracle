@@ -249,6 +249,28 @@ ADD CONSTRAINT emp_mgr_fk
   REFERENCES emp3(employee_id);
 
 
+ALTER TABLE emp3 ADD CONSTRAINT emp_dt_fk22 
+FOREIGN KEY (Department_id) 
+REFERENCES departments(department_id) ON DELETE CASCADE; 
+
+
+ALTER TABLE emp3 DROP CONSTRAINT emp_dt_fk22;
+
+
+ALTER TABLE emp3 ADD CONSTRAINT emp_dt_fk22 
+FOREIGN KEY (Department_id) 
+REFERENCES departments(department_id) ON DELETE SET NULL; 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
