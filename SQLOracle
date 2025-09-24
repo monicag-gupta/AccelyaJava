@@ -292,6 +292,13 @@ select * from emp3;
 
 select * from emp3 where department_id=20;
 
+delete from departments where department_id=20;
+
+select * from departments;
+
+select * from emp3 where department_id=20;
+-- no emp in department 20 exists
+
 INSERT INTO DEPARTMENTS(DEPARTMENT_ID, DEPARTMENT_NAME, LOCATION_ID ) VALUES (20, 'Finance', 1001);
 
 drop table emp3;
@@ -300,6 +307,8 @@ CREATE TABLE 	emp3
   AS  SELECT  employee_id, last_name, 
             salary*12 ANNSAL, manager_id,
             hire_date, Department_id   FROM    employees;
+
+
 
 
 
