@@ -678,6 +678,42 @@ SELECT 	TO_CHAR(ROUND((salary/7), 2),'99G999D99',
 FROM employees;
 
 
+SELECT AVG(salary), MAX(salary),
+       MIN(salary), SUM(salary)
+FROM   employees
+WHERE  job_id LIKE '%REP%';
+
+
+
+SELECT MIN(hire_date), MAX(hire_date)
+FROM	  employees;
+
+
+
+SELECT COUNT(*)
+FROM   employees
+WHERE  department_id = 50;
+
+
+
+SELECT COUNT(commission_pct)
+FROM   employees
+WHERE  department_id = 80;
+
+
+SELECT COUNT(DISTINCT department_id)
+FROM   employees;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
