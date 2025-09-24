@@ -15,7 +15,12 @@ select * from persons;
 
 
 DESC persons;
+-- If no data is entered in the table
 ALTER TABLE persons ADD birthdate DATE NOT NULL;
+
+-- If data is already entered in the table
+ALTER TABLE persons ADD birthdate DATE NOT NULL DEFAULT SYSDATE;
+
 DESC persons; 
 ALTER TABLE persons ADD ( phone VARCHAR(20), email VARCHAR(100) );
 
