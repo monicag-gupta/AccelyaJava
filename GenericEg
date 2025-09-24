@@ -65,3 +65,160 @@ public class UePredicate {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+Rushikesh Chavan 
+11:57 AM (26 minutes ago)
+to me
+
+package Day8;
+
+import java.util.Collection;
+
+import java.util.function.Consumer;
+
+import java.util.List;
+
+
+
+
+
+ class Demo {
+
+	
+
+	public static <T> void foreach(Collection<T> colObj, Consumer<T> myConsumer) {
+
+        for (T obj : colObj) {
+
+            myConsumer.accept(obj);
+
+        }
+
+    }
+
+}
+
+
+
+public class ABC {
+
+    public static void main(String[] args) {
+
+        List<String> names = List.of("vibhuti", "rohit", "yash");
+
+
+
+        Demo.foreach(names, name -> System.out.println("Hello,how are you " + name));
+
+    }
+
+}
+
+
+
+outputs
+
+Hello,how are you vibhuti
+
+Hello,how are you rohit
+
+Hello,how are you yash
+
+
+
+
+
+
+
+Yash Dhoot
+11:26 AM (59 minutes ago)
+to me
+
+package day8;
+
+ 
+
+import java.util.function.Predicate;
+
+ 
+
+interface MyPredicate<T> {
+
+    boolean test(T t);
+
+ 
+
+    default MyPredicate<T> and(MyPredicate<T> other) {
+
+        return (t) -> this.test(t) && other.test(t);
+
+    }
+
+ 
+
+    default MyPredicate<T> or(MyPredicate<T> other) {
+
+        return (t) -> this.test(t) || other.test(t);
+
+    }
+
+ 
+
+    default MyPredicate<T> negate() {
+
+        return (t) -> !this.test(t);
+
+    }
+
+ 
+
+    static <T> MyPredicate<T> isEqual(Object targetRef) {
+
+        return (t) -> (targetRef == null) ? t == null : targetRef.equals(t);
+
+    }
+
+}
+
+ 
+
+ 
+
+public class Exercise1{
+
+             
+
+    public static void main(String[] args) {
+
+        MyPredicate<Integer> isEven = (n) -> n%2==0;
+
+        MyPredicate<Integer> isPositive = (n) -> n > 0;
+
+ 
+
+        System.out.println(isEven.test(10));
+
+        System.out.println(isEven.negate().test(10));
+
+        System.out.println(isEven.and(isPositive).test(10));
+
+        System.out.println(isEven.or(isPositive).test(-2));
+
+        System.out.println(MyPredicate.isEqual(5).test(5));
+
+    }
+
+ 
+
+}
+
+ 
+
