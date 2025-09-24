@@ -407,8 +407,9 @@ SELECT last_name, salary, salary + 300
 FROM   employees;
 
 
-SELECT last_name, job_id, salary
+SELECT last_name, job_id, salary, commission_pct
 FROM   employees;
+
 
 
 
