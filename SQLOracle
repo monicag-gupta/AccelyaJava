@@ -718,6 +718,43 @@ FROM   employees;
 
 
 
+SELECT    column, group_function(column)
+FROM      table
+[WHERE    condition]
+[GROUP BY group_by_expression]
+[ORDER BY column];
+
+
+SELECT   department_id, AVG(salary)
+FROM     employees
+GROUP BY department_id ;
+
+
+
+
+SELECT   AVG(salary)
+FROM     employees
+GROUP BY department_id ;
+
+
+SELECT   department_id, job_id, SUM(salary)
+FROM     employees
+WHERE	 department_id > 40
+GROUP BY department_id, job_id 
+ORDER BY department_id;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
