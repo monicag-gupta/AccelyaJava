@@ -1,0 +1,21 @@
+package exercises;
+
+class Emp<T>
+{
+	T empid;
+	String name;
+	public Emp(T id, String name) {
+		empid=id; this.name=name;
+	}
+}
+
+
+public class UePredicate {
+
+	public static void main(String[] args) {
+		Emp<Integer> e1=new Emp<>(101,"John");
+		Emp<String> e2=new Emp<>("E111","Jane");
+
+	}
+
+}
