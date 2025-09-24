@@ -41,10 +41,18 @@ RENAME persons TO ppls;
 
 ALTER TABLE peoples READ ONLY;
 
+-- try inserting data to the table, it shows locked status.
 -- perform table maintenance and then
 -- return table back to read/write mode
 
 ALTER TABLE peoples READ WRITE;
+
+
+
+
+
+
+
 
 
 
