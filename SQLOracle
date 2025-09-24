@@ -486,6 +486,73 @@ WHERE  salary >= 10000
 AND    job_id LIKE '%MAN%' ;
 
 
+SELECT employee_id, last_name, job_id, salary
+FROM   employees
+WHERE  salary >= 10000
+OR     job_id LIKE '%MAN%' ;
+
+
+
+SELECT last_name, job_id
+FROM   employees
+WHERE  job_id 
+       NOT IN ('IT_PROG', 'ST_CLERK', 'SA_REP') ;
+
+
+SELECT last_name, job_id, salary
+FROM   employees
+WHERE  job_id = 'SA_REP'
+OR     job_id = 'AD_PRES'
+AND    salary > 15000;
+
+
+SELECT last_name, job_id, salary
+FROM   employees
+WHERE  (job_id = 'SA_REP'
+OR     job_id = 'AD_PRES')
+AND    salary > 15000;
+
+
+Sort the retrieved rows with the ORDER BY clause:
+ASC: Ascending order, default
+DESC: Descending order
+The ORDER BY clause comes last in the SELECT statement:
+
+
+SELECT   last_name, job_id, department_id, hire_date
+FROM     employees
+ORDER BY hire_date ;
+
+
+SELECT   last_name, job_id, department_id, hire_date
+FROM     employees
+ORDER BY hire_date DESC ;
+
+
+SELECT employee_id, last_name, salary*12 annsal
+FROM   employees
+ORDER BY annsal ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
