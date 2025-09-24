@@ -599,6 +599,28 @@ FROM   dual;
 
 
 
+SELECT last_name, (SYSDATE-hire_date)/7 AS WEEKS
+FROM   employees
+WHERE  department_id = 90;
+
+
+MONTHS_BETWEEN
+           ('01-SEP-95','11-JAN-94')
+
+
+ADD_MONTHS (‘31-JAN-96',1)
+
+
+NEXT_DAY   ('01-SEP-95','FRIDAY')
+
+
+LAST_DAY   ('01-FEB-95')
+
+
+
+
+
+
 
 
 
