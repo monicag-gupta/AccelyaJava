@@ -273,6 +273,22 @@ DROP PRIMARY KEY CASCADE;
 
 
 
+ALTER TABLE	emp3
+DISABLE CONSTRAINT emp_dt_fk22;
+-- try to insert data violating the constraint
+-- It will get inserted
+-- delete that row which violated the constraint
+
+ALTER TABLE		emp3
+ENABLE CONSTRAINT	emp_dt_fk22;
+
+
+
+
+
+
+
+
 
 
 
