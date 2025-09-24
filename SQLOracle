@@ -35,6 +35,14 @@ DESC persons;
 
 
 ALTER TABLE persons RENAME TO peoples;
+RENAME persons TO ppls;
+
+
+
+
+
+
+
 
 
 
