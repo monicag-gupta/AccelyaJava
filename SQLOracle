@@ -311,6 +311,29 @@ CREATE TABLE 	emp3
 
 
 
+ALTER TABLE emp3 DROP CONSTRAINT emp_dt_fk22;
+-- ALTER TABLE employees drop CONSTRAINT EMP_DEPT_FK;
+
+
+ALTER TABLE emp3 ADD CONSTRAINT emp_dt_fk22 
+FOREIGN KEY (Department_id) 
+REFERENCES departments(department_id) ON DELETE SET NULL; 
+
+
+select * from departments;
+select * from emp3;
+
+select * from emp3 where department_id=20;
+
+delete from departments where department_id=20;
+
+select * from departments;
+
+select * from emp3 where department_id is NULL;
+
+201	Hartstein	156000	100	2004-02-17T00:00	null
+105	Austin	57600	102	2005-06-25T00:00	null
+
 
 
 
