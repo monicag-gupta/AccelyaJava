@@ -228,6 +228,23 @@ VALUES
 
 
 
+CREATE TABLE 	emp3
+  AS  SELECT  employee_id, last_name, 
+            salary*12 ANNSAL, manager_id,
+            hire_date, Department_id   FROM    employees;
+
+Desc emp3;
+Select * from emp3;
+
+
+
+
+
+
+
+
+
+
 
 
 
