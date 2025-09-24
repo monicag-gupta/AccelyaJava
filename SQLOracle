@@ -630,6 +630,42 @@ TRUNC(SYSDATE ,'YEAR')
 
 
 
+TO_CHAR(date, 'format_model')
+
+SELECT last_name,
+       TO_CHAR(hire_date, 'fmDD Month YYYY')
+       AS HIREDATE
+FROM   employees;
+
+
+
+TO_CHAR(number, 'format_model')
+
+
+SELECT TO_CHAR(salary, '$99,999.00') SALARY
+FROM   employees
+WHERE  last_name = 'Ernst';
+
+
+
+-- Using RR
+SELECT TO_CHAR(TO_DATE('01-JAN-50','DD-MON-RR'),'YYYY') AS rr_year FROM DUAL;
+-- Using YY
+SELECT TO_CHAR(TO_DATE('01-JAN-50','DD-MON-YY'),'YYYY') AS yy_year FROM DUAL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
