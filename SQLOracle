@@ -655,6 +655,33 @@ SELECT TO_CHAR(TO_DATE('01-JAN-50','DD-MON-YY'),'YYYY') AS yy_year FROM DUAL;
 
 
 
+TO_NUMBER(char[, 'format_model'])
+
+TO_DATE(char[, 'format_model'])
+
+
+SELECT last_name, TO_CHAR(hire_date, 'DD-Mon-YYYY')
+FROM  employees
+WHERE hire_date < TO_DATE('01-Jan-90','DD-Mon-RR');
+
+
+SELECT last_name,
+  UPPER(CONCAT(SUBSTR (LAST_NAME, 1, 8), '_US'))
+FROM   employees
+WHERE  department_id = 60;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
