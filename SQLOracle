@@ -420,6 +420,19 @@ FROM   employees;
 
 
 
+SELECT	last_name||job_id AS "Employees"
+FROM 	employees;
+
+SELECT last_name ||' is a '||job_id 
+       AS "Employee Details"
+FROM   employees;
+
+
+
+
+
+
+
 
 
 
