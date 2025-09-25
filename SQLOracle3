@@ -176,6 +176,13 @@ DROP VIEW empvu80;
 
 
 
+CREATE [UNIQUE][BITMAP]INDEX index
+ON table (column[, column]...);
+
+
+CREATE INDEX 	emp_last_name_idx
+ON 		employees(last_name);
+
 
 
 
