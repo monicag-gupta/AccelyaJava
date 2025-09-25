@@ -742,6 +742,22 @@ ORA-02292: integrity constraint (MONICA.SYS_C007467) violated - child record fou
 
 
 
+DECLARE 
+	Child_rec_exception EXCEPTION;
+ 	PRAGMA EXCEPTION_INIT (Child_rec_exception, -2292); 
+BEGIN 
+	Delete FROM product where product_id= 104;
+EXCEPTION 
+	WHEN Child_rec_exception THEN 
+	Dbms_output.put_line('Child records are present for this product_id.');
+END; 
+/
+
+
+
+
+
+
 
 
 
