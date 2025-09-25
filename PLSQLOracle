@@ -72,3 +72,28 @@ END;
 
 
 
+BEGIN <<outer>>
+DECLARE
+ v_father_name VARCHAR2(20):='James';
+ v_date_of_birth DATE:='20-oct-2014';
+BEGIN
+  DECLARE
+   v_child_name VARCHAR2(20):='Devins';
+   v_date_of_birth DATE:='12-jun-2004';
+  BEGIN
+   DBMS_OUTPUT.PUT_LINE('Father''s Name: '||v_father_name);
+   DBMS_OUTPUT.PUT_LINE('Date of Birth: '
+                        ||outer.v_date_of_birth);
+   DBMS_OUTPUT.PUT_LINE('Child''s Name: '||v_child_name);
+   DBMS_OUTPUT.PUT_LINE('Date of Birth: '||v_date_of_birth);
+  END;
+END;  
+END outer;
+/
+
+
+
+
+
+
+
