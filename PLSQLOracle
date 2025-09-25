@@ -503,6 +503,15 @@ A GOTO statement cannot branch out of a subprogram. To end a subprogram early, e
 A GOTO statement cannot branch from an exception handler back into the current BEGIN-END block. However, a GOTO statement can branch from an exception handler into an enclosing block.
 
 
+Working with an explicit cursor involves four steps:
+	Declaring the cursor for initializing in the memory
+	Opening the cursor for allocating memory
+	Fetching the cursor for retrieving data
+	Closing the cursor to release allocated memory
+
+
+
+
 
 
 
