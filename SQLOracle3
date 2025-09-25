@@ -190,6 +190,23 @@ DROP INDEX emp_last_name_idx;
 
 
 
+CREATE SYNONYM  d_sum
+FOR  dept_sum_vu;
+
+
+DROP SYNONYM d_sum;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
