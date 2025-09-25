@@ -789,6 +789,26 @@ END;
 
 
 
+CREATE [OR REPLACE] PROCEDURE procedure_name [ (parameter [,parameter]) ] 
+IS 
+[declaration_section]
+ BEGIN 
+executable_section
+ [EXCEPTION exception_section] 
+END [procedure_name];
+
+
+
+
+CREATE OR REPLACE PROCEDURE greetings
+ AS
+ BEGIN 
+dbms_output.put_line('Hello World!');
+ END;
+ /
+
+
+
 
 
 
