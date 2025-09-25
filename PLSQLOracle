@@ -46,6 +46,7 @@ BEGIN
    var_mult := var_num1 * var_num2;
    dbms_output.put_line(var_mult);
   END;
+   -- dbms_output.put_line(var_mult);
 END;
 /
 
