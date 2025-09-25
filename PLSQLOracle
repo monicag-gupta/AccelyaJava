@@ -639,6 +639,44 @@ END;
 
 
 
+Collection Methods
+
+EXISTS(n)
+Returns TRUE if the nth element in a collection exists; otherwise returns FALSE.
+COUNT
+Returns the number of elements that a collection currently contains.
+LIMIT
+Checks the maximum size of a collection.
+FIRST
+Returns the first (smallest) index numbers in a collection that uses the integer subscripts.
+LAST
+Returns the last (largest) index numbers in a collection that uses the integer subscripts.
+PRIOR(n)
+Returns the index number that precedes index n in a collection.
+NEXT(n)
+Returns the index number that succeeds index n.
+EXTEND
+Appends one null element to a collection.
+EXTEND(n)
+Appends n null elements to a collection.
+EXTEND(n,i)
+Appends n copies of the ith element to a collection.
+TRIM
+Removes one element from the end of a collection.
+TRIM(n)
+Removes n elements from the end of a collection.
+DELETE
+Removes all elements from a collection, setting COUNT to 0.
+DELETE(n)
+Removes the nth element from an associative array with a numeric key or a nested table. If the associative array has a string key, the element corresponding to the key value is deleted. If n is null, DELETE(n) does nothing.
+DELETE(m,n)
+Removes all elements in the range m..n from an associative array or nested table. If m is larger than n or if m or n is null, DELETE(m,n) does nothing.
+
+
+
+
+
+
 
 
 
