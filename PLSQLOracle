@@ -925,6 +925,54 @@ END;
 
 
 
+In Oracle PL/SQL, a PACKAGE is a group of programmatic constructs combined ("packaged") into a single unit. The PL/SQL elements that may be included in a package are cursors, variables, exceptions, PL/SQL records and collection types, procedures, and functions. 
+A package will have two mandatory parts:
+Package specification
+	 It contain the list of various functions procedure names which will be a part of the package.
+Package body or definition
+	 This contains the actual PL/SQL statement code implementing the logics of functions and procedures declared in "specification".
+
+
+
+
+
+
+
+-- Package Specification
+CREATE PACKAGE cust_sal 
+AS 
+	PROCEDURE find_sal(c_id customers.id%type); 
+END cust_sal;
+ /
+
+
+-- Package Body
+CREATE OR REPLACE PACKAGE BODY cust_sal 
+AS 
+	PROCEDURE find_sal(c_id customers.id%TYPE) 
+	IS 
+		c_sal customers.salary%TYPE; 
+	BEGIN 
+		SELECT salary INTO c_sal FROM customers WHERE id = c_id;
+		dbms_output.put_line('Salary: '|| c_sal); 
+	END find_sal; 
+END cust_sal;
+ /
+
+
+
+
+DECLARE 
+	code customers.id%type := &cc_id; 
+BEGIN 
+	cust_sal.find_sal(code); 
+END; 
+/
+
+
+
+
+
 
 
 
