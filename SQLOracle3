@@ -185,6 +185,13 @@ ON 		employees(last_name);
 
 
 
+DROP INDEX emp_last_name_idx;
+
+
+
+
+
+
 
 
 
