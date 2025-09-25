@@ -1,4 +1,4 @@
--- set serveroutput on; 
+set serveroutput on; 
 
 DECLARE
     v_event VARCHAR2(15);
