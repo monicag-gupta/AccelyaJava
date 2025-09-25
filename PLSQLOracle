@@ -245,6 +245,26 @@ END;
 
 
 
+DECLARE 
+    TYPE emp_rec_type IS RECORD
+        (employee_id  NUMBER(6) NOT NULL := 101,
+        last_name  emp3.last_name%TYPE);
+
+	emp_record   emp_rec_type; --empId and lastname
+	emp_rec emp3%ROWTYPE; --all columns of emp3
+BEGIN
+	--SELECT * INTO emp_rec from emp3 WHERE employee_id=&a;
+    SELECT employee_id, last_name INTO emp_record from emp3 WHERE employee_id=&a;
+	DBMS_OUTPUT.PUT_LINE( emp_record.last_name||' ' || emp_record.employee_id);
+END;
+/
+
+
+
+
+
+
+
 
 
 
