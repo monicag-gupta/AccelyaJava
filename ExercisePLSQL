@@ -1,0 +1,15 @@
+In the table demo, for the employee id taken from the user, 
+if the salary the employee is getting is less than 10000, 
+say: “Last_name is getting Salary not up to Industry standards” 
+else say “Last_name is getting  Salary up to the Industry standards”
+
+
+
+WA block in PLSQL to check if number of employees in the table emp3 
+is more than 100 or not. If it is more than 100, then print in output 
+“The company is working well” else print “The company is going through downfall now”
+
+
+
+
+
