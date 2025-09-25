@@ -128,6 +128,34 @@ CREATE VIEW 	empvu30
     WHERE   department_id = 30;
 
 
+DESCRIBE empvu30
+
+
+CREATE OR REPLACE VIEW empvu80
+  (id_number, name, sal, department_id)
+AS SELECT  employee_id, first_name || ' ' 
+           || last_name, salary, department_id
+   FROM    employees
+   WHERE   department_id = 80;
+
+
+
+CREATE OR REPLACE VIEW dept_sum_vu
+  (name, minsal, maxsal, avgsal)
+AS SELECT   d.department_name, MIN(e.salary), 
+            MAX(e.salary),AVG(e.salary)
+   FROM     employees e JOIN departments d
+   ON       (e.department_id = d.department_id)
+   GROUP BY d.department_name;
+
+
+
+
+
+
+
+
+
 
 
 
