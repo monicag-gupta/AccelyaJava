@@ -279,6 +279,27 @@ COMMIT;
 
 
 
+Normally in Oracle, if you write:
+v_event := 'Father's day';
+Error: Oracle thinks the string ends after 'Father'.
+Workaround without q would be:
+v_event := 'Father''s day';  -- double single quote
+Alternative Quoting Mechanism (q'...’):
+To make it easier, Oracle provides q'...', where you can use your own delimiters.
+Format:
+q'<delimiter>string<delimiter>'
+Delimiters can be !, [ ], { }, ( ), < >.
+You don’t need to escape ' inside the string.
+Example:
+q'!Father's day!'   → Father’s day
+The q'!...!' syntax is just an easier way to write strings with single quotes inside them, avoiding the need for doubling ''.
+
+
+
+
+
+
+
 
 
 
