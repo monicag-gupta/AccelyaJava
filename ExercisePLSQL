@@ -12,4 +12,14 @@ is more than 100 or not. If it is more than 100, then print in output
 
 
 
+WA block where we insert into index-by-table all names of customer indexed by their id.
+--All names should start with either A, C, J, L, D : Use like or pattern clause in 
+the cursor query.
+Display the result separately through another loop after insertion is over:
+  Customer ID : 101 for name : Abc
+
+
+
+
+
 
