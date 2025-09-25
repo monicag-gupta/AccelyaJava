@@ -86,7 +86,7 @@ VALUES  (200
 
 
 
-
+select * from job_history;
 
 SELECT employee_id, job_id
 FROM   employees
@@ -118,6 +118,15 @@ FROM   employees
 MINUS
 SELECT employee_id
 FROM   job_history;
+
+
+
+
+CREATE VIEW 	empvu30
+ AS SELECT  employee_id, last_name, salary
+    FROM    employees
+    WHERE   department_id = 30;
+
 
 
 
