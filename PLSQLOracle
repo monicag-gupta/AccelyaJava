@@ -495,6 +495,18 @@ END;
 
 
 
+GOTO Statement in PL/SQL imposes the following restrictions −
+A GOTO statement cannot branch into an IF statement, CASE statement, LOOP statement or sub-block.
+A GOTO statement cannot branch from one IF statement clause to another or from one CASE statement WHEN clause to another.
+A GOTO statement cannot branch from an outer block into a sub-block (i.e., an inner BEGIN-END block).
+A GOTO statement cannot branch out of a subprogram. To end a subprogram early, either use the RETURN statement or have GOTO branch to a place right before the end of the subprogram.
+A GOTO statement cannot branch from an exception handler back into the current BEGIN-END block. However, a GOTO statement can branch from an exception handler into an enclosing block.
+
+
+
+
+
+
 
 
 
