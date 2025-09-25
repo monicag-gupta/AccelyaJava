@@ -542,6 +542,19 @@ END;
 
 
 
+Useful VARRAY Methods
+	COUNT → number of elements currently in array
+	EXTEND → add one (or n) elements at the end
+TRIM → remove last element
+DELETE → not allowed in VARRAYs (only in nested tables)
+LIMIT → max size
+VARRAY (Variable-size Array) is a collection type in Oracle PL/SQL.
+Stores a fixed maximum number of elements (defined at declaration).
+Unlike nested tables, VARRAYs preserve order and are always dense (no gaps between elements).
+Elements can be accessed by index (1-based).
+
+
+
 
 
 
