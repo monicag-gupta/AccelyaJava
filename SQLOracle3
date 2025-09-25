@@ -242,6 +242,31 @@ FROM
 
 
 
+-- Step 1: Insert a row (transaction starts automatically)
+INSERT INTO employees (employee_id, first_name, last_name, email, hire_date, job_id, salary, department_id)
+VALUES (301, 'Alice', 'Brown', 'ABROWN@HR.COM', SYSDATE, 'SA_REP', 4500, 40);
+
+-- Step 2: Create a savepoint
+SAVEPOINT before_update;
+
+-- Step 3: Update row
+UPDATE employees
+SET salary = 5000
+WHERE employee_id = 301;
+
+-- Step 4: Rollback to savepoint (undo the salary update, keep the insert)
+ROLLBACK TO before_update;
+
+-- Step 5: Commit the transaction (insert is permanent now)
+COMMIT;
+
+
+
+
+
+
+
+
 
 
 
