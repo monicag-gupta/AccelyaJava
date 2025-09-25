@@ -229,6 +229,10 @@ and d.department_name in ('IT','Marketing');
 
 
 
+SELECT *
+FROM table(DBMS_XPLAN.DISPLAY (FORMAT=>'ALL +OUTLINE'));
+
+
 
 
 
