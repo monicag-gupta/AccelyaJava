@@ -31,3 +31,27 @@ dbms_output.put_line('The employee ' || var_emp_id || ' has salary ' || var_sala
 END;
  /
 
+
+
+
+DECLARE
+ var_num1 number;
+ var_num2 number;
+BEGIN
+ var_num1 := 100;
+ var_num2 := 200;
+ DECLARE
+  var_mult number;
+  BEGIN
+   var_mult := var_num1 * var_num2;
+   dbms_output.put_line(var_mult);
+  END;
+END;
+/
+
+
+
+
+
+
+
