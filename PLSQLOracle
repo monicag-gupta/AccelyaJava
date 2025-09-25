@@ -895,6 +895,9 @@ END;
 
 
 
+SELECT employer_details_func2 FROM dual;
+
+
 
 
 
