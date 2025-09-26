@@ -73,3 +73,21 @@ hello.html:
 
     </body>
 </html>
+
+
+
+fn.ts
+
+function absq(a:number,b:number){
+    return (a*a+b*b+2*a*b);
+}
+
+
+tsc fn.ts
+
+# we get the file fn.js
+# we can now live the file hello.html
+
+
+
+
