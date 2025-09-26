@@ -1,0 +1,11 @@
+<!-- HelloWorld example program… -->
+
+<html>
+  <head><title>JavaScript HelloWorld!</title></head>  
+  <body>  
+    <script>
+      document.write('<h1>Javascript says "Hello World!"</h1><BR>');
+      document.write('<h2>Javascript rocks!!</h2>');
+    </script> 
+  </body>
+</html>
