@@ -21,5 +21,15 @@ Display the result separately through another loop after insertion is over:
 
 
 
+Prepare a trigger for insert or update in employees table, 
+so that: we cannot insert any employee with ID as a multiple of 
+100 unless the manager id of these employees is 100. also, ids 
+222 or 007 or 111 is not allowed at all
+
+Also, prepare a  trigger for deletion of employees making it 
+not possible for deleting any employee with id: 100, 101 or 102 
+or any employees with manager id as 100.
+
+
 
 
