@@ -44,3 +44,32 @@ console.log(output2);//John works in the IT department.
 tsc first.ts
 node first.js
 
+
+
+
+
+
+hello.html:
+
+<html>
+    <head>
+        <script src="fn.js"></script>
+        <title>HW</title>
+    </head>
+    <body>
+        Enter x: <input type="text" id="x"><br>
+        Enter y: <input type="text" id="y"><br>
+        <button onclick="fn1()">AB Sq</button>
+        <div id="result"></div>
+        <script>
+            function fn1(){
+                x=document.getElementById("x").value;
+                y=document.getElementById("y").value;
+                var res=absq(x,y);
+                document.getElementById("result").innerHTML = `<h1> square of (${x} + ${y}) = ${res}`;
+
+            }
+        </script>
+
+    </body>
+</html>
