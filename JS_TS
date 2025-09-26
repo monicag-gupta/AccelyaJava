@@ -35,3 +35,12 @@ let output2: string = `${empName} works in the ${empDept} department.`;
 console.log(output1);//John works in the IT department.   
 console.log(output2);//John works in the IT department. 
 
+
+
+
+
+
+
+tsc first.ts
+node first.js
+
