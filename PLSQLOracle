@@ -1020,6 +1020,88 @@ VALUES
 
 
 
+create table cust(id number primary key, name varchar(30),address varchar(100));
+
+CREATE or replace VIEW vw_customers AS
+    SELECT 
+        name, address
+    FROM 
+        cust;
+        
+Insert into vw_customers values('AAA','BBB');
+-- Error : ID cannot be null
+
+
+Insert into cust values(101, 'AAA','BBB');
+
+CREATE OR REPLACE TRIGGER new_cust_trg
+    INSTEAD OF INSERT ON vw_customers
+    FOR EACH ROW
+DECLARE
+    cust_id NUMBER;
+BEGIN
+    select TRUNC(dbms_random.value(1,900)) into cust_id from dual;
+    -- insert a new customer first
+    INSERT INTO cust(id, name, address)
+    VALUES(cust_id, :NEW.NAME, :NEW.address);
+ END;
+ /
+
+Insert into vw_customers values('AAA','BBB');
+
+select * from cust;
+
+ID, NAME, ADDRESS
+209	AAA	BBB
+513	AAA	BBB
+
+
+
+
+create table cust(id number primary key, name varchar(30),address varchar(100));
+Insert into cust values(101, 'AAA','BBB');
+
+
+create table cust_bkup(id number primary key, name varchar(30),address varchar(100));
+
+CREATE OR REPLACE TRIGGER new_custbkup_trg
+    After INSERT ON cust
+    For each row
+BEGIN
+    INSERT INTO cust_bkup(id, name, address)
+    VALUES(:NEW.id, :NEW.NAME, :NEW.address);
+ END;
+ /
+
+
+
+CREATE OR REPLACE TRIGGER new_cust2_trg
+    After INSERT ON cust
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('The cust_bkup table also get inserted');
+ END;
+ /
+
+
+
+Insert into cust values(700, 'A1','B1');
+
+
+
+
+
+select * from cust;
+select * from cust_bkup;
+
+
+
+
+
+
+
+
+
+
 
 
 
