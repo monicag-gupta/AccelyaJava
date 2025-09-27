@@ -132,3 +132,34 @@ npm install bootstrap jquery --save
 
 
 
+
+Life Cycle of a Component
+ngOnChanges – This event executes every time a value of an input control within the component has been changed. 
+ngOnInit – This event executed at the time of Component initialization. 
+ngDoCheck – This event is executed every time when the input properties of a component are checked.
+ngAfterContentInit – This lifecycle method is executed when Angular performs any content projection within the component views. 
+ngAfterContentChecked - This life cycle hook method executes every time the content of the component has been checked by the change detection mechanism of Angular.
+ngAfterViewInit – This life cycle method executes when the component completes the rendering of its view full.
+ngAfterViewChecked – – This method is always executed after the ngAterViewInit() method.
+ngOnDestroy – This method will be executed when we want to destroy the Angular components. 
+
+
+
+
+App.component.html
+
+<!--The content below is only a placeholder and can be replaced.-->  
+<div style="text-align:center">  
+  <h1>  
+    Welcome to {{ title }}!  
+  </h1>  
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">  
+</div> 
+
+
+
+
+
+
+
+
