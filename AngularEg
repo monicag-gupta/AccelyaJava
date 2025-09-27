@@ -6,6 +6,17 @@ ng version
 ng new ng1app 
 
 
+For 19+ Angular
+ng new ng1app --no-standalone
+
+
+
+cd ng1app
+
+ng serve
+
+
+
 
 
 
