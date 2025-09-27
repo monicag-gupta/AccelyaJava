@@ -127,7 +127,7 @@ export class AppComponent {
 
 
 
-npm install bootstrap jquery –save
+npm install bootstrap jquery --save
 
 
 
