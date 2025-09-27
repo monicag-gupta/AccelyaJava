@@ -75,6 +75,13 @@ export class AppComponent {
 
 
 
+Create a new file : myApp.css in app folder:
+h2{
+    color:purple;
+}
+
+
+
 
 
 
