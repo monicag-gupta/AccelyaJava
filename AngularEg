@@ -250,5 +250,8 @@ export class AppComponent {
 
 
 
+ng generate component child
+
+
 
 
