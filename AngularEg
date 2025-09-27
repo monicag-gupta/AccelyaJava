@@ -81,6 +81,10 @@ h2{
 }
 
 
+Create a new file : myApp.html in app folder:
+<h2>Hello from myApp.html</h2>
+
+
 
 
 
