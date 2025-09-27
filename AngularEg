@@ -513,6 +513,27 @@ export class AppModule { }
 
 
 
+Two-way Data-binding:app.component.ts
+
+import { Component } from "@angular/core";    
+@Component({    
+  selector: "app-root",    
+  templateUrl: "./app.component.html",    
+  styleUrls: ["./app.component.css"]    
+})    
+export class AppComponent {    
+  fullName: string = "Programmers";    
+} 
+
+
+
+Two-way Data-binding:app.component.html
+
+<h2>Two-way Binding Example</h2>    
+   Enter your Name: 
+   <input [(ngModel)]="fullName" /> <br/><br/>    
+<p> Hello {{fullName}} ! </p> 
+
 
 
 
