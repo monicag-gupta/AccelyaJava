@@ -12,6 +12,15 @@ ng new ng1app --no-standalone
 
 
 
+
+cd ng1app
+
+ng serve
+
+
+
+
+
 /e2e/: This folder contains end-to-end (simulating user behavior) tests of the website.
 /node_modules/: All 3rd party libraries are installed to this folder using npm install.
 /src/: It contains the source code of the application. Most work will be done here.
@@ -48,11 +57,20 @@ main.ts  >>   
 
 
 
-cd ng1app
-
-ng serve
 
 
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: '<h2>Hello from Component</h2>',
+  styles: ['h2{color:blue;}']
+})
+export class AppComponent {
+  title = 'ng1app';
+}
 
 
 
