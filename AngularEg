@@ -345,6 +345,37 @@ Interpolation: app.component.html
 
 
 
+<html>
+    <body>
+        Line breaking tags:
+        <li>H1 .. H6
+            <h1>abc</h1>
+            this is on the next Line</li>
+            <br>
+        <li>p
+            <p>abc</p>
+            this is on the next Line</li>
+
+        </li>
+        <li>
+            div 
+            <div>abc</div>
+            this is on the next Line
+        </li>
+Same Line no break tags:
+<li>
+    b
+    <b>bold</b> This is in the same line
+</li>
+<li>
+    span
+    <span>span in the same line but giving a div</span> This is in the same line
+</li>
+    </body>
+</html>
+
+
+
 
 
 
