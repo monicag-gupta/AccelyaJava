@@ -381,3 +381,56 @@ Same Line no break tags:
 
 
 
+
+
+
+Property: app.component.ts
+
+import { Component } from '@angular/core';  
+@Component({  
+  selector: 'app-root',  
+  templateUrl: './app.component.html',  
+  styleUrls : ['./custom.css']  
+})  
+export class AppComponent {  
+  public value1: number = 10;  
+  public array1: Array<number> = [10, 22, 14];  
+  public dt1: Date = new Date();  
+  public status: boolean = true;  
+  public returnString(): string {  
+      return "String return from function";  
+  }  
+} 
+
+
+
+
+Property-Based Binding
+app.component.html
+
+<div>  
+    <span>Current Number is {{value1}}</span>  
+    <br/><br />     
+    Display Value in Input Controls : <input [value]="value1" />  
+    <br /><br />    
+    <span>Current Number is {{value1 | currency}}</span>  
+    <br /><br />  
+    <span>Current date is {{dt1}}</span>  
+    <br /><br />  
+    <span>Current date is {{dt1 | date}}</span>  
+    <br /><br />  
+    <span>Status is {{status}}</span>  
+    <br /><br />  
+    <span>{{status ? "This is correct status" :"This is false status"}}</span>  
+    <br /><br />  
+    <span>{{returnString()}}</span>  
+</div>  
+
+
+
+
+
+
+
+
+
