@@ -283,3 +283,18 @@ ng generate component child
     </body>
 </html>
 
+
+
+
+
+
+In Angular 8+, there are four different types of Data binding processes available. They are:
+Interpolation : {{}}
+Property Binding : []
+Two-Way Binding : [()]
+Event Binding : ()
+
+
+
+
+
