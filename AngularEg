@@ -408,23 +408,24 @@ export class AppComponent {
 Property-Based Binding
 app.component.html
 
-<div>  
-    <span>Current Number is {{value1}}</span>  
-    <br/><br />     
-    Display Value in Input Controls : <input [value]="value1" />  
-    <br /><br />    
-    <span>Current Number is {{value1 | currency}}</span>  
-    <br /><br />  
-    <span>Current date is {{dt1}}</span>  
-    <br /><br />  
-    <span>Current date is {{dt1 | date}}</span>  
-    <br /><br />  
-    <span>Status is {{status}}</span>  
-    <br /><br />  
-    <span>{{status ? "This is correct status" :"This is false status"}}</span>  
-    <br /><br />  
-    <span>{{returnString()}}</span>  
-</div>  
+<div>  
+    <span>Current Number is {{value1}}</span>  
+    <br/><br />     
+    Display Value in Input Controls : <input [value]="value1" />  
+    <br /><br />    
+    <span>Current Number is {{value1 | currency}}</span>  
+    <br /><br />  
+    <span>Current date is {{dt1}}</span>  
+    <br /><br />  
+    <span>Current date is {{dt1 | date}}</span>  
+    <br /><br />  
+    <span>Status is {{status}}</span>  
+    <br /><br />  
+    <span>{{status ? "This is correct status" :"This is false status"}}</span>  
+    <br /><br />  
+    <span>{{returnString()}}</span>  
+</div>  
+
 
 
 
