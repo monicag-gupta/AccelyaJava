@@ -104,4 +104,16 @@ export class ChildComponent implements OnInit {
 
 
 
+Child.component.html
+
+<p>child works!</p>
+<button (click)="sendValues()"> Send Data </button> 
+
+
+
+
+
+
+
+
 
