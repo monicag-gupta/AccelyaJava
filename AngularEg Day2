@@ -325,6 +325,109 @@ export class AppComponent {
 
 
 
+import { Component } from '@angular/core';  
+@Component({  
+  selector: 'app-root',  
+  templateUrl: './app.component.html',  
+  styleUrls : ['./custom.css']  
+})  
+export class AppComponent {  
+  lft:boolean=true;
+  rgt:boolean=false;
+  ctr:boolean=false;
+
+
+  constructor() { }  
+  public left(): void {  
+    this.lft=true;
+    this.rgt=false;
+    this.ctr=false;
+        }  
+         public rigt(): void {  
+    this.lft=false;
+    this.rgt=true;
+    this.ctr=false;
+        } 
+         public centr(): void {  
+    this.lft=false;
+    this.rgt=false;
+    this.ctr=true;
+        }  
+         
+} 
+
+
+
+
+<h1 [ngClass]="{'lft':lft, 'rgt' : rgt, 'ctr': ctr}">Hello World</h1><br />  
+<button (click)="left()">left</button>
+<button (click)="rigt()">right</button>
+<button (click)="centr()">Center</button>
+
+
+
+
+.red {color:red;}  
+.blue {color:blue}  
+.cyan {color : cyan}  
+.brown {color : brown} 
+
+.lft{text-align: left;}
+.rgt{text-align: right;}
+.ctr{text-align: center;}
+
+
+
+
+
+Structural Directive: ngif
+
+app.component.ts
+
+
+import { Component } from '@angular/core';  
+@Component({  
+  selector: 'app-root',  
+  templateUrl: './app.component.html',  
+  styleUrls : ['./custom.css']  
+})  
+export class AppComponent {  
+  showInfo: boolean = false;  
+  caption: string = 'Show Text';  
+  constructor() { }  
+  public changeData(): void {  
+      this.showInfo = !this.showInfo;  
+      if (this.showInfo) {  
+          this.caption = 'Hide Text';        }  
+      else {  
+          this.caption = 'Show Text';       }  
+  }  
+} 
+
+
+
+Structural Directive: ngif
+
+app.component.html
+
+
+<div>  
+    <input type="button" value="{{caption}}" (click)="changeData()"/>  
+    <br />  
+    <h2 *ngIf="showInfo"><span>Demonstrate of Structural Directives - *ngIf</span></h2>  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
