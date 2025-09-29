@@ -882,6 +882,14 @@ Custom Pipe – Proper Caseapp.component.html
 
 
 
+Angular Services:
+
+ng generate service Employee
+
+
+
+
+
 
 
 
