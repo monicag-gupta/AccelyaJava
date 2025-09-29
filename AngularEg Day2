@@ -536,8 +536,8 @@ app.component.html
 
 <h2>ngSwitch Example</h2>
 
-<!-- Dropdown generated dynamically -->
-<select (change)="changePhone($event.target.value)">
+Dropdown generated dynamically
+<select (change)="changePhone(($any($event).target.value))">
   <option *ngFor="let phone of phones" [value]="phone">
     {{ phone }}
   </option>
@@ -550,6 +550,7 @@ app.component.html
   <p *ngSwitchCase="'Pixel'">You selected <b>Google Pixel</b></p>
   <p *ngSwitchDefault>Please select a valid phone model.</p>
 </div>
+
 
 
 
