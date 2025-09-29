@@ -195,6 +195,17 @@ Structural Directives – Directives that change the behavior of a component or
 
 
 
+@Directive() metadata options:
+selector – The selector property is used to identify the directive within the HTML template. Also, with the help of this property, we can initialize the directive from the DOM elements
+inputs - It is used to provide the set of data-bound input properties of the directives.
+outputs – It is used to enumerates any event properties from the directives.
+providers – It is used to inject any provider type like service or components within the directives.
+exportAs – It is used to define the name of the directives which can be used to assign a directive as a variable. 
+
+
+
+
+
 
 
 
