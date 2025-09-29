@@ -225,6 +225,61 @@ ngStyle Directive: The ngStyle directive facilitates you to modify the style of
 
 
 
+Attribute Directive:
+app.component.ts
+
+import { Component } from '@angular/core';  
+@Component({  
+  selector: 'app-root',  
+  templateUrl: './app.component.html',  
+  styleUrls : ['./custom.css']  
+})  
+export class AppComponent {  
+  showColor: boolean = false;  
+  constructor() { }  
+  public changeColor(): void {  
+      this.showColor = !this.showColor;  
+  }  
+} 
+
+
+
+
+Attribute Directive:
+
+custom.css
+
+
+.red {color:red;}  
+.blue {color:blue}  
+.cyan {color : cyan}  
+.brown {color : brown} 
+
+
+
+Attribute Directive:
+
+app.component.html
+
+<div>  
+    <h3>This is a Attribute Directives</h3>  
+    <span [class.red]="true">Attribute Change</span><br />  
+    <span [ngClass]="{'blue':true}">Attribute Change by Using NgClass</span><br />  
+    <span [ngStyle]="{'font-size':'14px','color':'green'}">Attribute Change by Using NgStyle</span>  
+    <br /><br />  
+    <span [class.cyan]="showColor">Attribute Change</span><br />  
+    <span [ngClass]="{'brown':showColor}">Attribute Change by Using NgClass</span><br />  
+    <input type="button" value="Change Color" (click)="changeColor()" />  
+    <br /><br />  
+    <span [class.cyan]="showColor">Attribute Change</span><br />  
+    <span [ngClass]="{'cyan':showColor, 'red' : !showColor}">Attribute Change by Using NgClass</span><br />  
+    <br />  
+</div> 
+
+
+
+
+
 
 
 
