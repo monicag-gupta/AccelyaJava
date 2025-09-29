@@ -17,7 +17,19 @@ export class MessageComponent {
      public showAlert():void{  
         alert(this.message1);  
     }  
-}  
+} 
+
+
+
+Pass Input Value into Component: 
+
+message.component.html
+
+<div>  
+    Message : <h2>{{message}}</h2>  
+    <input type="button" value="Show Alert" (click)="showAlert()"/>  
+</div> 
+
 
 
 
