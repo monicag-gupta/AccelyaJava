@@ -504,6 +504,61 @@ app.component.html
 
 
 
+Structural Directive: ngswitch
+
+app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  // List of phone options
+  phones: string[] = ['iPhone', 'Samsung', 'Pixel', 'Other'];
+
+  selectedPhone: string = this.phones[0]; // default
+
+  changePhone(phone: string) {
+    this.selectedPhone = phone;
+  }
+}
+
+
+
+
+Structural Directive: ngswitch
+
+app.component.html
+
+
+<h2>ngSwitch Example</h2>
+
+<!-- Dropdown generated dynamically -->
+<select (change)="changePhone($event.target.value)">
+  <option *ngFor="let phone of phones" [value]="phone">
+    {{ phone }}
+  </option>
+</select>
+
+<!-- ngSwitch block -->
+<div [ngSwitch]="selectedPhone">
+  <p *ngSwitchCase="'iPhone'">You selected <b>Apple iPhone</b></p>
+  <p *ngSwitchCase="'Samsung'">You selected <b>Samsung Galaxy</b></p>
+  <p *ngSwitchCase="'Pixel'">You selected <b>Google Pixel</b></p>
+  <p *ngSwitchDefault>Please select a valid phone model.</p>
+</div>
+
+
+
+
+
+
+
+
+
 
 
 
