@@ -51,6 +51,23 @@ export class AppComponent {
 
 
 
+Pass Input Value into Component: 
+
+app.component.html
+
+
+
+<h1>
+  Hello
+</h1>
+<message-info 
+[message]='"This is passed from app.component to message component"'
+[alert-pop]="val"></message-info>
+
+
+
+
+
 
 
 
