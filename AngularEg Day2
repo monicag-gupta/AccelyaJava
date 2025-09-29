@@ -424,6 +424,45 @@ app.component.html
 
 
 
+<html>
+    <body>
+       X:  <input type="text" id="x">
+        <br>
+         Y:  <input type="text" id="y">
+         <br>
+         <input type="submit" id="op" value="+" onclick="fn()">
+        <h2 id="res">Result: </h2>
+         <script>
+            function fn(){
+                x=parseInt(document.getElementById("x").value);
+                y=parseInt(document.getElementById("y").value);
+                op=document.getElementById("op").value;
+                if(op=="+")
+                    fnOp(x,y,add);
+            }
+            function fnOp(a,b, fnN){
+                fnN(a,b);
+            }
+            function add(a,b){
+                document.getElementById("res").innerHTML += (a+b);
+            }
+            
+         </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
