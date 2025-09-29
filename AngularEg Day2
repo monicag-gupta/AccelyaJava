@@ -601,6 +601,79 @@ ng generate directive shadows
 
 
 
+Custom Directive:
+highlight.directive.ts
+
+import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]' // Use it like an attribute
+})
+export class HighlightDirective {
+
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
+
+  // When mouse enters, set background color
+  @HostListener('mouseenter') onMouseEnter() {
+    this.renderer.setStyle(this.el.nativeElement, 'background-color', 'yellow');
+  }
+
+  // When mouse leaves, remove background color
+  @HostListener('mouseleave') onMouseLeave() {
+    this.renderer.removeStyle(this.el.nativeElement, 'background-color');
+  }
+}
+
+
+
+
+
+Custom Directive:
+shadow.directive.ts
+
+import { Directive, ElementRef, Renderer2 } from '@angular/core';
+
+@Directive({ selector: '[appShadow]' })
+export class ShadowDirective {
+    constructor(elem: ElementRef, renderer: Renderer2) {
+       renderer.setStyle(elem.nativeElement, 'box-shadow', '2px 2px 12px #58A362');
+    }
+}
+
+
+
+
+
+
+Custom Directive:
+
+shadows.directive.ts
+
+import { Directive, ElementRef, Renderer2 } from '@angular/core';
+
+@Directive({ selector: '[appShadows]' })
+export class ShadowsDirective {
+    constructor(elem: ElementRef, renderer: Renderer2) {
+       renderer.setStyle(elem.nativeElement, 
+        'box-shadow', '2px 2px 12px green');
+       renderer.setStyle(elem.nativeElement, 
+          'color', 'blue');
+          let e=document.createElement("h1");
+          let t=document.createTextNode("This is new");
+          e.appendChild(t);
+          renderer.appendChild(elem.nativeElement,e);
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
