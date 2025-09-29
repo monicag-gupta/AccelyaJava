@@ -143,6 +143,32 @@ App.component.html
 
 
 
+import { Component } from '@angular/core';
+@Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+    data: string = "";
+    GetChildData(data: string) {
+        console.log(data);
+        // alert(data);
+        this.data = data;
+    }
+    fn() {
+        alert(this.data);
+    }
+
+
+    myInputMessage: string = "My Input Message";
+}
+
+
+
+
+
+
 
 
 
