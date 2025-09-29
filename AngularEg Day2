@@ -1065,6 +1065,69 @@ debounceTime → Delay requests (useful in search). 
 
 
 
+Install dependencies
+	npm install rxjs
+(RxJS comes with Angular, so you usually don’t need to install it separately.)
+Import HttpClientModule
+Add it in your app.module.ts:
+import { HttpClientModule } from '@angular/common/http';
+
+@NgModule({
+  imports: [HttpClientModule],
+})
+export class AppModule {}
+
+
+
+
+
+app.module.ts
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ChildComponent } from './child/child.component';
+import {FormsModule} from '@angular/forms';
+import { MessageComponent } from './message/message.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ShadowDirective } from './shadow.directive';
+import { HighlightDirective } from './highlight.directive';
+import { ShadowsDirective } from './shadows.directive';
+import { ProperCasePipe } from './propercase.pipe';  
+import { EmployeeService } from './employee.service';
+import { HttpClientModule } from '@angular/common/http';
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ChildComponent,
+    MessageComponent,
+    ShadowDirective,
+    HighlightDirective,
+    ShadowsDirective,
+    ProperCasePipe
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
+  ],
+  providers: [EmployeeService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+
+
+
+
+
 
 
 
