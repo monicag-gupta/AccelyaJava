@@ -113,6 +113,37 @@ Child.component.html
 
 
 
+App.component.ts
+
+import { Component } from '@angular/core';
+@Component({
+   selector: 'app-root',
+   templateUrl: './app.component.html',
+   styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+GetChildData(data:string){  
+   console.log(data);  
+   alert(data);
+}  
+myInputMessage:string="My Input Message";
+	}
+
+
+
+
+App.component.html
+
+<app-child [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-child>  
+<br>
+  <br>
+  <br>
+
+
+
+
+
+
 
 
 
