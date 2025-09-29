@@ -284,6 +284,53 @@ app.component.html
 
 
 
+import { Component } from '@angular/core';  
+@Component({  
+  selector: 'app-root',  
+  templateUrl: './app.component.html',  
+  styleUrls : ['./custom.css']  
+})  
+export class AppComponent {  
+  showColor: boolean = false; 
+  clr:string = "green"; 
+  constructor() { }  
+  public changeColor(): void {  
+      this.showColor = !this.showColor;
+      this.clr=(this.clr=="green"?"orange":"green"); 
+  }  
+} 
+
+
+
+
+
+<div>  
+    <h3>This is a Attribute Directives</h3>  
+    <span [class.red]="true">Attribute Change</span><br />  
+    <span [ngClass]="{'blue':true}">Attribute Change by Using NgClass</span><br />  
+    <span [ngStyle]="{'font-size':'14px','color':clr}">Attribute Change by Using NgStyle</span>  
+    <br /><br />  
+    <span [class.cyan]="showColor">Attribute Change</span><br />  
+    <span [ngClass]="{'brown':showColor}">Attribute Change by Using NgClass</span><br />  
+    <input type="button" value="Change Color" (click)="changeColor()" />  
+    <br /><br />  
+    <span [class.cyan]="showColor">Attribute Change</span><br />  
+    <span [ngClass]="{'cyan':showColor, 'red' : !showColor}">Attribute Change by Using NgClass</span><br />  
+    <br />  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
