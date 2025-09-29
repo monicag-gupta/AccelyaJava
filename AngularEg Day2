@@ -913,6 +913,102 @@ export class EmployeeService {
 
 
 
+app.module.ts:
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ChildComponent } from './child/child.component';
+import {FormsModule} from '@angular/forms';
+import { MessageComponent } from './message/message.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ShadowDirective } from './shadow.directive';
+import { HighlightDirective } from './highlight.directive';
+import { ShadowsDirective } from './shadows.directive';
+import { ProperCasePipe } from './propercase.pipe';  
+import { EmployeeService } from './employee.service';
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ChildComponent,
+    MessageComponent,
+    ShadowDirective,
+    HighlightDirective,
+    ShadowsDirective,
+    ProperCasePipe
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  providers: [EmployeeService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+
+
+
+
+
+
+
+Use the service: app.component.ts
+
+
+
+import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from './employee.service';
+@Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+    public model: any = {};
+    public source: Array<any>;
+    constructor(public service: EmployeeService) {
+        this.source = this.service.returnEmpData();
+    }
+    ngOnInit(): void { }
+    public submit(): void {
+        if (this.validate()) {
+            this.service.addEmpData(this.model);
+            this.reset();
+        }
+    }
+    public reset(): void { this.model = {}; }
+    public validate(): boolean {
+        let status: boolean = true;
+        if (typeof (this.model.name) === "undefined") {
+            alert('Name is Blank'); status = false; return status;
+        }
+        else if (typeof (this.model.city) === "undefined") {
+            alert('City is Blank');
+            status = false; return status;
+        }
+        return status;
+    }
+} 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
