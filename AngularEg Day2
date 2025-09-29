@@ -216,6 +216,16 @@ These directives are used to manipulate and change the structure of the DOM elem
 
 
 
+Attribute directives are used to change the look and behavior of the DOM elements. For example: ngClass directive, and ngStyle directive etc.
+ngClass Directive: The ngClass directive is used to add or remove CSS classes to an HTML element.
+ngStyle Directive: The ngStyle directive facilitates you to modify the style of an HTML element using the expression. You can also use ngStyle directive to dynamically change the style of your HTML element.
+
+
+
+
+
+
+
 
 
 
