@@ -670,6 +670,38 @@ export class ShadowsDirective {
 
 
 
+Custom Directive:
+app.component.ts
+
+import { Component } from '@angular/core';  
+@Component({  
+  selector: 'app-root',  
+  templateUrl: './app.component.html',  
+  styleUrls : ['./custom.css']  
+})  
+export class AppComponent {  
+}
+
+
+
+
+Custom Directive:
+app.component.html
+
+
+<h2>Custom Directive Example</h2>
+
+<span appShadow>Shadowed Text</span>
+<span appShadows>Shadowed Text nicely</span>
+
+<p appHighlight>
+  Hover over this text to see the custom directive in action!
+</p>
+
+
+
+
+
 
 
 
