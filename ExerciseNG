@@ -1,0 +1,17 @@
+Use *ngfor, *ngswitch, ngStyle to get the following output:
+*ngswitch + ngStyle: A: red, B:blue, C: green, D: black ; change the size of font also.
+*ngfor: Pull the list from a json student object array made in app.component.ts.
+Std_list consist of 10 student objects
+
+
+
+            { SrlNo: 1, Name: 'John Doe1', Course: 'BE', Grade: 'A' },  
+            { SrlNo: 2, Name: 'John Doe2', Course: 'BSc', Grade: 'B' },  
+            { SrlNo: 3, Name: 'John Doe3', Course: 'BCom', Grade: 'A' },  
+            { SrlNo: 4, Name: 'John Doe4', Course: 'B.Tech', Grade: 'C' },  
+            { SrlNo: 5, Name: 'John Doe5', Course: 'MCA', Grade: 'B' },  
+            { SrlNo: 6, Name: 'John Doe6', Course: 'MSc', Grade: 'B' },  
+            { SrlNo: 7, Name: 'John Doe7', Course: 'MBA', Grade: 'A' },  
+            { SrlNo: 8, Name: 'John Doe8', Course: 'MSc.', Grade: 'C' },  
+            { SrlNo: 9, Name: 'John Doe9', Course: 'MA', Grade: 'D' },  
+            { SrlNo: 10, Name: 'John Doe10', Course: 'M.Tech', Grade: 'A' }  
