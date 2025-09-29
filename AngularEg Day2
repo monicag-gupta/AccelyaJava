@@ -180,6 +180,21 @@ export class AppComponent {
 
 
 
+A directive modifies the DOM by changing the appearance, behavior, or layout of DOM elements.
+The main reason for using directives in any Angular applications are
+Reusability
+Readability
+Maintainability
+Types of Directives
+There are three main types of directives in Angular 8+:
+Component – Directives with templates.
+Attribute Directives – Directives that change the behavior of a component or element but don’t affect the template.
+Structural Directives – Directives that change the behavior of a component or element by affecting the template or the DOM decoration of the UI.
+
+
+
+
+
 
 
 
