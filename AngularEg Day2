@@ -459,6 +459,44 @@ app.component.html
 
 
 
+Structural Directive: ngfor
+
+app.component.ts
+
+import { Component } from '@angular/core';  
+ @Component({  
+   selector: 'app-root',  
+   templateUrl: './app.component.html',  
+   styleUrls : ['./custom.css']  
+})  
+export class AppComponent {  
+  productList: Array<string> = [
+  'iPhone 16 Pro Max',
+  'Samsung Galaxy S25 Ultra',
+  'Google Pixel 9 Pro',
+  'OnePlus 13',
+  'Nothing Phone 3a Pro',
+  'Xiaomi 15 Ultra',
+  'Oppo Find X8 Pro',
+  'Motorola Razr Ultra (2025)'
+];
+     constructor() { }  
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
