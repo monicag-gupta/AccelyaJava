@@ -1049,6 +1049,23 @@ Use service: app.component.html
 
 
 
+RxJS (Reactive Extensions for JavaScript) is a library for reactive programming using Observables.
+Angular’s HttpClient returns Observables, making RxJS the core tool for handling REST API calls, async streams, and event handling.
+An Observable is a way to handle asynchronous data streams.Think of it as a “data producer” that keeps sending values over time, and your code can subscribe to receive those values.
+It’s part of RxJS (Reactive Extensions for JavaScript), and Angular uses it heavily.
+Common RxJS Operators with REST
+When calling REST APIs, you typically use these RxJS operators:
+map → Transform response data.
+catchError → Handle API errors.
+tap → Perform side effects (like logging).
+switchMap → Chain API calls (cancel previous one if new request fires).
+mergeMap → Run multiple requests in parallel.
+debounceTime → Delay requests (useful in search). 
+
+
+
+
+
 
 
 
