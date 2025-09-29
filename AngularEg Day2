@@ -592,6 +592,14 @@ export class AppModule { }
 
 
 
+ng generate directive shadow
+
+ng generate directive highlight
+
+ng generate directive shadows
+
+
+
 
 
 
