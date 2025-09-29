@@ -73,6 +73,33 @@ app.component.html
 
 
 
+@Output : EventEmitter -> Emit event
+
+
+Example: 
+
+child.component.ts
+
+import { Component, Input, Output,EventEmitter, OnInit } from '@angular/core';  
+
+@Component({
+  selector: 'app-child',
+  templateUrl: './child.component.html',
+  styleUrls: ['./child.component.css']
+})
+export class ChildComponent implements OnInit {  
+   @Input() myinputMsg:string='';  
+   @Output() myOutput:EventEmitter<string>= new EventEmitter();  
+   outputMessage:string="I am child component."  
+   constructor() { }  
+   ngOnInit() {  
+      console.log(this.myinputMsg);  
+      alert(this.myinputMsg); 
+   } 
+   sendValues(){  
+   	this.myOutput.emit(this.outputMessage);  
+   }  
+} 
 
 
 
