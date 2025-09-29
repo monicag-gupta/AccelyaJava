@@ -168,6 +168,15 @@ export class AppComponent {
 
 
 
+<app-child [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-child>
+<hr>
+<button (click)="fn()">I am Parent button</button>  
+<br>
+  <br>
+  <br>
+
+
+
 
 
 
