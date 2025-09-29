@@ -1176,6 +1176,47 @@ export class ProductService {
 
 
 
+Using Service in a Component
+app.component.ts
+
+// app.component.ts
+import { Component, OnInit } from '@angular/core';
+import { ProductService, Product } from './product.service';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <h2>Product List</h2>
+    <ul>
+      <li *ngFor="let p of products">
+        <br><br>
+        {{p | json}} <br>
+         {{ p.title }} - {{ p.price }}
+        <hr>
+      </li>
+    </ul>
+  `
+})
+export class AppComponent implements OnInit {
+  products: Product[] = [];
+
+  constructor(private productService: ProductService) {}
+
+  ngOnInit() {
+    this.productService.getProducts().subscribe({
+      next: (data) => (this.products = data),
+      error: (err) => console.error(err)
+    });
+  }
+}
+
+
+
+
+
+
+
+
 
 
 
