@@ -575,6 +575,29 @@ export class DashboardComponent {
 
 
 
+Main App:
+app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  title = 'angular-jwt-demo';
+}
+
+
+
+Main App:
+
+app.component.html
+
+<h1>{{ title }}</h1>
+<router-outlet></router-outlet>
+
+
 
 
 
