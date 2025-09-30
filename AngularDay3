@@ -226,6 +226,22 @@ src/app/items/product-list/product-list.component.html
 </ul>
 
 
+src/app/items/items.module.ts
+
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProductListComponent } from './product-list/product-list.component';
+
+@NgModule({
+  declarations: [ProductListComponent], // Component belongs to this module
+  imports: [CommonModule],              // Provides ngFor, ngIf etc.
+  exports: [ProductListComponent]       // Export to use in AppModule
+})
+export class ProductModule { }
+
+
+
+
 
 
 
