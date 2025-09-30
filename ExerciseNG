@@ -15,3 +15,19 @@ Std_list consist of 10 student objects
             { SrlNo: 8, Name: 'John Doe8', Course: 'MSc.', Grade: 'C' },  
             { SrlNo: 9, Name: 'John Doe9', Course: 'MA', Grade: 'D' },  
             { SrlNo: 10, Name: 'John Doe10', Course: 'M.Tech', Grade: 'A' }  
+
+
+
+
+
+
+
+
+WA App in Angular to read the id, name, email, website as employees data for the company.
+Display the data in table format in the main app component.
+Also, use username as username, and password as email in the 3 child application to authenticate the users:
+Use the URL:
+
+https://jsonplaceholder.typicode.com/users
+
+: Employee's data
