@@ -23,7 +23,7 @@ Std_list consist of 10 student objects
 
 
 
-WA App in Angular to read the id, name, email, website as employees data for the company.
+WA App in Angular to read the id, name, email, website, username, phone as employees data for the company.
 Display the data in table format in the main app component.
 Also, use username as username, and password as email in the 3 child application to authenticate the users:
 Use the URL:
