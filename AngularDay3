@@ -36,3 +36,79 @@ import { HttpClientModule } from '@angular/common/http';
 export class AppModule {}
 
 
+
+
+Example: REST API Service (GET, POST)
+product.service.ts
+
+// product.service.ts
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+
+export interface Product {
+  id: number;
+  title: string;
+  price: number;
+}
+
+@Injectable({ providedIn: 'root' })
+export class ProductService {
+  private apiUrl = 'https://fakestoreapi.com/products';
+
+  constructor(private http: HttpClient) {}
+
+  // GET all products
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrl).pipe(
+      map((data) => data), // transform if needed
+      catchError(this.handleError)
+    );
+  }
+
+  // POST new product
+  addProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.apiUrl, product).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Handle API errors
+  private handleError(error: HttpErrorResponse) {
+    console.error('API Error:', error.message);
+    return throwError(() => new Error('Something went wrong!'));
+  }
+}
+
+
+Explanation:
+
+this.http.get<Product[]>(this.apiUrl)
+Makes a GET request to this.apiUrl (e.g., https://fakestoreapi.com/products).
+<Product[]> is a generic type that tells Angular: “I expect the response to be an array of Product objects.”
+Because of this, data in the stream will already be typed as Product[].
+.pipe(...)
+pipe() lets you chain RxJS operators that transform or handle the observable stream.
+map((data) => data)
+map is an RxJS operator.
+Here it’s not doing anything (just returning data as-is).
+But you could transform the response if needed.Example: only return id and title:
+map((data) => data.map(item => ({ id: item.id, title: item.title })))
+catchError(this.handleError)
+catchError lets you handle errors in the observable chain.
+this.handleError should be a method in your service that takes the error and returns a new observable (usually throwError).
+
+
+
+Using Service in a Component
+
+app.component.ts
+
+
+
+
+
+
+
+
