@@ -183,6 +183,23 @@ You could also show a user-friendly message, like “Failed to load products.”
 
 
 
+Generate a Feature Module
+  ng generate module items
+This creates a folder src/app/items with:
+  items.module.ts
+Generate a Component inside Product Module
+  ng generate component items/product-list
+This creates:
+product-list.component.ts
+product-list.component.html
+Added to items.module.ts automatically.
+
+
+
+
+
+
+
 
 
 
