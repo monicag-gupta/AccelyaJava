@@ -334,6 +334,267 @@ https://dummyjson.com/users
 
 
 
+@Injectable marks a class as available for dependency injection.
+Without it, Angular cannot inject the service into components or other services.
+Example:
+@Injectable()
+export class AuthService { }
+Now Angular knows AuthService can be injected.
+
+providedIn: 'root’ :
+providedIn determines where the service is provided in the application’s dependency injector. 
+'root' means:The service is singleton, shared across the entire app.
+
+
+
+tap here logs the API response and stores the token, without changing the observable’s data.
+tap = peek & perform side effects, but the data continues unchanged downstream.
+
+
+
+
+Create Auth Guard
+src/app/auth.guard.ts
+
+import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+import { AuthService } from './auth.service';
+
+@Injectable({ providedIn: 'root' })
+export class AuthGuard implements CanActivate {
+  constructor(private auth: AuthService, private router: Router) {}
+
+  canActivate(): boolean {
+    if (this.auth.isLoggedIn()) return true;
+    this.router.navigate(['/login']);
+    return false;
+  }
+}
+
+
+
+
+
+
+Create HTTP Interceptor
+
+src/app/auth.interceptor.ts
+
+
+import { Injectable } from '@angular/core';
+import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
+import { AuthService } from './auth.service';
+
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+  constructor(private auth: AuthService) {}
+
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    const token = this.auth.getToken();
+    if (token) {
+      const cloned = req.clone({
+        headers: req.headers.set('Authorization', `Bearer ${token}`)
+      });
+      return next.handle(cloned);
+    }
+    return next.handle(req);
+  }
+}
+
+
+
+
+
+intercept(req: HttpRequest<any>, next: HttpHandler)
+req: HttpRequest<any>
+Represents the outgoing HTTP request.
+HttpRequest is immutable, meaning you cannot modify it directly — you must clone it to make changes (like adding headers).
+next: HttpHandler
+Represents the next handler in the chain.
+Calling next.handle(req) passes the request to the next interceptor or finally to the HTTP backend that sends the request to the server.
+Intercepts all HTTP requests before they are sent.
+Lets you:
+Add headers (like JWT token)
+Modify the request URL or body
+Handle errors globally
+Log requests
+Returns an Observable, usually with next.handle(modifiedReq).
+
+
+
+Flow:
+Angular sends a request.
+Interceptor captures it.
+If token exists → clone and add header.
+Pass it to next handler (next.handle).
+Request goes to server.
+Response flows back through the interceptor chain.
+
+
+Immutable: Always use req.clone() to modify.
+Chainable: Multiple interceptors can be used; they all call next.handle().
+Observable: next.handle(req) returns an Observable you can pipe() to handle response/errors.
+req.clone()
+HttpRequest objects in Angular are immutable, meaning you cannot change them directly.
+clone() creates a copy of the request with modified properties (like headers, body, URL, etc.).
+This is required whenever you want to add something like an Authorization header.
+req.headers.set('Authorization', Bearer ${token})
+req.headers gives you access to the request headers.
+.set() creates a new headers object with the Authorization header added (or replaced if it exists).
+`Bearer ${token}` is the JWT token formatted as a Bearer token for authorization.
+What this does together
+Creates a new request identical to the original but with the JWT token attached in the headers.
+cloned is then sent to the server:
+return next.handle(cloned);
+
+
+
+
+
+
+Update App Module
+
+src/app/app.module.ts
+
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthInterceptor } from './auth.interceptor';
+
+@NgModule({
+  declarations: [AppComponent, LoginComponent, DashboardComponent],
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+
+
+
+
+Setup Routing
+
+src/app/app-routing.module.ts
+
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+
+
+
+
+Login Component
+
+src/app/login/login.component.ts
+
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent {
+  username = 'kminchelle'; // DummyJSON test user
+  password = '0lelplR';    // DummyJSON password
+  error = '';
+  constructor(private auth: AuthService, private router: Router) {}
+  login() {
+    this.auth.login(this.username, this.password).subscribe({
+      next: () => this.router.navigate(['/dashboard']),
+      error: (err) => this.error = 'Login failed!'
+    });
+  }
+}
+
+
+
+Login Component
+src/app/login/login.component.html
+
+ <h2>Login</h2>
+    <h4>emilys : emilyspass</h4>
+    <form (ngSubmit)="login()">
+      <input [(ngModel)]="username" name="username" placeholder="Username" required />
+      <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p *ngIf="error" style="color:red">{{ error }}</p>
+
+
+
+Dashboard Component
+src/app/dashboard/dashboard.component.ts
+
+import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-dashboard',
+  template: `
+    <h2>Dashboard</h2>
+    <p>Welcome! You are logged in.</p>
+    <button (click)="logout()">Logout</button>
+  `
+})
+export class DashboardComponent {
+  constructor(private auth: AuthService, private router: Router) {}
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/login']);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
