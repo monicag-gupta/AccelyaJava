@@ -12,3 +12,27 @@ mergeMap → Run multiple requests in parallel.
 debounceTime → Delay requests (useful in search). 
 
 
+
+In module.ts
+Modules are IMPORTED
+Services, pipes, directives, components are DECLARED
+Services are PROVIDED
+first component to be executed are BOOTSTRAPED
+
+
+
+
+Install dependencies
+npm install rxjs
+(RxJS comes with Angular, so you usually don’t need to install it separately.)
+Import HttpClientModule
+Add it in your app.module.ts:
+
+import { HttpClientModule } from '@angular/common/http';
+
+@NgModule({
+  imports: [HttpClientModule],
+})
+export class AppModule {}
+
+
