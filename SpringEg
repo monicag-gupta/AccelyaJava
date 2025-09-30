@@ -200,6 +200,27 @@ Beans.xml
 
 
 
+package com.springcore;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MainApp {
+	public static void main(String[] args) {
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+		HelloWorld obj1 = (HelloWorld) context.getBean("idhello");
+		obj1.setMessage("Hello from Obj1");
+		obj1.getMessage();
+		HelloWorld obj2 = (HelloWorld) context.getBean("idhello");
+		obj2.setMessage("Hello from Obj2");
+		obj2.getMessage();
+		System.out.println("From Obj 1 Now:");
+		obj1.getMessage();
+		context.close();
+	}
+}
+
+
 
 
 
