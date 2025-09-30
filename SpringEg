@@ -136,6 +136,24 @@ Group id: com.springcore
 Artifact Id: SpringPrj1
 
 
+package com.springcore;
+
+HelloWorld.java
+
+package com.springcore;
+public class HelloWorld {
+private String message; //property
+public void setMessage(String message){
+this.message = message;
+}
+public void getMessage(){
+System .out.println("Your Message : " + message);
+}
+}
+
+
+
+
 
 
 
