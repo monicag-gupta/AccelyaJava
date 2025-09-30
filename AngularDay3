@@ -684,6 +684,104 @@ export class AppComponent {
 
 
 
+Reactive Forms
+
+Forms are model-driven, meaning the structure and validation are defined in the component.
+Better for large or dynamic forms.
+Uses FormGroup, FormControl, and FormBuilder.
+Key modules needed:
+import { ReactiveFormsModule } from '@angular/forms';
+Add ReactiveFormsModule to imports in app.module.ts.
+
+Advantages over Template-Driven Forms
+Better scalability for large forms.
+More explicit control over validation.
+Easier to unit test.
+Can dynamically add/remove controls.
+
+
+
+
+[formGroup]="userForm" → binds the template to the FormGroup defined in the component.
+formControlName → binds input/select fields to specific FormControl inside the group.
+Validators → used to define validation rules in the component.
+userForm.valid → checks if all fields are valid before submitting.
+Can access errors using userForm.get('field')?.errors.
+
+
+
+Import ReactiveFormsModuleapp.module.ts:
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, ReactiveFormsModule],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+
+
+
+Define Form Model in Componentapp.component.ts
+
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  userForm: FormGroup;
+  constructor(private fb: FormBuilder) {
+    this.userForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      gender: ['', Validators.required]
+    });
+  }
+  submitForm() {
+    if (this.userForm.valid) {
+      console.log('Form Submitted', this.userForm.value);
+      alert('Form Submitted! Check console for details.');
+      this.userForm.reset();
+    }
+  }
+}
+
+
+
+
+Create Templateapp.component.html
+
+<h2>Reactive Form Example</h2>
+<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+  <label>Name:</label>
+  <input type="text" formControlName="name" />
+  <div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid">
+    Name is required  </div> <br>
+  <label>Email:</label>
+  <input type="email" formControlName="email" />
+  <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid">
+    <div *ngIf="userForm.get('email')?.errors?.['required']">Email is required</div>
+    <div *ngIf="userForm.get('email')?.errors?.['email']">Email is invalid</div>
+  </div>  <br>
+  <label>Gender:</label>
+  <select formControlName="gender">
+    <option value="">Select Gender</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select> 
+  <div *ngIf="userForm.get('gender')?.touched && userForm.get('gender')?.invalid">
+    Gender is required  </div>  <br>
+  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form> <hr>
+<h3>Form Value:</h3>
+<pre>{{ userForm.value | json }}</pre>
+
 
 
 
