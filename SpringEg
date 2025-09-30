@@ -50,6 +50,74 @@ makes the code easy to test
 
 Spring Annotations List
 
+@Component :       
+It is generic  stereotype for any spring managed component.
+@Repository :
+Specialized form of @Component. This annotation work as marker for any class which fulfills the role of repository or Data Access  Object(Persistent Layer).
+@Controller :
+Specialized form of @Component and applied to Presentation Layer.
+@Service :
+Specialized form of @Component and applied to Service Layer.
+@Configuration :
+@Configuration annotated class is used to define beans.  Have methods with annotation @Bean
+@Bean
+It is a method level annotation which work with @Configuration
+@Scope
+Every bean defined in IoC container needs to have a scope, default scope is Singleton.
+@DependsOn
+The @DependsOn annotation can force Spring IoC container to initialize one or more beans before the bean which is annotated by @DependsOn annotation. The @DependsOn annotation may be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean .
+@Primary
+In Spring framework, the @Primary annotation is used to give higher preference to a bean, when there are multiple beans of same type. The @Primary annotation may be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean .
+@Lazy
+@Lazy annotation indicates whether a bean is to be lazily initialized. It can be used on @Component and @Bean definitions. A @Lazy bean is not initialized until referenced by another bean or explicitly retrieved from BeanFactory . Beans that are not annotated with @Lazy are initialized eagerly.
+@Import
+@Import annotation in Spring allows you to load bean definitions from one or more another @Configuration files or Components. You might not want to configure all the beans in one configuration file.
+@ImportResource
+@ImportResource annotation is used to load beans from an applicationContext.xml file into an Application Context.
+@Value
+@Value is a Java annotation that is used at the field or method/constructor parameter level and it indicates a default value for the affected argument. It is commonly used for injecting values into configuration variables
+@Named 
+@Named works the same as @Component. However, the annotations @Controller, @Service, and @Repository are more specific. A bean annotated with @Named annotation is considered as a component in spring container
+@Inject 
+@Inject is equivalent to spring @Autowired in spring container with some limitations. 
+@PreDestroy and @PostConstruct
+@PreDestroy and @PostConstruct are alternative way for bean initMethod and destroyMethod. It can be used when the bean class is defined by us.
+@ComponentScan
+Configures component scanning directives for use with @Configuration classes. Here we can specify the base packages to scan for spring components.
+@PropertySource
+Provides a simple declarative mechanism for adding a property source to Spring’s Environment. There is a similar annotation for adding an array of property source files i.e @PropertySources.
+@Autowired
+Spring @Autowired annotation is used for automatic injection of beans. Spring @Qualifier annotation is used in conjunction with Autowired to avoid confusion when we have two of more bean configured for same type
+Spring MVC annotations:
+@RequestMapping
+@PathVariable
+@RequestParam
+@ModelAttribute
+@RequestBody and @ResponseBody
+@RequestHeader and @ResponseHeader
+@CrossOrigin
+@Transactional
+Is the spring declarative transaction management annotation.
+@EnableWebSecurity 
+Is used with @Configuration class to have the Spring Security configuration defined
+Spring Boot Annotations
+@SpringBootApplication
+@EnableAutoConfiguration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
