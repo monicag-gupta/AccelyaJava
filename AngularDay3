@@ -145,6 +145,47 @@ export class AppComponent implements OnInit {
 
 
 
+The whole cycle
+1. Component initializes → ngOnInit() runs.
+2. Service method (getProducts) is called.
+3. HTTP request is sent.
+4. When response arrives:
+If success → next runs → UI updates.
+If failure → error runs → logs or shows error message.
+
+Observable lifecycle
+An Observable can emit:
+Next → a new value/data is sent.
+Error → something went wrong.
+Complete → it’s done, no more values.
+
+
+
+Where it runs
+ngOnInit() is a lifecycle hook in Angular.
+It’s the right place to fetch data from a service (like calling an API).
+Step 1: Call the service : this.productService.getProducts()
+This calls the method from your ProductService.
+That method uses HttpClient to make an HTTP GET request to the API (e.g., https://fakestoreapi.com/products).
+It returns an Observable<Product[]>.
+Step 2: Subscribe to the Observable : .subscribe({...})
+Observables are lazy → they don’t actually run until you subscribe.
+By subscribing, you’re saying: “Execute this HTTP request and notify me when data arrives or if there’s an error.”
+Step 3: Handle the success case : next: (data) => this.products = data
+When the HTTP request succeeds, the API response (data) is passed here.
+this.products = data; saves the fetched array of products into your component property.
+This automatically updates the HTML template via Angular’s data binding.
+Step 4: Handle the error case : error: (err) => console.error(err)
+If the HTTP request fails (e.g., server down, wrong URL, no internet), this block runs.
+Right now, it just logs the error in the browser console.
+You could also show a user-friendly message, like “Failed to load products.”
+
+
+
+
+
+
+
 
 
 
