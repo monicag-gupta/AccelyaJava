@@ -267,3 +267,36 @@ public class MainApp {
 }
 
 
+
+
+package com.springcore;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+public class MainApp {
+	public static void main(String[] args) {
+		ApplicationContext context = (ApplicationContext) new AnnotationConfigApplicationContext(
+				MyAppConfiguration.class);
+		HelloWorld obj = (HelloWorld) context.getBean("idhello");
+		//obj.setMessage("Hello World!");
+		obj.getMessage();
+	}
+}
+
+
+
+
+
+package com.springcore;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+@Configuration
+public class MyAppConfiguration {
+ 	@Bean("idhello")
+	public HelloWorld getHelloWorld() {
+ 		HelloWorld obj=new HelloWorld();
+ 		obj.setMessage("Hello World");
+		return obj;
+	}
+}
+
+
