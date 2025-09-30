@@ -604,6 +604,89 @@ app.component.html
 
 
 
+Template-Driven Forms
+
+Forms defined mainly in the template (HTML).
+Angular automatically creates NgForm and NgModel objects to manage form state.
+Simple to use for small forms.
+Key modules needed:
+import { FormsModule } from '@angular/forms';
+Add FormsModule to imports in app.module.ts.
+
+
+
+Import FormsModuleapp.module.ts
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, FormsModule],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+
+
+
+
+Create a Simple Form in Templateapp.component.html
+
+<h2>Template-Driven Form Example</h2>
+<form #userForm="ngForm" (ngSubmit)="submitForm(userForm)">
+  <label>Name:</label>
+  <input type="text" name="name" [(ngModel)]="user.name" required />
+  <br><br>
+  <label>Email:</label>
+  <input type="email" name="email" [(ngModel)]="user.email" required />
+  <br><br>
+  <label>Gender:</label>
+  <select name="gender" [(ngModel)]="user.gender" required>
+    <option value="">Select Gender</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+  <br><br>
+  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form>
+<hr>
+<h3>Form Value:</h3>
+<pre>{{ user | json }}</pre>
+
+
+
+
+Component Logicapp.component.ts
+
+
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  user = {
+    name: '',
+    email: '',
+    gender: ''
+  };
+  submitForm(form: NgForm) {
+    console.log('Form Submitted!', form.value);
+    alert('Form Submitted! Check console for details.');
+    form.reset(); // optional: reset form after submit
+  }
+}
+
+
+
+
+
+
+
 
 
 
