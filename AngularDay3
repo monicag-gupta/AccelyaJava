@@ -18,6 +18,7 @@ Modules are IMPORTED
 Services, pipes, directives, components are DECLARED
 Services are PROVIDED
 first component to be executed are BOOTSTRAPED
+Declarations can be EXPORTED
 
 
 
