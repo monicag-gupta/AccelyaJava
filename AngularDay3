@@ -51,6 +51,7 @@ export interface Product {
   id: number;
   title: string;
   price: number;
+  image: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -82,6 +83,7 @@ export class ProductService {
 }
 
 
+
 Explanation:
 
 this.http.get<Product[]>(this.apiUrl)
@@ -104,6 +106,43 @@ this.handleError should be a method in your service that takes the error and ret
 Using Service in a Component
 
 app.component.ts
+
+
+// app.component.ts
+import { Component, OnInit } from '@angular/core';
+import { ProductService, Product } from './product.service';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <h2>Product List</h2>
+    <ul>
+      <li *ngFor="let p of products">
+        <br><br>
+        <img src={{p.image}} alt="Bad Image URL" height="100" width="100"/><br>
+        {{p | json}} <br><br>
+         {{ p.title }} - {{ p.price }}
+        <hr>
+      </li>
+    </ul>
+  `
+})
+export class AppComponent implements OnInit {
+  products: Product[] = [];
+
+  constructor(private productService: ProductService) {}
+
+  ngOnInit() {
+    this.productService.getProducts().subscribe({
+      next: (data) => (this.products = data),
+      error: (err) => console.error(err)
+    });
+  }
+}
+
+
+
+
 
 
 
