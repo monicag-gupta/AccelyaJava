@@ -296,6 +296,7 @@ Use Product Component in AppComponentsrc/app/app.component.html
 
 Example: JWT Authentication
 
+cd..
 ng new ng2app
 
 ng generate component login
