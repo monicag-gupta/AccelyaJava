@@ -197,6 +197,38 @@ Added to items.module.ts automatically.
 
 
 
+src/app/items/product-list/product-list.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html'
+})
+export class ProductListComponent {
+  products = [
+    { name: 'iPhone 16', price: 1299 },
+    { name: 'Samsung Galaxy S25', price: 1199 },
+    { name: 'Pixel 10', price: 899 }
+  ];
+}
+
+
+
+
+src/app/items/product-list/product-list.component.html
+
+<h2>Product List</h2>
+<ul>
+  <li *ngFor="let product of products">
+    {{ product.name }} - ${{ product.price }}
+  </li>
+</ul>
+
+
+
+
+
 
 
 
