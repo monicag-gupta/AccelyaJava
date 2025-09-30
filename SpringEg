@@ -235,6 +235,18 @@ public class MainApp {
 
 
 
+MyAppConfiguration.java
+
+package com.springcore;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+@Configuration
+public class MyAppConfiguration {
+ 	@Bean("idhello")
+	public HelloWorld getHelloWorld() {
+		return new HelloWorld();
+	}
+}
 
 
 
