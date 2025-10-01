@@ -342,7 +342,13 @@ public class MainApp {
 New Maven Project:
 Group Id: com.springcore
 Artifact ID : SpringIOCPrj
-
+Add Package: com.springcore
+Add Classes under package:
+IHotDrink.java : Interface 
+Restaurant.java : Business Class
+Tea.java : Implementer Class
+Coffee.java : Implementer Class
+MainApp.java  : Main Class
 
 
 
