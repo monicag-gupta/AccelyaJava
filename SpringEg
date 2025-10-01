@@ -453,6 +453,61 @@ public class MainApp {
 
 
 
+package com.springcore;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component("restaurantBean")
+public class Restaurant {
+
+	// @Autowired
+	// @Qualifier("coffeeBean")
+	IHotDrink hotDrink;
+
+	/*
+	 * public Restaurant(iHotDrink hotDrink) { //autowired with Qualifier
+	 * this.hotDrink = hotDrink; }
+	 */
+
+	// @Autowired
+	public Restaurant(IHotDrink hotDrink) { // constructor/Setter autowired
+		System.out.println("Restaurant is open with Injected IHotDrink");
+		this.hotDrink = hotDrink;
+	}
+
+	public Restaurant() {
+		System.out.println("Restaurant is open");
+	}
+
+	public void serveHotDrink() {
+		hotDrink.prepareHotDrink();
+	}
+}
+
+
+
+
+
+
+package com.springcore;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+public class MainApp {
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.scan("com.springcore");
+		context.refresh();
+//		Restaurant obj = (Restaurant) context.getBean("restaurantBean");
+		Restaurant obj= new Restaurant(new Tea());
+		obj.serveHotDrink();
+		
+		context.close();
+	}
+}
+
+
+
 
 
 
