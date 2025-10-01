@@ -754,6 +754,58 @@ public class MainApp {
 
 
 
+package com.springcore;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppConfigurationEg {
+	@Bean("MasalaTea")
+	public Tea getMasalaTea(){
+		Tea t = new Tea();
+		t.setIngredient("Masala");
+		return t;
+	}
+	
+	@Bean("CardomonTea")
+	public Tea getCardomonTea(){
+		Tea t = new Tea();
+		t.setIngredient("Cardomon");
+		return t;
+	}
+	
+	@Bean("restaurantBean")
+	public Restaurant getRestaurant(){
+		
+		return new Restaurant();
+	}
+
+}
+
+
+
+
+
+
+package com.springcore;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+public class MainApp {
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfigurationEg.class);
+//		context.scan("com.springcore");
+		System.out.println("Scanning done, now load the Beans");
+//		context.refresh();
+		System.out.println("Post Scanning, get the Beans for work..");
+		Restaurant obj = (Restaurant) context.getBean("restaurantBean");
+//		Restaurant obj= new Restaurant(new Tea());
+		obj.serveHotDrink();
+		
+		context.close();
+	}
+}
+
+
 
 
 
