@@ -1,0 +1,10 @@
+Interface with Components: 
+  Cargo
+    AccelyaCargo (Qualifier)
+    AirIndiaCargo
+  Flights
+    Indigo (Qualifier)
+    AirIndia
+S/W
+  CargoBooking 
+    Autowiring with Cargo, Flights
