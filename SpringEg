@@ -344,11 +344,41 @@ Group Id: com.springcore
 Artifact ID : SpringIOCPrj
 Add Package: com.springcore
 Add Classes under package:
-IHotDrink.java : Interface 
-Restaurant.java : Business Class
-Tea.java : Implementer Class
-Coffee.java : Implementer Class
-MainApp.java  : Main Class
+	IHotDrink.java : Interface 
+	Restaurant.java : Business Class
+	Tea.java : Implementer Class
+	Coffee.java : Implementer Class
+	MainApp.java  : Main Class
+
+
+
+
+
+package com.springcore;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+@Component("restaurantBean")
+public class Restaurant {
+	//@Autowired
+    //@Qualifier("coffeeBean")
+	IHotDrink hotDrink;
+	/*	public Restaurant(iHotDrink hotDrink) { //autowired with Qualifier
+		this.hotDrink = hotDrink;
+	} */
+	/*
+  @Autowired
+	public Restaurant(Tea hotDrink) { //constructor/Setter autowired
+		this.hotDrink = hotDrink;
+	} */
+	public Restaurant() {}
+	public void serveHotDrink() {
+		hotDrink.prepareHotDrink();
+	}	}
+
+
+
+
 
 
 
