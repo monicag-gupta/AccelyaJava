@@ -17,5 +17,9 @@ Available : Web
 Tick: Spring Web
 
 
+Project -> Right click -> Run As-> Maven build..
+Goals: clean install spring-boot:run
+
+
 
 
