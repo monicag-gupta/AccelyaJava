@@ -510,6 +510,107 @@ public class MainApp {
 
 
 
+package com.springcore;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+
+@Component("restaurantBean")
+@Lazy
+public class Restaurant {
+
+	 @Autowired
+	 @Qualifier("coffeeBean")
+	IHotDrink hotDrink;
+
+	/*
+	 * public Restaurant(iHotDrink hotDrink) { //autowired with Qualifier
+	 * this.hotDrink = hotDrink; }
+	 */
+
+//	 @Autowired
+	public Restaurant(IHotDrink hotDrink) { // constructor/Setter autowired
+		System.out.println("Restaurant is open with Injected IHotDrink");
+		this.hotDrink = hotDrink;
+	}
+
+	public Restaurant() {
+		System.out.println("Restaurant is open");
+	}
+
+	public void serveHotDrink() {
+		hotDrink.prepareHotDrink();
+	}
+}
+
+
+
+
+package com.springcore;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+
+
+@Component("teaBean")
+@Lazy
+public class Tea implements IHotDrink {
+	public Tea() {
+		System.out.println("Constructor: Tea Ingredients are needed");
+	}
+	@Override
+	public void prepareHotDrink() {
+		System.out.println("Dear customer, we are preparing tea for you!!");
+	}
+}
+
+
+
+
+package com.springcore;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+
+
+@Component("coffeeBean")
+@Lazy
+public class Coffee implements IHotDrink {
+	public Coffee() {
+		System.out.println("Constructor: Coffee Ingredients are needed");
+	}
+	@Override
+	public void prepareHotDrink() {
+		System.out.println("Dear customer, we are preparing Coffee for you!!");
+	}
+}
+
+
+
+
+package com.springcore;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+public class MainApp {
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.scan("com.springcore");
+		System.out.println("Scanning done, now load the Beans");
+		context.refresh();
+		System.out.println("Post Scanning, get the Beans for work..");
+		Restaurant obj = (Restaurant) context.getBean("restaurantBean");
+//		Restaurant obj= new Restaurant(new Tea());
+		obj.serveHotDrink();
+		
+		context.close();
+	}
+}
+
+
+
+
+
+
+
 
 
 
