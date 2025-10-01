@@ -355,26 +355,104 @@ Add Classes under package:
 
 
 package com.springcore;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+
 @Component("restaurantBean")
 public class Restaurant {
-	//@Autowired
-    //@Qualifier("coffeeBean")
+
+	// @Autowired
+	// @Qualifier("coffeeBean")
 	IHotDrink hotDrink;
-	/*	public Restaurant(iHotDrink hotDrink) { //autowired with Qualifier
-		this.hotDrink = hotDrink;
-	} */
+
 	/*
-  @Autowired
-	public Restaurant(Tea hotDrink) { //constructor/Setter autowired
-		this.hotDrink = hotDrink;
-	} */
-	public Restaurant() {}
+	 * public Restaurant(iHotDrink hotDrink) { //autowired with Qualifier
+	 * this.hotDrink = hotDrink; }
+	 */
+	/*
+	 * @Autowired public Restaurant(Tea hotDrink) { //constructor/Setter autowired
+	 * System.out.println("Restaurant is open with Injected IHotDrink");
+	 * this.hotDrink = hotDrink; }
+	 */
+	public Restaurant() {
+		System.out.println("Restaurant is open");
+	}
+
 	public void serveHotDrink() {
 		hotDrink.prepareHotDrink();
-	}	}
+	}
+}
+
+
+
+
+package com.springcore;
+
+public interface IHotDrink {
+	void prepareHotDrink();
+
+}
+
+
+
+
+
+package com.springcore;
+import org.springframework.stereotype.Component;
+
+
+@Component("teaBean")
+public class Tea implements IHotDrink {
+	public Tea() {
+		System.out.println("Constructor: Tea Ingredients are needed");
+	}
+	@Override
+	public void prepareHotDrink() {
+		System.out.println("Dear customer, we are preparing tea for you!!");
+	}
+}
+
+
+
+
+package com.springcore;
+import org.springframework.stereotype.Component;
+
+
+@Component("coffeeBean")
+public class Coffee implements IHotDrink {
+	public Coffee() {
+		System.out.println("Constructor: Coffee Ingredients are needed");
+	}
+	@Override
+	public void prepareHotDrink() {
+		System.out.println("Dear customer, we are preparing Coffee for you!!");
+	}
+}
+
+
+
+
+
+package com.springcore;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+public class MainApp {
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.scan("com.springcore");
+		context.refresh();
+		Restaurant obj = (Restaurant) context.getBean("restaurantBean");
+		obj.serveHotDrink();
+		
+		context.close();
+	}
+}
+
+
+
+
 
 
 
