@@ -23,3 +23,28 @@ Goals: clean install spring-boot:run
 
 
 
+Create a java class:
+
+HelloController
+
+
+package com.SB;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+
+    @GetMapping("/")
+    public String sayHello() {
+        return "Hello World from Spring Boot 3!";
+    }
+}
+
+
+
+
+
+
+
+
