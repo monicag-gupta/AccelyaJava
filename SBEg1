@@ -127,5 +127,129 @@ com.simplecrud
 
 
 
+com.simplecrud.controller.EmployeeController
+
+package com.simplecrud.controller;
+
+import com.simplecrud.model.Employee;
+import com.simplecrud.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/employees")
+public class EmployeeController {
+
+    @Autowired
+    private EmployeeService service;
+
+    @GetMapping
+    public List<Employee> getAll() {
+        return service.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Employee getById(@PathVariable int id) {
+        return service.getById(id);
+    }
+
+    @PostMapping
+    public Employee create(@RequestBody Employee emp) {
+        return service.add(emp);
+    }
+
+    @PutMapping("/{id}")
+    public Employee update(@PathVariable int id, @RequestBody Employee emp) {
+        return service.update(id, emp);
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable int id) {
+        boolean removed = service.delete(id);
+        return removed ? "Deleted" : "Not Found";
+    }
+}
+
+
+com.simplecrud.model.Employee:
+
+
+package com.simplecrud.model;
+
+public class Employee {
+    private int id;
+    private String name;
+    private String department;
+
+    public Employee() {}
+    public Employee(int id, String name, String department) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+    }
+
+    // Getters and setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getDepartment() { return department; }
+    public void setDepartment(String department) { this.department = department; }
+}
+
+
+
+com.simplecrud.service.EmployeeService:
+
+package com.simplecrud.service;
+
+import com.simplecrud.model.Employee;
+import org.springframework.stereotype.Service;
+
+import java.util.*;
+
+@Service
+public class EmployeeService {
+
+    private final List<Employee> employeeList = new ArrayList<>();
+    private int currentId = 1;
+
+    public List<Employee> getAll() {
+        return employeeList;
+    }
+
+    public Employee getById(int id) {
+        return employeeList.stream()
+                .filter(e -> e.getId() == id)
+                .findFirst()
+                .orElse(null);
+    }
+
+    public Employee add(Employee emp) {
+        emp.setId(currentId++);
+        employeeList.add(emp);
+        return emp;
+    }
+
+    public Employee update(int id, Employee updatedEmp) {
+        for (Employee emp : employeeList) {
+            if (emp.getId() == id) {
+                emp.setName(updatedEmp.getName());
+                emp.setDepartment(updatedEmp.getDepartment());
+                return emp;
+            }
+        }
+        return null;
+    }
+
+    public boolean delete(int id) {
+        return employeeList.removeIf(emp -> emp.getId() == id);
+    }
+}
+
 
 
