@@ -219,6 +219,10 @@ public class EmployeeService {
     private final List<Employee> employeeList = new ArrayList<>();
     private int currentId = 1;
 
+    public EmployeeService() {
+    	employeeList.add(new Employee(101,"John Doe","HR"));
+    }
+
     public List<Employee> getAll() {
         return employeeList;
     }
