@@ -322,6 +322,62 @@ public class EmployeeController {
 
 
 
+index.jsp:
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.*, com.crudjsp.model.Employee" %>
+
+<html>
+<head>
+    <title>Employee List</title>
+</head>
+<body>
+    <h2>Employee List</h2>
+    <a href="add">Add Employee</a>
+    <br/><br/>
+    
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+        <%
+            // Retrieve the list of employees from the model
+            List<Employee> employees = (List<Employee>) request.getAttribute("employees");
+            if (employees != null && !employees.isEmpty()) {
+                for (Employee e : employees) {
+        %>
+                    <tr>
+                        <td><%= e.getId() %></td>
+                        <td><%= e.getName() %></td>
+                        <td><%= e.getDepartment() %></td>
+                        <td>
+                            <a href="edit/<%= e.getId() %>">Edit</a> |
+                            <a href="delete/<%= e.getId() %>">Delete</a>
+                        </td>
+                    </tr>
+        <%
+                }
+            } else {
+        %>
+                <tr>
+                    <td colspan="4">No employees found.</td>
+                </tr>
+        <%
+            }
+        %>
+    </table>
+</body>
+</html>
+
+
+
+
+
+
+
 
 
 
