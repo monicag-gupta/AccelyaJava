@@ -159,3 +159,34 @@ spring.mvc.view.suffix=.jsp
 
 
 
+
+
+src/
+├── main/
+│   ├── java/com/crudjsp/
+│   │   ├── CrudJspApplication.java
+│   │   ├── controller/EmployeeController.java
+│   │   ├── dao/EmployeeDAO.java
+│   │   ├── dao/EmployeeDAOImpl.java
+│   │   ├── model/Employee.java
+│   └── webapp/WEB-INF/jsp/
+│       ├── index.jsp
+│       ├── add.jsp
+│       └── edit.jsp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
