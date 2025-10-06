@@ -12,3 +12,21 @@ Select dependencies:
   Spring Web
 Click Finish
   Run as -> Maven clean install
+
+
+
+
+
+Add in the project:
+src/main/java/com/sbmvc/controller/HomeController.java
+src/main/webapp/WEB-INF/jsp/home.jsp
+
+Check:
+src/main/java/com/sbmvc/SbmvcApplication.java
+src/main/java/com/sbmvc/ServletInitializer.java
+
+Edit:
+application.properties
+
+Code accordingly
+
