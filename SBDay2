@@ -80,11 +80,28 @@ logging.level.org.springframework.web=DEBUG
 
 
 
+<!-- JSP Engine -->
+<dependency>
+    <groupId>org.apache.tomcat.embed</groupId>
+    <artifactId>tomcat-embed-jasper</artifactId>
+</dependency>
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+
+
+
+
+
 Right click project->run as->maven build..
 Goal : clean install spring-boot:run
 
 Apply
 Run
+
+
 
 
 
