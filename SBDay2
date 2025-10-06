@@ -80,6 +80,11 @@ logging.level.org.springframework.web=DEBUG
 
 
 
+Right click project->run as->maven build..
+Goal : clean install spring-boot:run
+
+Apply
+Run
 
 
 
