@@ -61,7 +61,12 @@ home.jsp:
 </body>
 </html>
 
+
+
+
 application.properties:
+
+spring.application.name=SBMVC
 
 # JSP Configuration
 spring.mvc.view.prefix=/WEB-INF/jsp/
@@ -71,6 +76,10 @@ spring.mvc.view.suffix=.jsp
 server.port=8080
 
 logging.level.org.springframework.web=DEBUG
+
+
+
+
 
 
 
