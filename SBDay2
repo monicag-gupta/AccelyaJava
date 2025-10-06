@@ -429,6 +429,26 @@ Click Finish
 
 
 
+application.properties:
+
+spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/orclpdb.localdomain
+spring.datasource.username=mydb
+spring.datasource.password=oracle
+spring.datasource.driver-class-name= oracle.jdbc.driver.OracleDriver
+
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.OracleDialect
+
+server.port=8080
+
+
+
+
+
+
+
+
 
 
 
