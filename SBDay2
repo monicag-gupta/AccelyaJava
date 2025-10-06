@@ -582,6 +582,34 @@ public class EmployeeController {
 
 
 
+Operation
+Method
+URL
+Body (JSON)
+Create
+POST
+http://localhost:8080/api/employees
+{ "id":102, "name": "Alice", "department": "HR" }
+Get All
+GET
+http://localhost:8080/api/employees
+–
+Get by ID
+GET
+http://localhost:8080/api/employees/102
+–
+Update
+PUT
+http://localhost:8080/api/employees/102
+{"id":102, "name": "Alice", "department": "Finance" }
+Delete
+DELETE
+http://localhost:8080/api/employees/102
+–
+
+
+
+
 
 
 
