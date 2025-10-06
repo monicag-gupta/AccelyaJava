@@ -118,4 +118,14 @@ CREATE TABLE employee (
 
 
 
+Spring Starter Project
+CRUDJsp
+Group and package: com.crudjsp
+War
+Java 21
+Maven
+Add Dependencies: Oracle driver, Spring Web
+
+
+
 
