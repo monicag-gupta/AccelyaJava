@@ -393,6 +393,25 @@ Department: <input type="text" name="department" /><br/>
 
 
 
+edit.jsp:
+
+<html>
+<head><title>Edit Employee</title></head>
+<body>
+<h2>Edit Employee</h2>
+<form action="/update" method="post">
+<input type="hidden" name="id" value="${employee.id}" />
+Name: <input type="text" name="name" value="${employee.name}" /><br/>
+Department: <input type="text" name="department" value="${employee.department}" /><br/>
+<input type="submit" value="Update" />
+</form>
+</body>
+</html>
+
+
+
+
+
 
 
 
