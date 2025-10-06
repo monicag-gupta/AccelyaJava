@@ -1,0 +1,14 @@
+Create the springBoot starter Project in Eclipse
+Eclipse → File → New → Spring Starter Project
+Fill in:
+  Name: SBMVC
+  Group: com.sbmvc
+  Artifact: SBMVC
+  Package: com.sbmvc
+  Java Version: 21
+  Packaging: war (NOT jar for JSP support)
+Click Next
+Select dependencies:
+  Spring Web
+Click Finish
+  Run as -> Maven clean install
