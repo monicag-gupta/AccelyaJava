@@ -532,6 +532,56 @@ public class EmployeeService {
 
 
 
+com.example.employeeapi.controller.EmployeeController
+
+package com.example.employeeapi.controller;
+
+import com.example.employeeapi.model.Employee;
+import com.example.employeeapi.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/api/employees")
+public class EmployeeController {
+
+    @Autowired
+    private EmployeeService service;
+
+    @PostMapping
+    public Employee addEmployee(@RequestBody Employee emp) {
+        return service.save(emp);
+    }
+
+    @GetMapping
+    public List<Employee> getAllEmployees() {
+        return service.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Employee> getEmployee(@PathVariable int id) {
+        return service.getById(id);
+    }
+
+    @PutMapping("/{id}")
+    public Employee updateEmployee(@PathVariable int id, @RequestBody Employee emp) {
+        emp.setId(id);
+        return service.update(emp);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteEmployee(@PathVariable int id) {
+        service.delete(id);
+    }
+}
+
+
+
+
+
 
 
 
