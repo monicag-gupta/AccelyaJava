@@ -103,6 +103,18 @@ Run
 
 
 
+SB with JDBC:
+
+
+Drop table employee;
+CREATE TABLE employee (
+    id int PRIMARY KEY,
+    name VARCHAR2(100),
+    department VARCHAR2(100)
+);
+
+
+
 
 
 
