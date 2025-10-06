@@ -409,6 +409,23 @@ Department: <input type="text" name="department" value="${employee.department}" 
 </html>
 
 
+SB JPA:
+
+File > New > Spring Starter Project
+Project Name: EmployeeAPI
+Package: com.example.employeeapi
+Packaging: Jar
+Java Version: 21
+Spring Boot Version: 3.5.x
+Dependencies:
+Spring Web
+Spring Data JPA
+Oracle Driver
+Spring Boot DevTools (optional)
+Click Finish
+
+
+
 
 
 
