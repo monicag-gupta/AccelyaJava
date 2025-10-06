@@ -61,6 +61,17 @@ home.jsp:
 </body>
 </html>
 
+application.properties:
+
+# JSP Configuration
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp
+
+# Server port (optional)
+server.port=8080
+
+logging.level.org.springframework.web=DEBUG
+
 
 
 
