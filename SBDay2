@@ -129,3 +129,20 @@ Add Dependencies: Oracle driver, Spring Web
 
 
 
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-jdbc</artifactId>
+</dependency>
+
+<!-- JSP Engine -->
+<dependency>
+	<groupId>org.apache.tomcat.embed</groupId>
+	<artifactId>tomcat-embed-jasper</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.glassfish.web</groupId>
+	<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+</dependency>
+
+
+
