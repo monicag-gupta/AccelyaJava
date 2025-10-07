@@ -275,3 +275,26 @@ public class TestCases {
 }
 
 
+
+
+
+
+
+
+
+package tests;
+import source.*;
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class TestLogic {
+
+	@Test
+	public void test() {
+		assertEquals(-2,MainClass.findMax(new int[]{-7,-3,-4,-2}));
+
+	}
+
+}
+
+
