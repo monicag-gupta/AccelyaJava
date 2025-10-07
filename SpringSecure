@@ -262,7 +262,7 @@ logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
 
 
 com.example.crudjsp
- ├── CrudJspApplication.java
+ ├── CrudJspSecureApplication.java
  ├── controller/MainController.java
  ├── model/User.java
  ├── repository/UserRepository.java
@@ -277,6 +277,313 @@ login.jsp
 home.jsp
 guest.jsp
 access-denied.jsp
+
+
+
+
+
+
+package com.example.crudjsp.security;
+
+import com.example.crudjsp.service.CustomUserDetailsService;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+    private final CustomUserDetailsService userDetailsService;
+
+    public SecurityConfig(CustomUserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
+
+    // Password Encoder Bean
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+   // Main Security Filter Chain
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+        	.csrf(csrf -> csrf.disable())  // disable CSRF for simplicity with JSP demo
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/guest", "/index", "/login", "/register", "/css/**", "/js/**", "/WEB-INF/jsp/**").permitAll() // public pages
+                .anyRequest().authenticated() // all others require login
+            )
+            .formLogin(form -> form
+                .loginPage("/login")                     // your custom JSP
+                .loginProcessingUrl("/perform_login")            // Spring Security handles this POST
+                .defaultSuccessUrl("/home", true)        // redirect after login
+                .permitAll()
+            )
+            .logout(logout -> logout
+               // .logoutUrl("/logout")                    // link action
+                .logoutSuccessUrl("/guest")              // redirect after logout
+                .permitAll()
+            )
+            .userDetailsService(userDetailsService)
+            .exceptionHandling(ex -> ex
+                .accessDeniedPage("/access-denied")      // custom 403 page
+            );              
+
+        return http.build();
+    }
+}
+
+
+
+
+
+
+
+
+package com.example.crudjsp.model;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(nullable = false, unique = true)
+    private String username;
+
+    @Column(nullable = false)
+    private String password;
+
+    private String role;
+
+    public User() {}
+
+    public User(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+    
+}
+
+
+
+
+
+
+
+package com.example.crudjsp.repository;
+
+import com.example.crudjsp.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByUsername(String username);
+}
+
+
+
+
+
+package com.example.crudjsp.service;
+
+import com.example.crudjsp.model.User;
+import com.example.crudjsp.repository.UserRepository;
+import org.springframework.security.core.userdetails.*;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CustomUserDetailsService implements UserDetailsService {
+
+    private final UserRepository repo;
+
+    public CustomUserDetailsService(UserRepository repo) {
+        this.repo = repo;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = repo.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        return org.springframework.security.core.userdetails.User
+                .withUsername(user.getUsername())
+                .password(user.getPassword())
+                .roles(user.getRole())
+                .build();
+    }
+    
+    
+}
+
+
+
+
+
+package com.example.crudjsp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.example.crudjsp.model.User;
+import com.example.crudjsp.repository.UserRepository;
+
+@Service
+public class UsersDetailsService {
+	
+    private final UserRepository repo;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    public UsersDetailsService(UserRepository repo) {
+        this.repo = repo;
+    }
+
+    public void registerUser(String username, String password) {
+    	User user=new User();
+    	user.setUsername(username);
+    	user.setPassword(passwordEncoder.encode(password));
+    	user.setRole("USER");
+    	repo.save(user);
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+package com.example.crudjsp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.crudjsp.service.UsersDetailsService;
+
+@Controller
+public class MainController {
+	@Autowired
+	private UsersDetailsService userService;
+	
+
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+    
+    @GetMapping("/index")
+    public String indexPage() {
+        return "index";
+    }
+    
+    @PostMapping("/register")
+    public String registerUser(@RequestParam String username, String password) {
+    	userService.registerUser(username, password);
+        return "redirect:/login";
+    }
+    
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
+    }
+
+    @GetMapping("/home")
+    public String homePage() {
+        return "home";
+    }
+
+    @GetMapping("/guest")
+    public String guestPage() {
+        return "guest";
+    }
+
+    @GetMapping("/access-denied")
+    public String denied() {
+        return "access-denied";
+    }
+}
+
+
+
+
+
+
+
+index.jsp:
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>
+		<a href="/login">Login Page</a><br />
+		<a href="/regiter">Register	Page</a><br /> 
+		<a href="/guest">Guest Page</a><br /> 
+		<a href="/home">Home Authenticated Page</a><br />
+
+	</h3>
+</body>
+</html>
+
+
 
 
 
