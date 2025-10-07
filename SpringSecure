@@ -54,58 +54,6 @@ public class HomeController {
 
 
 
-com.springsecure.config.SecurityConfig 
-
-
-package com.springsecure.config;
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.web.SecurityFilterChain;
-
-@Configuration
-@EnableWebSecurity
-public class SecurityConfig {
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-          .authorizeHttpRequests(
-        		  req -> req
-//                  .requestMatchers("/login", "/css/**", "/js/**").permitAll() // public resources
-                  .anyRequest()
-                  .authenticated()
-//                  .hasRole("ADMIN") 
-        		  )
-          .formLogin(Customizer.withDefaults());
-        return http.build();
-    }
-    @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        var user = org.springframework.security.core.userdetails.User
-                .withUsername("monica")
-                .password("{noop}password") // {noop} = no encoding
-                .roles("USER")
-                .build();
-
-        var admin = org.springframework.security.core.userdetails.User
-                .withUsername("admin")
-                .password("{noop}admin123")
-                .roles("ADMIN")
-                .build();
-
-        return new org.springframework.security.provisioning.InMemoryUserDetailsManager(user, admin);
-    }
-
-}
-
-
-
-
 
 package com.sprsecure.config;
 
