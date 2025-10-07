@@ -323,3 +323,13 @@ public class MainClass {
 }
 
 
+
+
+
+Right click the project->New->other-> JUnit Test Suite
+Next
+Add the package: tests
+Add the classes for test suite
+Finish
+The Suite is added
+
