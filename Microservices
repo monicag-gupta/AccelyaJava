@@ -97,6 +97,56 @@ public class LimitConfiguration {
 
 
 
+com.example.demo
+Configuration
+
+package com.example.demo;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+@Component
+@ConfigurationProperties("limits-service")
+public class Configuration {
+	private int maximum;
+	private int minimum;
+	public void setMaximum(int maximum) {
+		this.maximum = maximum;		}
+	public void setMinimum(int minimum) {
+		this.minimum = minimum;		}
+	public int getMaximum() {
+		return maximum;		}
+	public int getMinimum() {
+		return minimum;		}
+}
+
+
+
+
+LimitsConfigurationController:
+
+package com.springMS.Prj;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.springMS.Prj.bean.LimitConfiguration;
+@RestController
+public class LimitsConfigurationController {
+	@Autowired
+	private Configuration configuration;
+	@GetMapping("/limits")
+	public LimitConfiguration retriveLimitsFromConfigurations() {
+//getting values from the properties file  
+		return new LimitConfiguration(configuration.getMaximum(), configuration.getMinimum());
+	}
+}
+
+
+application.properties:
+
+spring.application.name=limits-service
+spring.cloud.config.enabled=false
+
+limits-service.minimum=99  
+limits-service.maximum=9999 
 
 
 
