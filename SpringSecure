@@ -157,6 +157,37 @@ src->main->webapp->WEB-INF->jsp folder
 
 
 
+Add in webapp-> folder WEB-INF/jsphome.jsp
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>This is an authorized page</h1>
+<h3><a href="/logout">Logout</a></h3>
+</body>
+</html>
+
+
+
+add in application.properties:
+
+# JSP Configuration
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp
+
+# Server port (optional)
+server.port=8080
+
+logging.level.org.springframework.web=DEBUG
+
+
 
 
 
