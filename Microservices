@@ -166,3 +166,34 @@ Add Eureka server as dependency
 Edit application.properties
 Main class: EurekaServerApplication
 
+
+
+
+
+
+package com.eureka_server;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+
+@SpringBootApplication
+@EnableEurekaServer
+public class EurekaServerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(EurekaServerApplication.class, args);
+	}
+
+}
+
+
+
+
+
+spring.application.name=eureka-server
+server.port=8761
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+eureka.instance.hostname=localhost
+
