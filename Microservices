@@ -127,7 +127,8 @@ package com.example.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.springMS.Prj.bean.LimitConfiguration;
+import com.example.demo.bean.LimitConfiguration;
+import com.example.demo.*;
 @RestController
 public class LimitsConfigurationController {
 	@Autowired
@@ -138,6 +139,7 @@ public class LimitsConfigurationController {
 		return new LimitConfiguration(configuration.getMaximum(), configuration.getMinimum());
 	}
 }
+
 
 
 application.properties:
