@@ -41,6 +41,9 @@ com.example.demo
 
 Spring Web, Spring Boot DevTools, Spring Boot Actuator, Config Client, Cloud Bootstrap
 
+
+application.properties:
+
 spring.application.name=limits-service
 spring.cloud.config.enabled=false
 
@@ -61,6 +64,39 @@ public class LimitsConfigurationController {
 		return new LimitConfiguration(1000, 1);
 	}
 }
+
+
+
+
+
+com.example.demo.bean
+LimitConfiguration
+
+package com.example.demo.bean;
+
+public class LimitConfiguration {
+	private int maximum;
+	private int minimum;
+//no-argument constructor  
+	protected LimitConfiguration() {
+	}
+//generating getters  
+	public int getMaximum() {
+		return maximum;
+	}
+	public int getMinimum() {
+		return minimum;
+	}
+//genetrating constructor using fields  
+	public LimitConfiguration(int maximum, int minimum) {
+		super();
+		this.maximum = maximum;
+		this.minimum = minimum;
+	}
+}
+
+
+
 
 
 
