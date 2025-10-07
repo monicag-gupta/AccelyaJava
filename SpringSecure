@@ -191,3 +191,32 @@ logging.level.org.springframework.web=DEBUG
 
 
 
+
+
+Spring Starter Project
+Artifact ID: CRUDJspSecure
+Group ID: com.example.crudjsp
+Maven
+Java 21
+WAR packaging
+Dependencies:
+Spring Web
+Spring Security
+Spring JPA
+Oracle Driver
+JSP (manually handled by adding Tomcat Jasper + JSTL)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
