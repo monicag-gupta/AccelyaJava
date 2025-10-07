@@ -346,6 +346,9 @@ public class HelloController {
 
 
 
+spring.application.name=microservice-two
+server.port=8082
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka
 
 
 
