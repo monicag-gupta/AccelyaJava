@@ -1,0 +1,108 @@
+Create a Spring Starter Project in Eclipse
+Project details
+Name: SpringSecurityLoginExample
+Package: com.springsecure
+Type: Maven
+Packaging: war
+Java version: 21
+Dependencies:
+Spring Web
+Spring Security
+
+
+
+Just run the application to get the password:
+Clean install spring-boot:run
+
+In the output, we get the generated password as: 
+Using generated security password: 3f307aa7-984c-4fe1-b6dc-db76b9206fae
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+In the output:
+Put username as : user
+Paste this password: 3f307aa7-984c-4fe1-b6dc-db76b9206fae
+Get the logged in page: type logout in url to log out.
+http://localhost:8080/logout to logout
+
+
+
+
+
+
+
+
+package com.springsecure.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+
+    @GetMapping("/")
+    public String home() {
+        return “home";
+    }
+    @GetMapping("/home")
+    public String login() {
+        return "home";
+    }
+}
+
+
+
+
+
+
+
+com.springsecure.config.SecurityConfig 
+
+
+package com.springsecure.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+          .authorizeHttpRequests(
+        		  req -> req
+//                  .requestMatchers("/login", "/css/**", "/js/**").permitAll() // public resources
+                  .anyRequest()
+                  .authenticated()
+//                  .hasRole("ADMIN") 
+        		  )
+          .formLogin(Customizer.withDefaults());
+        return http.build();
+    }
+    @Bean
+    public InMemoryUserDetailsManager userDetailsService() {
+        var user = org.springframework.security.core.userdetails.User
+                .withUsername("monica")
+                .password("{noop}password") // {noop} = no encoding
+                .roles("USER")
+                .build();
+
+        var admin = org.springframework.security.core.userdetails.User
+                .withUsername("admin")
+                .password("{noop}admin123")
+                .roles("ADMIN")
+                .build();
+
+        return new org.springframework.security.provisioning.InMemoryUserDetailsManager(user, admin);
+    }
+
+}
+
+
+
+
