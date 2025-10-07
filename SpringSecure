@@ -261,6 +261,29 @@ logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
 
 
 
+com.example.crudjsp
+ ├── CrudJspApplication.java
+ ├── controller/MainController.java
+ ├── model/User.java
+ ├── repository/UserRepository.java
+ ├── security/SecurityConfig.java
+ └── service/CustomUserDetailsService.java
+ └── service/UsersDetailsService.java
+
+JSP Pages (/src/main/webapp/WEB-INF/jsp/)
+index.jsp
+register.jsp
+login.jsp
+home.jsp
+guest.jsp
+access-denied.jsp
+
+
+
+
+
+
+
 
 
 
