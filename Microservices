@@ -30,3 +30,15 @@ Zipkin distributed Tracing Server
 
 
 
+SB Project:
+limits-service
+
+Group: com.example.demo
+Package:
+com.example.demo
+
+
+
+Spring Web, Spring Boot DevTools, Spring Boot Actuator, Config Client, Cloud Bootstrap
+
+
