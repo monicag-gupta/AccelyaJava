@@ -586,6 +586,91 @@ index.jsp:
 
 
 
+login.jsp
+
+<html>
+<head><title>Login</title></head>
+<body>
+<h2>Login</h2>
+<form method="post" action="${pageContext.request.contextPath}/perform_login">
+    Username: <input type="text" name="username"/><br/>
+    Password: <input type="password" name="password"/><br/>
+    <button type="submit">Login</button>
+</form>
+<a href="/guest">Go to Guest Page</a>
+<a href="/register">Go to register Page</a>
+
+</body>
+</html>
+
+
+
+
+
+register.jsp
+
+<html>
+<head><title>Login</title></head>
+<body>
+<h2>Login</h2>
+<form method="post" action="/register">
+    Username: <input type="text" name="username"/><br/>
+    Password: <input type="password" name="password"/><br/>
+    <button type="submit">Login</button>
+</form>
+<a href="/guest">Go to Guest Page</a>
+</body>
+</html>
+
+
+
+
+
+home.jsp
+
+<html>
+<head><title>Home</title></head>
+<body>
+<h2>Welcome Home (Authenticated)</h2>
+<form method="post" action="/logout">
+    <button type="submit">Logout</button>
+</form>
+</body>
+</html>
+
+
+
+
+guest.jsp
+
+<html>
+<head><title>Guest Page</title></head>
+<body>
+<h2>Welcome Guest!</h2>
+<p>This page is public.</p>
+<a href="/login">Login</a>
+</body>
+</html>
+
+
+
+
+access-denied.jsp
+
+<html>
+<head><title>Access Denied</title></head>
+<body>
+<h2>Access Denied!</h2>
+<a href="/guest">Back</a>
+</body>
+</html>
+
+
+
+
+
+
+
 
 
 
