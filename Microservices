@@ -252,3 +252,32 @@ public interface MicroserviceTwoClient {
 }
 
 
+
+
+
+
+package com.microservice_one.controller;
+
+import com.microservice_one.client.MicroserviceTwoClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+
+    @Autowired
+    private MicroserviceTwoClient microserviceTwoClient;
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello from Microservice One";
+    }
+
+    @GetMapping("/call-microservice-two")
+    public String callMicroserviceTwo() {
+        return microserviceTwoClient.getHello();
+    }
+}
+
+
