@@ -212,6 +212,34 @@ JSP (manually handled by adding Tomcat Jasper + JSTL)
 
 
 
+<!-- JSP Engine -->
+<dependency>
+	<groupId>org.apache.tomcat.embed</groupId>
+	<artifactId>tomcat-embed-jasper</artifactId>
+</dependency>
+<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>jstl</artifactId>
+	<version>1.2</version>
+</dependency>
+<!-- Optional: Password encoding -->
+<dependency>
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-crypto</artifactId>
+</dependency>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
