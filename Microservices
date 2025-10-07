@@ -288,3 +288,29 @@ public class HelloController {
 spring.application.name=microservice-one
 server.port=8081
 eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+
+
+
+
+
+Client 2:
+
+Project: microservice-two
+Package: com.microservice_two
+Dependencies: 
+Eureka Discovery Client, 
+Spring Web 
+
+Edit Main App: MicroserviceTwoApplication
+In controller package: Add Class: HelloController 
+Edit : application.properties
+
+
+
+
+
+
+
+
+
+
