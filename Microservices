@@ -153,3 +153,16 @@ limits-service.maximum=9999
 
 
 
+
+
+Example:
+Project: Eureka Server
+
+Create a spring starter project: eureka-server
+Package: com.eureka_server
+
+Add Eureka server as dependency
+
+Edit application.properties
+Main class: EurekaServerApplication
+
