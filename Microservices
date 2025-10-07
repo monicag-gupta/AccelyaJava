@@ -41,4 +41,10 @@ com.example.demo
 
 Spring Web, Spring Boot DevTools, Spring Boot Actuator, Config Client, Cloud Bootstrap
 
+spring.application.name=limits-service
+spring.cloud.config.enabled=false
+
+
+
+
 
