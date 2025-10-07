@@ -197,3 +197,20 @@ eureka.client.register-with-eureka=false
 eureka.client.fetch-registry=false
 eureka.instance.hostname=localhost
 
+
+
+
+
+Project : Client 1:
+
+Project: microservice-one
+Package: com.microservice_one
+Dependencies: 
+Eureka Discovery Client, 
+Spring Web 
+OpenFeign
+
+Edit Main App: MicroserviceOneApplication
+In client package: Add Interface : MicroserviceTwoClient
+In controller package: Add Class: HelloController 
+Edit : application.properties
