@@ -8,3 +8,24 @@ java –da Test
 Or
 java –disableassertions Test
 Here, Test is the file name.
+
+
+
+
+
+
+
+package aa;
+
+public class Main {
+	public static void main(String[] args) {
+		System.out.println("Enter your Weight:");
+
+		try (java.util.Scanner sc = new java.util.Scanner(System.in)) {
+			int value = sc.nextInt();
+			assert value >= 50 : " Underweight";
+			System.out.println("value is " + value);
+		}
+
+	}
+}
