@@ -352,6 +352,231 @@ eureka.client.service-url.defaultZone=http://localhost:8761/eureka
 
 
 
+This new microservice : microservice-three and will manage a simple entity, Employee. 
+We'll follow these steps:
+Create microservice-three project.
+Add necessary dependencies.
+Create the Employee entity and repository.
+Create a service and controller.
+Configure the H2 database.
+Connect microservice-three with Eureka Server.
+Step 1: Create microservice-three project
+Create a new Spring Boot project for the third microservice:
+Project name: microservice-three
+Dependencies: Eureka Discovery, Web, JPA, H2
+Step 2: Add necessary dependencies
+Configure pom.xml:
+<dependencies>
+    <!-- Spring Boot Starter Web -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <!-- Spring Boot Starter Data JPA -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    <!-- H2 Database -->
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <scope>runtime</scope>
+    </dependency>
+    <!-- Eureka Client -->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+</dependencies>
+ 
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>2022.0.3</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+Step 3: Create the Employee entity and repository
+Create the Employee entity class:
+ 
+package com.example.microservicethree.model;
+ 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+ 
+@Entity
+public class Employee {
+ 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String position;
+ 
+    // Getters and setters
+    public Long getId() {
+        return id;
+    }
+ 
+    public void setId(Long id) {
+        this.id = id;
+    }
+ 
+    public String getName() {
+        return name;
+    }
+ 
+    public void setName(String name) {
+        this.name = name;
+    }
+ 
+    public String getPosition() {
+        return position;
+    }
+ 
+    public void setPosition(String position) {
+        this.position = position;
+    }
+}
+Create the EmployeeRepository interface:
+package com.example.microservicethree.repository;
+ 
+import com.example.microservicethree.model.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
+ 
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+}
+Step 4: Create a service and controller
+Create the EmployeeService class:
+package com.example.microservicethree.service;
+ 
+import com.example.microservicethree.model.Employee;
+import com.example.microservicethree.repository.EmployeeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+ 
+import java.util.List;
+ 
+@Service
+public class EmployeeService {
+ 
+    @Autowired
+    private EmployeeRepository employeeRepository;
+ 
+    public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
+    }
+ 
+    public Employee getEmployeeById(Long id) {
+        return employeeRepository.findById(id).orElse(null);
+    }
+ 
+    public Employee saveEmployee(Employee employee) {
+        return employeeRepository.save(employee);
+    }
+ 
+    public void deleteEmployee(Long id) {
+        employeeRepository.deleteById(id);
+    }
+}
+Create the EmployeeController class:
+package com.example.microservicethree.controller;
+ 
+import com.example.microservicethree.model.Employee;
+import com.example.microservicethree.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+ 
+import java.util.List;
+ 
+@RestController
+@RequestMapping("/employees")
+public class EmployeeController {
+ 
+    @Autowired
+    private EmployeeService employeeService;
+ 
+    @GetMapping
+    public List<Employee> getAllEmployees() {
+        return employeeService.getAllEmployees();
+    }
+ 
+    @GetMapping("/{id}")
+    public Employee getEmployeeById(@PathVariable Long id) {
+        return employeeService.getEmployeeById(id);
+    }
+ 
+    @PostMapping
+    public Employee createEmployee(@RequestBody Employee employee) {
+        return employeeService.saveEmployee(employee);
+    }
+ 
+    @PutMapping("/{id}")
+    public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee employeeDetails) {
+        Employee employee = employeeService.getEmployeeById(id);
+        if (employee != null) {
+            employee.setName(employeeDetails.getName());
+            employee.setPosition(employeeDetails.getPosition());
+            return employeeService.saveEmployee(employee);
+        }
+        return null;
+    }
+ 
+    @DeleteMapping("/{id}")
+    public void deleteEmployee(@PathVariable Long id) {
+        employeeService.deleteEmployee(id);
+    }
+}
+Step 5: Configure the H2 database
+Configure application.properties for microservice-three:
+spring.application.name=microservice-three
+server.port=8083
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+ 
+spring.h2.console.enabled=true
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=password
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+ 
+Step 6: Connect microservice-three with Eureka Server
+Enable Eureka Client in microservice-three main application class:
+package com.example.microservicethree;
+ 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+ 
+@SpringBootApplication
+@EnableEurekaClient
+public class MicroserviceThreeApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MicroserviceThreeApplication.class, args);
+    }
+}
+Step 7: Run and Test
+Run Eureka Server:
+Right-click the eureka-server project and select Run As > Spring Boot App.
+Run Microservice One:
+Right-click the microservice-one project and select Run As > Spring Boot App.
+Run Microservice Two:
+Right-click the microservice-two project and select Run As > Spring Boot App.
+Run Microservice Three:
+Right-click the microservice-three project and select Run As > Spring Boot App.
+Test the H2 database and CRUD operations:
+Access http://localhost:8083/h2-console to view the H2 database console.
+Test the CRUD operations on http://localhost:8083/employees using a tool like Postman or a web browser.
+By following these steps, you will have an additional microservice (microservice-three) that uses an H2 database and performs CRUD operations, and is registered with the Eureka Server.
+ 
+
 
 
 
