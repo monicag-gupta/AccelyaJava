@@ -56,3 +56,31 @@ Verify Smart Commits Are Active Automatically
 Once GitHub for Jira is connected:
 Smart Commits are enabled by default for those linked repositories.
 
+
+
+
+
+
+
+
+STEP 3: Create an Issue in Jira
+Click the “Create” button (top navbar)
+Fill details:
+Project: Your Jira project
+Issue type: Task/Bug/Story
+Summary: "Create login form"
+Click Create
+Note the issue key, e.g., PROJ-123
+STEP 4: Make a Code Change & Smart Commit in VS Code
+Create a file:
+echo "console.log('Hello Jira');" > index.js
+Add & commit with Smart Commit message:
+git add .
+git commit -m "PROJ-123: Added hello message #comment Initial commit #time 1h #transition In Progress"
+git push origin main
+Jira will:
+Show the commit in the issue under Development
+Log 1 hour in Time tracking
+Add your comment
+Change issue status to In Progress
+
