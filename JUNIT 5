@@ -531,6 +531,16 @@ public class DemoRestController {
 }
 
 
+application.properties:
+
+management.security.enabled=false
+
+
+
+
+
+
+
 
 
 
