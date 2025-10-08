@@ -564,6 +564,7 @@ management.endpoints.web.exposure.include=*
 management.endpoints.web.exposure.exclude=loggers
 
 
+application.properties:
 
 management.security.enabled=false
 management.endpoint.health.group.custom.show-components=always
@@ -571,8 +572,10 @@ management.endpoint.health.group.custom.show-details=always
 management.endpoints.web.exposure.include=*
 
 
-
+http://localhost:8080/actuator/info
 http://localhost:8080/actuator/metrics
+http://localhost:8080/actuator/health
+http://localhost:8080/actuator
 
 
 
