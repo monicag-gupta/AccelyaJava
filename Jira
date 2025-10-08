@@ -58,14 +58,14 @@ Smart Commits are enabled by default for those linked repositories.
 
 
 
-Go to a project folder:
+Go to a project folder in vs code:
 Open terminal:
 > git init
 git remote add origin ".."
 
 git add .
 git commit -m "SCRUM-5:My git file"
-git push 
+git push origin master
 
 
 
