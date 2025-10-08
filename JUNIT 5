@@ -333,3 +333,81 @@ Add the classes for test suite
 Finish
 The Suite is added
 
+
+
+
+SpringBoot Tests:
+
+Spring starter project:
+Project: SpringBootTestPrj
+Package: com.hello
+Dependency: Spring Web
+
+Create the model class as Employee.java in package com.hello.model
+Create the Controller class as EmpController.java in com.hello.controller
+Check: SpringBootTestPrjApplication
+Code, Run and Check the Output
+Create the Test class in src/test/java as SpringBootTestPrjApplicationTests.java in com.hello
+Next extend the SpringBootTestPrjApplicationTests.java and write the test case for the EmpController as: TestWebApp.java
+Run this TestWebApp class as a JUnit test case.
+
+
+
+package com.hello;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringBootHelloWorldApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootHelloWorldApplication.class, args);
+	}
+}
+
+
+
+
+
+package com.hello.model;
+public class Employee {
+	private String empId;
+	private String name;
+	private String designation;
+	private double salary;
+	public Employee() { }
+	public String getName() {	return name;	}
+	public void setName(String name) {	this.name = name;	}
+	public String getDesignation() {		return designation;	}
+	public void setDesignation(String designation) {		this.designation = designation;		}
+	public double getSalary() {	return salary;		}
+	public void setSalary(double salary) {	this.salary = salary;	}
+	public String getEmpId() {	return empId;	}
+	public void setEmpId(String empId) {	this.empId = empId;	}
+}
+
+
+
+
+package com.hello.controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.hello.model.Employee;
+@RestController
+public class EmpController {
+	@GetMapping("/employee")
+	public Employee firstPage() {
+		Employee emp = new Employee();
+		emp.setName("emp1");
+		emp.setDesignation("manager");
+		emp.setEmpId("1");
+		emp.setSalary(3000);
+		return emp;
+	}
+}
+
+
+
+Compile and the run the SpringBootHelloWorldApplication.java as a Java application.
+Go to localhost:8080/employee
+
