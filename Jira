@@ -33,3 +33,26 @@ Use Smart Commits to Link Git to Jira:
         Jira will automatically detect this if GitHub is integrated and Smart Commits are enabled.
 
 
+
+
+Steps:
+STEP 1: Sign up & Set up Jira (Cloud)
+Go to: https://www.atlassian.com/software/jira
+Click “Get it free” → Choose Jira Software (Cloud).
+Sign in with your email or Google account.
+Choose a project name and project type (Scrum/Kanban/Team-managed).
+Note your Jira URL:
+Example: https://your-company.atlassian.net
+STEP 2: Connect GitHub to Jira
+
+
+In Jira, go to:
+Settings → Apps → Explore More Apps
+Search for “GitHub for Jira”, click Install.
+Authorize with GitHub.
+Select the organization and repositories to connect.
+Now Jira is connected with GitHub
+Verify Smart Commits Are Active Automatically
+Once GitHub for Jira is connected:
+Smart Commits are enabled by default for those linked repositories.
+
