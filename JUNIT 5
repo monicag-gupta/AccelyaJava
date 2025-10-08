@@ -450,3 +450,87 @@ public class TestWebApp {
 }
 
 
+
+
+
+
+ACTUATORS, METRICS AND HEALTH INDICATORS
+
+Spring Boot Actuator is a sub-project of the Spring Boot Framework. It includes a number of additional features that help us to monitor and manage the Spring Boot application. It contains the actuator endpoints (the place where the resources live). We can use HTTP and JMX endpoints to manage and monitor the Spring Boot application. If we want to get production-ready features in an application, we should use the Spring Boot actuator.
+There are three main features of Spring Boot Actuator:
+Endpoint: 
+The actuator endpoints allows us to monitor and interact with the application. Spring Boot provides a number of built-in endpoints. We can also create our own endpoint. We can enable and disable each endpoint individually. Most of the application choose HTTP, where the Id of the endpoint, along with the prefix of /actuator, is mapped to a URL.
+For example, the /health endpoint provides the basic health information of an application. The actuator, by default, mapped it to /actuator/health.  
+Metrics: 
+Spring Boot Actuator provides dimensional metrics by integrating with the micrometer. The micrometer is integrated into Spring Boot. It is the instrumentation library powering the delivery of application metrics from Spring. It provides vendor-neutral interfaces for timers, gauges, counters, distribution summaries, and long task timers with a dimensional data model.
+Audit: 
+Spring Boot provides a flexible audit framework that publishes events to an AuditEventRepository. It automatically publishes the authentication events if spring-security is in execution.
+
+
+
+
+Predefined Endpoints :1.x:
+
+/auditevents lists security audit-related events such as user login/logout. Also, we can filter by principal or type among other fields.
+/beans returns all available beans in our BeanFactory. Unlike /auditevents, it doesn’t support filtering.
+/conditions, formerly known as /autoconfig, builds a report of conditions around autoconfiguration.
+/configprops allows us to fetch all @ConfigurationProperties beans.
+/env returns the current environment properties. Additionally, we can retrieve single properties.
+/flyway provides details about our Flyway database migrations.
+/health summarizes the health status of our application.
+/heapdump builds and returns a heap dump from the JVM used by our application.
+/info returns general information. It might be custom data, build information or details about the latest commit.
+/liquibase behaves like /flyway but for Liquibase.
+/logfile returns ordinary application logs.
+/loggers enables us to query and modify the logging level of our application.
+/metrics details metrics of our application. This might include generic metrics as well as custom ones.
+/scheduledtasks provides details about every scheduled task within our application.
+/sessions lists HTTP sessions, given we are using Spring Session.
+/shutdown performs a graceful shutdown of the application.
+/threaddump dumps the thread information of the underlying JVM.
+
+
+
+
+
+
+Spring Boot actuator properties
+management.security.enabled=true  
+management.security.roles=ADMIN  
+security.basic.enabled=true  
+security.user.name=admin  
+security.user.passowrd=admin 
+
+
+
+
+Spring  Starter project.
+Provide the Artifact Id : spring-boot-actuator-example
+Provide the Group name: com.sb
+Add the following dependencies: 
+Spring Web 
+Spring Boot Starter Actuator
+
+Create a Controller class. 
+	We have created the controller class with the name DemoRestController.
+
+Run the Application: 
+
+
+package com.sb;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoRestController {
+	@GetMapping("/hello")
+	public String hello() {
+		return "Hello User!";
+	}
+}
+
+
+
+
+
