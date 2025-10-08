@@ -1,13 +1,25 @@
+1)
 https://www.atlassian.com/software/jira
 
 
-
+2)
 Github account
 
-Now Install Github for Jira:
+3) Goto Jira logged in
+Now Install "Github for Atlassian":
 Install github for Jira
 Authorize Jira to get connected with Github
 
+
+4) Local Machine:
+Go to a project folder in vs code:
+Open terminal:
+git init
+git remote add origin "your repository.git"
+
+git add .
+git commit -m "SCRUM-5:My git file"
+git push origin master
 
 
 
