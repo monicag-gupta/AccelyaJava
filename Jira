@@ -84,3 +84,18 @@ Log 1 hour in Time tracking
 Add your comment
 Change issue status to In Progress
 
+
+STEP 5: Verify in Jira
+Open the issue PROJ-123
+Scroll to Development panel:
+Commit should appear
+Your comment and time tracking should be visible
+Status should update to "In Progress" if #transition used
+
+Done! You now have:
+A Jira Cloud project
+GitHub repo linked
+Issues created
+Git working in VS Code
+Smart Commit working with Jira
+
