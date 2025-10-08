@@ -540,6 +540,20 @@ management.security.enabled=false
 
 http://localhost:8080/actuator
 
+http://localhost:8080/actuator/health
+
+
+
+We can configure the group to show more details via application.properties:
+
+management.security.enabled=false
+management.endpoint.health.group.custom.show-components=always
+management.endpoint.health.group.custom.show-details=always
+
+
+http://localhost:8080/actuator/health
+
+
 
 
 
