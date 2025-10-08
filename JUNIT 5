@@ -411,3 +411,42 @@ public class EmpController {
 Compile and the run the SpringBootHelloWorldApplication.java as a Java application.
 Go to localhost:8080/employee
 
+
+
+Next we write JUnit test cases for the TestController.
+Define the SpringBootHelloWorldTests.java as follows. 
+Spring Boot provides a @SpringBootTest annotation which can be used as an alternative to the standard spring-test @ContextConfiguration annotation when you need Spring Boot features. 
+The annotation works by creating the ApplicationContext used in your tests via SpringApplication.
+
+
+
+
+
+package com.hello;
+
+import com.hello.controller.EmpController;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.test.web.servlet.MockMvc;
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+@WebMvcTest(EmpController.class)
+public class TestWebApp {
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Test
+    void testGetEmployee() throws Exception {
+        mockMvc.perform(get("/employee"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is("emp1")))
+                .andExpect(jsonPath("$.designation", is("manager")))
+                .andExpect(jsonPath("$.empId", is("1")))
+                .andExpect(jsonPath("$.salary", is(3000.0)));
+    }
+}
+
+
