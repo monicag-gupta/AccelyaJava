@@ -1,0 +1,25 @@
+Exercise: Cargo.png
+
+1) Angular Project:
+CRUD + Logic
+2) Angular App -> (ServiceCall)
+1)SB Cloud service1:
+CUD
+2)SB Cloud Service2:
+R
+All the Services above:-> (FeignClient)
+3) DBService
+All 3 tables, JPA, CRUD, Oracle connectivity
+
+All services Deployed in Eureka Server.
+4) Eureka Server
+
+
+Documents:
+Cargo Project: Image
+SQL
+SB Steps:
+All .Java files
+Angular files
+
+
