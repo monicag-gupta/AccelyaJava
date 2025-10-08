@@ -10,3 +10,26 @@ Authorize Jira to get connected with Github
 
 
 
+
+Use Smart Commits to Link Git to Jira
+
+Confirm Integration : 
+Go to: Jira → Apps → Manage apps → GitHub for Jira
+You’ll see your connected repositories
+Use Smart Commits to Link Git to Jira:
+  Create a New Branch for a Jira Issue
+      Let's say your Jira issue key is PROJ-101
+
+      git checkout -b feature/PROJ-101-login
+  Commit with Smart Commit Message
+      P1-2
+        git commit -m "PROJ-101: Added login feature #comment login module done #time 2h #transition In Progress"
+
+  This commit will:
+        Link the commit to the Jira issue
+  Add a comment to the issue
+        Log 2 hours work
+  Move the issue to "In Progress"
+        Jira will automatically detect this if GitHub is integrated and Smart Commits are enabled.
+
+
