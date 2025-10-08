@@ -58,6 +58,14 @@ Smart Commits are enabled by default for those linked repositories.
 
 
 
+Go to a project folder:
+Open terminal:
+> git init
+git remote add origin ".."
+
+git add .
+git commit -m "SCRUM-5:My git file"
+git push 
 
 
 
@@ -98,4 +106,9 @@ GitHub repo linked
 Issues created
 Git working in VS Code
 Smart Commit working with Jira
+
+
+
+
+
 
