@@ -107,6 +107,8 @@ Minimize it
 
 
 
+
+
 .\bin\windows\zookeeper-server-start.bat: 
     This batch file starts the Zookeeper server on Windows.
 .\config\zookeeper.properties: 
@@ -432,6 +434,43 @@ C:\kafka>
 
 
 
+
+
+
+Rabbit MQ
+
+RabbitMQ is a message broker that implements AMQP (Advanced Message Queuing Protocol).
+It acts as a middleware between producer and consumer services to enable:
+Asynchronous communication
+Decoupling of services
+Reliable message delivery
+Load balancing
+
+
+
+RabbitMQ requires Erlang (since RabbitMQ is built on it).
+Install in Order:
+	Erlang
+	RabbitMQ
+
+A. Download Erlang for Windows
+https://www.erlang.org/downloads
+Choose the latest Windows 64-bit installer (OTP x.x.x).
+Example: otp_win64_26.2.exe
+B. Install Erlang
+Run the installer.
+Accept defaults (install path: C:\Program Files\Erlang OTP)
+After installation, set the system environment variable:
+Add to PATH:
+C:\Program Files\Erlang OTP\bin
+C. Verify Installation
+Open Command Prompt and run:
+> erl
+You should see:
+Erlang/OTP 26 [erts-13.2] [64-bit]
+Eshell V13.2  (abort with ^G)
+1>
+Type q(). and press Enter to exit. Ctrl + C twice to quit
 
 
 
