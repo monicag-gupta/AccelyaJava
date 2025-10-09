@@ -200,6 +200,27 @@ Topic Creation: Sets up Kafka topics for message handling.
 
 
 
+│   pom.xml
+├───src\main\java
+│   │   │   └───com\SbPrjKf12345
+│   │   │               KafkaConsumerService.java
+│   │   │               KafkaController.java
+│   │   │               KafkaProducerService.java
+│   │   │               SbPrjKf12345Application.java
+│   │   └───resources
+│   │       │   application.properties
+│   └───test\java
+│           └───com\SbPrjKf12345
+│                       SbPrjKf12345ApplicationTests.java
+
+
+
+
+
+
+
+
+
 
 
 
