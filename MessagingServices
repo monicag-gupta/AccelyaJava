@@ -346,3 +346,82 @@ public class KafkaController {
 
 
 
+
+Microsoft Windows [Version 10.0.19045.6332]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>cd \kafka
+
+C:\kafka>set KAFKA_HEAP_OPTS=-Xmx1G -Xms1G
+
+C:\kafka>.\bin\windows\kafka-server-start.bat .\config\server.properties
+[2025-10-09 12:37:48,598] INFO Registered kafka:type=kafka.Log4jController MBean (kafka.utils.Log4jControllerRegistration$)
+[2025-10-09 12:37:49,047] INFO Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation (org.apache.zookeeper.common.X509Util)
+[2025-10-09 12:37:49,152] INFO starting (kafka.server.KafkaServer)
+[2025-10-09 12:37:49,153] INFO Connecting to zookeeper on localhost:2181 (kafka.server.KafkaServer)
+[2025-10-09 12:37:49,184] INFO [ZooKeeperClient Kafka server] Initializing a new session to localhost:2181. (kafka.zookeeper.ZooKeeperClient)
+[2025-10-09 12:37:49,626] INFO Client environment:zookeeper.version=3.8.4-9316c2a7a97e1666d8f4593f34dd6fc36ecc436c, built on 2024-02-12 22:16 UTC (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,627] INFO Client environment:host.name=DESKTOP-95G5E3F.localdomain (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,628] INFO Client environment:java.version=21.0.8 (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,628] INFO Client environment:java.vendor=Oracle Corporation (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,629] INFO Client environment:java.home=C:\Program Files\Java\jdk-21 (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,629] INFO Client environment:java.class.path=C:\kafka\libs\activation-1.1.1.jar;C:\kafka\libs\aopalliance-repackaged-2.6.1.jar;C:\kafka\libs\argparse4j-0.7.0.jar;C:\kafka\libs\audience-annotations-0.12.0.jar;C:\kafka\libs\caffeine-2.9.3.jar;C:\kafka\libs\checker-qual-3.19.0.jar;C:\kafka\libs\commons-beanutils-1.9.4.jar;C:\kafka\libs\commons-cli-1.4.jar;C:\kafka\libs\commons-collections-3.2.2.jar;C:\kafka\libs\commons-digester-2.1.jar;C:\kafka\libs\commons-io-2.11.0.jar;C:\kafka\libs\commons-lang3-3.8.1.jar;C:\kafka\libs\commons-logging-1.2.jar;C:\kafka\libs\commons-validator-1.7.jar;C:\kafka\libs\connect-api-3.7.1.jar;C:\kafka\libs\connect-basic-auth-extension-3.7.1.jar;C:\kafka\libs\connect-file-3.7.1.jar;C:\kafka\libs\connect-json-3.7.1.jar;C:\kafka\libs\connect-mirror-3.7.1.jar;C:\kafka\libs\connect-mirror-client-3.7.1.jar;C:\kafka\libs\connect-runtime-3.7.1.jar;C:\kafka\libs\connect-transforms-3.7.1.jar;C:\kafka\libs\error_prone_annotations-2.10.0.jar;C:\kafka\libs\hk2-api-2.6.1.jar;C:\kafka\libs\hk2-locator-2.6.1.jar;C:\kafka\libs\hk2-utils-2.6.1.jar;C:\kafka\libs\jackson-annotations-2.16.2.jar;C:\kafka\libs\jackson-core-2.16.2.jar;C:\kafka\libs\jackson-databind-2.16.2.jar;C:\kafka\libs\jackson-dataformat-csv-2.16.2.jar;C:\kafka\libs\jackson-datatype-jdk8-2.16.2.jar;C:\kafka\libs\jackson-jaxrs-base-2.16.2.jar;C:\kafka\libs\jackson-jaxrs-json-provider-2.16.2.jar;C:\kafka\libs\jackson-module-jaxb-annotations-2.16.2.jar;C:\kafka\libs\jackson-module-scala_2.12-2.16.2.jar;C:\kafka\libs\jakarta.activation-api-1.2.2.jar;C:\kafka\libs\jakarta.annotation-api-1.3.5.jar;C:\kafka\libs\jakarta.inject-2.6.1.jar;C:\kafka\libs\jakarta.validation-api-2.0.2.jar;C:\kafka\libs\jakarta.ws.rs-api-2.1.6.jar;C:\kafka\libs\jakarta.xml.bind-api-2.3.3.jar;C:\kafka\libs\javassist-3.29.2-GA.jar;C:\kafka\libs\javax.activation-api-1.2.0.jar;C:\kafka\libs\javax.annotation-api-1.3.2.jar;C:\kafka\libs\javax.servlet-api-3.1.0.jar;C:\kafka\libs\javax.ws.rs-api-2.1.1.jar;C:\kafka\libs\jaxb-api-2.3.1.jar;C:\kafka\libs\jersey-client-2.39.1.jar;C:\kafka\libs\jersey-common-2.39.1.jar;C:\kafka\libs\jersey-container-servlet-2.39.1.jar;C:\kafka\libs\jersey-container-servlet-core-2.39.1.jar;C:\kafka\libs\jersey-hk2-2.39.1.jar;C:\kafka\libs\jersey-server-2.39.1.jar;C:\kafka\libs\jetty-client-9.4.54.v20240208.jar;C:\kafka\libs\jetty-continuation-9.4.54.v20240208.jar;C:\kafka\libs\jetty-http-9.4.54.v20240208.jar;C:\kafka\libs\jetty-io-9.4.54.v20240208.jar;C:\kafka\libs\jetty-security-9.4.54.v20240208.jar;C:\kafka\libs\jetty-server-9.4.54.v20240208.jar;C:\kafka\libs\jetty-servlet-9.4.54.v20240208.jar;C:\kafka\libs\jetty-servlets-9.4.54.v20240208.jar;C:\kafka\libs\jetty-util-9.4.54.v20240208.jar;C:\kafka\libs\jetty-util-ajax-9.4.54.v20240208.jar;C:\kafka\libs\jline-3.25.1.jar;C:\kafka\libs\jopt-simple-5.0.4.jar;C:\kafka\libs\jose4j-0.9.4.jar;C:\kafka\libs\jsr305-3.0.2.jar;C:\kafka\libs\kafka-clients-3.7.1.jar;C:\kafka\libs\kafka-group-coordinator-3.7.1.jar;C:\kafka\libs\kafka-log4j-appender-3.7.1.jar;C:\kafka\libs\kafka-metadata-3.7.1.jar;C:\kafka\libs\kafka-raft-3.7.1.jar;C:\kafka\libs\kafka-server-3.7.1.jar;C:\kafka\libs\kafka-server-common-3.7.1.jar;C:\kafka\libs\kafka-shell-3.7.1.jar;C:\kafka\libs\kafka-storage-3.7.1.jar;C:\kafka\libs\kafka-storage-api-3.7.1.jar;C:\kafka\libs\kafka-streams-3.7.1.jar;C:\kafka\libs\kafka-streams-examples-3.7.1.jar;C:\kafka\libs\kafka-streams-scala_2.12-3.7.1.jar;C:\kafka\libs\kafka-streams-test-utils-3.7.1.jar;C:\kafka\libs\kafka-tools-3.7.1.jar;C:\kafka\libs\kafka-tools-api-3.7.1.jar;C:\kafka\libs\kafka_2.12-3.7.1.jar;C:\kafka\libs\lz4-java-1.8.0.jar;C:\kafka\libs\maven-artifact-3.8.8.jar;C:\kafka\libs\metrics-core-2.2.0.jar;C:\kafka\libs\metrics-core-4.1.12.1.jar;C:\kafka\libs\netty-buffer-4.1.110.Final.jar;C:\kafka\libs\netty-codec-4.1.110.Final.jar;C:\kafka\libs\netty-common-4.1.110.Final.jar;C:\kafka\libs\netty-handler-4.1.110.Final.jar;C:\kafka\libs\netty-resolver-4.1.110.Final.jar;C:\kafka\libs\netty-transport-4.1.110.Final.jar;C:\kafka\libs\netty-transport-classes-epoll-4.1.110.Final.jar;C:\kafka\libs\netty-transport-native-epoll-4.1.110.Final.jar;C:\kafka\libs\netty-transport-native-unix-common-4.1.110.Final.jar;C:\kafka\libs\opentelemetry-proto-1.0.0-alpha.jar;C:\kafka\libs\osgi-resource-locator-1.0.3.jar;C:\kafka\libs\paranamer-2.8.jar;C:\kafka\libs\pcollections-4.0.1.jar;C:\kafka\libs\plexus-utils-3.3.1.jar;C:\kafka\libs\protobuf-java-3.23.4.jar;C:\kafka\libs\reflections-0.10.2.jar;C:\kafka\libs\reload4j-1.2.25.jar;C:\kafka\libs\rocksdbjni-7.9.2.jar;C:\kafka\libs\scala-collection-compat_2.12-2.10.0.jar;C:\kafka\libs\scala-java8-compat_2.12-1.0.2.jar;C:\kafka\libs\scala-library-2.12.18.jar;C:\kafka\libs\scala-logging_2.12-3.9.4.jar;C:\kafka\libs\scala-reflect-2.12.18.jar;C:\kafka\libs\slf4j-api-1.7.36.jar;C:\kafka\libs\slf4j-reload4j-1.7.36.jar;C:\kafka\libs\snappy-java-1.1.10.5.jar;C:\kafka\libs\swagger-annotations-2.2.8.jar;C:\kafka\libs\trogdor-3.7.1.jar;C:\kafka\libs\zookeeper-3.8.4.jar;C:\kafka\libs\zookeeper-jute-3.8.4.jar;C:\kafka\libs\zstd-jni-1.5.6-3.jar (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,632] INFO Client environment:java.library.path=C:\Program Files\Java\jdk-21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\Monica\Desktop\WINDOWS.X64_193000_db_home\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Erlang OTP\bin;C:\Users\Monica\AppData\Local\Microsoft\WindowsApps;C:\Users\Monica\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Monica\AppData\Roaming\npm;. (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,633] INFO Client environment:java.io.tmpdir=C:\Users\Monica\AppData\Local\Temp\ (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,634] INFO Client environment:java.compiler=<NA> (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,634] INFO Client environment:os.name=Windows 10 (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,636] INFO Client environment:os.arch=amd64 (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,637] INFO Client environment:os.version=10.0 (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,648] INFO Client environment:user.name=Monica (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,648] INFO Client environment:user.home=C:\Users\Monica (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,648] INFO Client environment:user.dir=C:\kafka (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,649] INFO Client environment:os.memory.free=983MB (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,650] INFO Client environment:os.memory.max=1024MB (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,650] INFO Client environment:os.memory.total=1024MB (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,655] INFO Initiating client connection, connectString=localhost:2181 sessionTimeout=18000 watcher=kafka.zookeeper.ZooKeeperClient$ZooKeeperClientWatcher$@d278d2b (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:37:49,718] INFO jute.maxbuffer value is 4194304 Bytes (org.apache.zookeeper.ClientCnxnSocket)
+[2025-10-09 12:37:49,726] INFO zookeeper.request.timeout value is 0. feature enabled=false (org.apache.zookeeper.ClientCnxn)
+[2025-10-09 12:37:49,728] INFO [ZooKeeperClient Kafka server] Waiting until connected. (kafka.zookeeper.ZooKeeperClient)
+[2025-10-09 12:37:49,730] INFO Opening socket connection to server localhost/127.0.0.1:2181. (org.apache.zookeeper.ClientCnxn)
+[2025-10-09 12:37:49,734] INFO Socket connection established, initiating session, client: /127.0.0.1:50356, server: localhost/127.0.0.1:2181 (org.apache.zookeeper.ClientCnxn)
+[2025-10-09 12:38:07,736] INFO [ZooKeeperClient Kafka server] Closing. (kafka.zookeeper.ZooKeeperClient)
+[2025-10-09 12:38:07,741] WARN Client session timed out, have not heard from server in 18007ms for session id 0x0 (org.apache.zookeeper.ClientCnxn)
+[2025-10-09 12:38:07,858] INFO Session: 0x0 closed (org.apache.zookeeper.ZooKeeper)
+[2025-10-09 12:38:07,860] INFO EventThread shut down for session: 0x0 (org.apache.zookeeper.ClientCnxn)
+[2025-10-09 12:38:07,864] INFO [ZooKeeperClient Kafka server] Closed. (kafka.zookeeper.ZooKeeperClient)
+[2025-10-09 12:38:07,871] ERROR Fatal error during KafkaServer startup. Prepare to shutdown (kafka.server.KafkaServer)
+kafka.zookeeper.ZooKeeperClientTimeoutException: Timed out waiting for connection while in state: CONNECTING
+        at kafka.zookeeper.ZooKeeperClient.$anonfun$waitUntilConnected$3(ZooKeeperClient.scala:258)
+        at kafka.zookeeper.ZooKeeperClient.waitUntilConnected(ZooKeeperClient.scala:254)
+        at kafka.zookeeper.ZooKeeperClient.<init>(ZooKeeperClient.scala:116)
+        at kafka.zk.KafkaZkClient$.apply(KafkaZkClient.scala:2316)
+        at kafka.zk.KafkaZkClient$.createZkClient(KafkaZkClient.scala:2406)
+        at kafka.server.KafkaServer.initZkClient(KafkaServer.scala:733)
+        at kafka.server.KafkaServer.startup(KafkaServer.scala:226)
+        at kafka.Kafka$.main(Kafka.scala:112)
+        at kafka.Kafka.main(Kafka.scala)
+[2025-10-09 12:38:07,879] INFO shutting down (kafka.server.KafkaServer)
+[2025-10-09 12:38:07,901] INFO App info kafka.server for 0 unregistered (org.apache.kafka.common.utils.AppInfoParser)
+[2025-10-09 12:38:07,902] INFO shut down completed (kafka.server.KafkaServer)
+[2025-10-09 12:38:07,902] ERROR Exiting Kafka due to fatal exception during startup. (kafka.Kafka$)
+kafka.zookeeper.ZooKeeperClientTimeoutException: Timed out waiting for connection while in state: CONNECTING
+        at kafka.zookeeper.ZooKeeperClient.$anonfun$waitUntilConnected$3(ZooKeeperClient.scala:258)
+        at kafka.zookeeper.ZooKeeperClient.waitUntilConnected(ZooKeeperClient.scala:254)
+        at kafka.zookeeper.ZooKeeperClient.<init>(ZooKeeperClient.scala:116)
+        at kafka.zk.KafkaZkClient$.apply(KafkaZkClient.scala:2316)
+        at kafka.zk.KafkaZkClient$.createZkClient(KafkaZkClient.scala:2406)
+        at kafka.server.KafkaServer.initZkClient(KafkaServer.scala:733)
+        at kafka.server.KafkaServer.startup(KafkaServer.scala:226)
+        at kafka.Kafka$.main(Kafka.scala:112)
+        at kafka.Kafka.main(Kafka.scala)
+[2025-10-09 12:38:07,905] INFO shutting down (kafka.server.KafkaServer)
+
+C:\kafka>
+
+
+
+
+
+
+
+
