@@ -8,3 +8,21 @@ Extract it and save the folder in a location in drive
 
 
 
+
+Create a Topic:
+kafka-topics.sh --create --topic <topic_name> --bootstrap-server <kafka_broker> --partitions <num_partitions> --replication-factor <num_replicas>
+List Topics:
+kafka-topics.sh --list --bootstrap-server <kafka_broker>
+Send Messages:
+kafka-console-producer.sh --topic <topic_name> --bootstrap-server <kafka_broker>
+Consume Messages:
+kafka-console-consumer.sh --topic <topic_name> --bootstrap-server <kafka_broker> --from-beginning
+
+
+
+
+
+
+
+
+
