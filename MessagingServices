@@ -232,6 +232,22 @@ spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.S
 
 
 
+This section configures Kafka properties for both the producer and consumer:
+spring.kafka.bootstrap-servers: Specifies the address of the Kafka broker. The broker is where the Kafka cluster is running.
+Producer Configuration:
+key-serializer: Defines how the key of the messages will be serialized (converted to bytes). Here, it is using StringSerializer.
+value-serializer: Defines how the value of the messages will be serialized.
+Consumer Configuration:
+group-id: Specifies the consumer group that will process the messages.
+key-deserializer: Defines how the key of the messages will be deserialized (converted from bytes to an object).
+value-deserializer: Defines how the value of the messages will be deserialized.
+
+
+
+
+
+
+
 
 
 
