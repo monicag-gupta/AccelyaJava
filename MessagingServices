@@ -474,5 +474,14 @@ Type q(). and press Enter to exit. Ctrl + C twice to quit
 
 
 
+A. Download RabbitMQ
+https://www.rabbitmq.com/download.html
+Download the Windows Installer (.exe), e.g.rabbitmq-server-3.13.2.exe
+B. Install RabbitMQ
+Run the installer and accept defaults.By default, it installs to:
+C:\Program Files\RabbitMQ Server\rabbitmq_server-3.x.x\
+
+
+
 
 
