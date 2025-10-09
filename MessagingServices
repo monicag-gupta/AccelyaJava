@@ -145,6 +145,32 @@ Created topic test-topic.
 
 
 
+SB starter Project:
+
+Create a Project: SBKafkaPrj
+Group: com.SBKafkaPrj
+Artifact id: SBKafkaPrj
+Name : SBKafkaPrj
+Package: com.SBKafkaPrj
+Dependencies:
+  Spring Web
+  Spring for Apache Pulsar
+
+Components of the project:
+
+Dependencies: Required libraries for Kafka and web functionalities.
+Configuration: Kafka settings for producers and consumers.
+Producer Service: Sends messages to Kafka.
+Consumer Service: Listens and processes messages from Kafka.
+Controller: Exposes an API endpoint for sending messages.
+Topic Creation: Sets up Kafka topics for message handling.
+
+
+
+
+
+
+
 
 
 
