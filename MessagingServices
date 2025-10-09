@@ -481,6 +481,15 @@ B. Install RabbitMQ
 Run the installer and accept defaults.By default, it installs to:
 C:\Program Files\RabbitMQ Server\rabbitmq_server-3.x.x\
 
+Enable RabbitMQ Management Console
+
+Open Command Prompt (as Administrator) and run:
+> cd "C:\Program Files\RabbitMQ Server\rabbitmq_server-4.x.x\sbin"
+> rabbitmq-plugins.bat enable rabbitmq_management
+> C:\WINDOWS\system32>cd "c:\Program Files\RabbitMQ Server\rabbitmq_server-4.1.4\sbin"
+> C:\Program Files\RabbitMQ Server\rabbitmq_server-4.1.4\sbin>rabbitmq-plugins.bat enable rabbitmq_management
+
+
 
 
 
