@@ -105,6 +105,37 @@ Minimize it
 
 
 
+.\bin\windows\zookeeper-server-start.bat: 
+    This batch file starts the Zookeeper server on Windows.
+.\config\zookeeper.properties: 
+    This is the configuration file for Zookeeper, 
+    specifying settings like data directory, client port, and more.
+
+.\bin\windows\kafka-server-start.bat: 
+    This batch file starts the Kafka server on Windows.
+.\config\server.properties: 
+    This is the configuration file for the Kafka broker
+
+Verifying Kafka and Zookeeper : 
+    To ensure that Kafka and Zookeeper are running correctly:
+Zookeeper: 
+    Check that the Zookeeper process is active and listening on the configured port (default: 2181).
+Kafka: 
+    Verify that the Kafka broker is active and listening on the configured port (default: 9092).
+Troubleshooting : 
+    If you encounter issues starting Kafka or Zookeeper:
+        Check Logs: 
+            Review the log files in C:\kafka\logs for error messages.
+            Verify Configuration Files: Ensure that zookeeper.properties and server.properties have correct paths and settings.
+            Port Conflicts: Ensure that ports 2181 (Zookeeper) and 9092 (Kafka) are not being used by other applications.
+
+
+
+set KAFKA_HEAP_OPTS=-Xmx1G -Xms1G
+
+
+
+
 
 
 
