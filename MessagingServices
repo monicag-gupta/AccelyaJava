@@ -53,6 +53,38 @@ Kafka Manager:
 
 
 
+Zookeeper and Kafka broker
+
+Zookeeper is a service required by Kafka to manage distributed brokers and maintain metadata. 
+Kafka relies on Zookeeper for leader election and configuration management.
+
+Example Configuration (zookeeper.properties):
+dataDir=C:/kafka/zookeeper-data
+clientPort=2181
+dataDir: Directory where Zookeeper stores its data.
+clientPort: Port on which Zookeeper listens for client connections.
+
+Once Zookeeper is up and running, you can start the Kafka broker. The broker is the component that stores and manages data.
+Example Configuration (server.properties):
+broker.id=0
+log.dirs=C:/kafka/kafka-logs
+zookeeper.connect=localhost:2181
+listeners=PLAINTEXT://localhost:9092
+broker.id: Unique ID for the Kafka broker in the cluster.
+log.dirs: Directory where Kafka stores its log files.
+zookeeper.connect: Address of the Zookeeper instance.
+listeners: Protocol and address on which Kafka listens for client connections.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
