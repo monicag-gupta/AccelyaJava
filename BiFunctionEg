@@ -1,0 +1,89 @@
+package demo;
+
+//import java.util.function.*;
+import java.util.*;
+
+public class Main {
+	public static int op(MyBiFunction<Integer,Integer, Integer> oper, int x, int y) {
+		return oper.apply(x, y);
+	}
+
+	public static void main(String[] args) {
+		int choice=0;
+		int x=0;
+		int y=0;
+		Scanner sc=new Scanner(System.in);
+		while(true) {
+			System.out.println("1. Enter 2 nos\n2. Add\n3.Sub\n4.Mul\n5.Div\n6.Exit\nEnter choice");
+			System.out.println("7. Sum(a+b) then sub");
+			choice=sc.nextInt();
+			if(choice==1) {
+				System.out.println("Enter x:");
+				x=sc.nextInt();
+				System.out.println("Enter y:");
+				y=sc.nextInt();
+			}
+			else if(choice==2) {
+				System.out.println("Result Sum: "+ op((a,b)->a+b,x,y));
+			}
+			else if(choice==3) {
+				System.out.println("Result Sub: "+ op((a,b)->a-b,x,y));
+			}
+			else if(choice==4) {
+				System.out.println("Resul Mul: "+ op((a,b)->a*b,x,y));
+			}
+			else if(choice==5) {
+				System.out.println("Result Div: "+ op((a,b)->b==0?0:a/b,x,y));
+			}
+			else if(choice==7) {
+				MyBiFunction<Integer, Integer, Integer> add = (a,b) -> a+b;
+				System.out.println("Result Sum then Sub: "+ op(add.andThen((a,b)->a-b),x,y));
+			}
+			else if(choice==6) {
+				break;
+			}
+			else {
+				System.out.println("Incorrect choice!!");
+			}
+			
+		}
+		sc.close();
+		
+
+	}
+
+}
+
+
+
+
+
+
+
+
+package demo;
+
+public interface MyBiFunction<R, U, V> {
+	R apply(U x, V y);
+	default MyBiFunction<R, U, V> andThen(MyBiFunction<R, U, V> other){
+		return (x,y) -> {
+			System.out.println("this.apply(x, y)" + this.apply(x, y));  
+			return  other.apply(x, y);
+		};
+	}
+
+}
+
+
+
+package demo;
+
+public interface MyPredicate<T> {
+	boolean test(T o);
+	default MyPredicate<T> or(MyPredicate<T> other) {
+		return (o) -> this.test(o) || other.test(o);
+	}
+}
+
+
+
