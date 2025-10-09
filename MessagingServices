@@ -9,6 +9,8 @@ Extract it and save the folder in a location in drive
 
 
 
+
+
 Create a Topic:
 kafka-topics.sh --create --topic <topic_name> --bootstrap-server <kafka_broker> --partitions <num_partitions> --replication-factor <num_replicas>
 List Topics:
@@ -132,7 +134,7 @@ Troubleshooting :
 
 
 set KAFKA_HEAP_OPTS=-Xmx1G -Xms1G
-
+$env:KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"
 
 
 Start terminal as sudo / powershell as administrator:
