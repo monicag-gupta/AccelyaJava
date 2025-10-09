@@ -246,6 +246,75 @@ value-deserializer: Defines how the value of the messages will be deserialized.
 
 
 
+package com.SbPrjKf12345;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+@Service
+public class KafkaProducerService {
+    private final KafkaTemplate<String, String> kafkaTemplate;
+
+    @Autowired
+    public KafkaProducerService(KafkaTemplate<String, String> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
+
+    public void sendMessage(String topic, String message) {
+        kafkaTemplate.send(topic, message);
+    }
+}
+
+
+
+
+
+
+package com.SbPrjKf12345;
+
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
+
+@Service
+public class KafkaConsumerService {
+
+    @KafkaListener(topics = "test-topic", groupId = "my-group")
+    public void listen(String message) {
+        System.out.println("Received message: " + message);
+    }
+}
+
+
+
+
+
+
+package com.SbPrjKf12345;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class KafkaController {
+    private final KafkaProducerService kafkaProducerService;
+    @Autowired
+    public KafkaController(KafkaProducerService kafkaProducerService) {
+        this.kafkaProducerService = kafkaProducerService;
+    }
+    @GetMapping("/send")
+    public String sendMessage(@RequestParam("message") String message) {
+        kafkaProducerService.sendMessage("test-topic", message);
+        return "Message sent to Kafka topic";
+    }
+}
+
+
+
+
+
 
 
 
