@@ -21,6 +21,42 @@ kafka-console-consumer.sh --topic <topic_name> --bootstrap-server <kafka_broker>
 
 
 
+Dependencies: 
+  Use spring-boot-starter-kafka for integrating Kafka with Spring Boot.
+Configuration: 
+  Configure Kafka properties in application.properties or 
+  application.yml for producer and consumer settings.
+KafkaTemplate: 
+  Use KafkaTemplate for producing messages to Kafka topics.
+@KafkaListener: 
+  Use the @KafkaListener annotation to create a Kafka consumer 
+  within your Spring Boot application.
+Kafka Streams
+Kafka Streams: 
+  A library for building real-time applications and microservices 
+  that process data stored in Kafka topics. 
+  It provides a simple and powerful DSL (Domain-Specific Language) 
+  for stream processing.
+Kafka Connect
+Kafka Connect: 
+  A tool for integrating Kafka with external systems, 
+  such as databases, key-value stores, and file systems. 
+  It simplifies the process of moving data into and out of Kafka.
+Monitoring and Management
+JMX Metrics: 
+  Kafka exposes metrics via JMX (Java Management Extensions), 
+  which can be monitored using tools like Prometheus and Grafana.
+Kafka Manager: 
+  A web-based tool for managing and monitoring Kafka clusters.
+
+
+
+
+
+
+
+
+
 
 
 
