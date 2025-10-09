@@ -315,6 +315,18 @@ public class KafkaController {
 
 
 
+Run as -> Maven clean
+Run as -> Maven install
+Main class -> Run as -> Java Application
+
+Open browser:
+
+http://localhost:8080/send?message=HelloKafka
+
+Output:
+Message sent to Kafka topic
+
+
 
 
 
