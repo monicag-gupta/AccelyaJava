@@ -453,6 +453,7 @@ Install in Order:
 	Erlang
 	RabbitMQ
 
+Step 1: 
 A. Download Erlang for Windows
 https://www.erlang.org/downloads
 Choose the latest Windows 64-bit installer (OTP x.x.x).
@@ -473,7 +474,7 @@ Eshell V13.2  (abort with ^G)
 Type q(). and press Enter to exit. Ctrl + C twice to quit
 
 
-
+step 2: 
 A. Download RabbitMQ
 https://www.rabbitmq.com/download.html
 Download the Windows Installer (.exe), e.g.rabbitmq-server-3.13.2.exe
@@ -481,13 +482,31 @@ B. Install RabbitMQ
 Run the installer and accept defaults.By default, it installs to:
 C:\Program Files\RabbitMQ Server\rabbitmq_server-3.x.x\
 
+
+Step3: 
 Enable RabbitMQ Management Console
 
 Open Command Prompt (as Administrator) and run:
 > cd "C:\Program Files\RabbitMQ Server\rabbitmq_server-4.x.x\sbin"
 > rabbitmq-plugins.bat enable rabbitmq_management
-> C:\WINDOWS\system32>cd "c:\Program Files\RabbitMQ Server\rabbitmq_server-4.1.4\sbin"
-> C:\Program Files\RabbitMQ Server\rabbitmq_server-4.1.4\sbin>rabbitmq-plugins.bat enable rabbitmq_management
+> C:\WINDOWS\system32>
+
+
+cd "c:\Program Files\RabbitMQ Server\rabbitmq_server-4.1.4\sbin"
+> C:\Program Files\RabbitMQ Server\rabbitmq_server-4.1.4\sbin>
+			rabbitmq-plugins.bat enable rabbitmq_management
+
+
+
+Step 4 – Start RabbitMQ Server
+
+Run:
+	rabbitmq-service.bat start
+To check the status:
+	rabbitmqctl status
+Later To stop the service:
+	rabbitmq-service.bat stop
+
 
 
 
