@@ -64,7 +64,8 @@ clientPort=2181
 dataDir: Directory where Zookeeper stores its data.
 clientPort: Port on which Zookeeper listens for client connections.
 
-Once Zookeeper is up and running, you can start the Kafka broker. The broker is the component that stores and manages data.
+Once Zookeeper is up and running, you can start the Kafka broker. 
+The broker is the component that stores and manages data.
 Example Configuration (server.properties):
 broker.id=0
 log.dirs=C:/kafka/kafka-logs
@@ -74,6 +75,32 @@ broker.id: Unique ID for the Kafka broker in the cluster.
 log.dirs: Directory where Kafka stores its log files.
 zookeeper.connect: Address of the Zookeeper instance.
 listeners: Protocol and address on which Kafka listens for client connections.
+
+
+
+https://kafka.apache.org/downloads
+
+Download the Binary downloads:
+Scala 2.12  - kafka_2.12-3.7.1.tgz (asc, sha512)
+
+Extract it and save the folder in a location in drive
+
+
+
+Start Kafka
+
+Zookeeper: Starts first and manages Kafka’s distributed coordination.
+Kafka Broker: Starts after Zookeeper and manages message storage and retrieval.
+
+Start terminal as sudo / powershell as administrator:
+> cd C:\kafka 
+> .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+Minimize it.
+
+Start another terminal as sudo / powershell as administrator:
+> cd C:\kafka 
+> .\bin\windows\kafka-server-start.bat .\config\server.properties
+Minimize it
 
 
 
