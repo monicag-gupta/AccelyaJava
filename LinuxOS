@@ -780,6 +780,17 @@ head -n 20 /var/log/auth.log
 
 
 
+If a service fails to start:
+sudo systemctl status apache2
+Then check its logs:
+tail -n 50 /var/log/apache2/error.log
+
+
+
+
+
+
+
 
 
 
