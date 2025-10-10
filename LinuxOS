@@ -46,6 +46,20 @@ filename
 
 
 
+Vi Editor
+
+Esc for Esc mode
+
+:q!  quit forcefully
+:wq  save and quit
+
+
+delete
+backspace
+I insert
+a append
+
+I or a takes us to entry mode
 
 
 
