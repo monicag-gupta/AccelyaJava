@@ -221,6 +221,25 @@ l is multi-threaded (using CLONE_THREAD, like NPTL pthreads do)
 gnome-system-monitor
 
 
+Shell Scripts:
+
+User Input:
+
+You can take input from the keyboard:
+#!/usr/bin/env bash
+echo "Enter your name:"
+read name
+echo "Welcome, $name!"
+
+$ sh ./bgfile.sh 
+Enter your name:
+Monica
+Welcome, Monica!
+
+
+
+
+
 
 
 
