@@ -258,6 +258,34 @@ Number is 10 or less
 
 
 
+While Loop
+
+#!/usr/bin/env bash
+i=1
+while [ $i -le 5 ]
+do
+    echo "Loop $i"
+    i=$((i + 1))
+done
+
+
+
+
+For Loop
+
+#!/usr/bin/env bash
+for i in 1 2 3 4 5
+do
+    echo "Number: $i"
+done
+
+
+
+
+$(( ... )):
+	This is arithmetic expansion, used to perform math operations in Bash of Ubuntu
+
+
 
 
 
