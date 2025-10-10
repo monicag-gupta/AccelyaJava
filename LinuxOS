@@ -292,6 +292,19 @@ $(( ... )):
 
 
 
+Functions:
+
+Reusable blocks of code:
+#!/usr/bin/env bash
+greet() {
+    echo "Hello, $1!"
+}
+
+greet "Ubuntu User"
+
+$1 refers to the first argument passed to the function.
+$ sh bgfile.sh 
+Hello, Ubuntu User!
 
 
 
