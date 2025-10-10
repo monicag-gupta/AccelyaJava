@@ -516,6 +516,83 @@ done
 
 
 
+Users & Groups
+who           # logged-in users
+id username   # user id, group id
+groups user   # groups a user belongs to
+Process Monitoring
+ps aux        # list all running processes
+top           # interactive CPU/memory usage
+htop          # interactive, colored process monitor (install with `sudo apt install htop`)
+pgrep firefox # find PID of process
+kill PID      # terminate process
+kill -9 PID   # force kill process
+Zombie / Orphan Processes
+Zombies: ps -eo pid,ppid,stat,cmd | grep ' Z'
+Orphans: processes with PPID = 1: ps -eo pid,ppid,stat,cmd | awk '$2==1'
+
+
+
+
+Disk Usage
+df -h          # space used per filesystem
+du -sh /path   # size of a directory
+Check Inodes
+df -i
+Permissions & Ownership
+ls -l filename       # file permissions
+chmod 644 filename   # change permissions
+chown user:group file.txt  # change ownership
+Find Large Files
+find / -type f -size +100M
+
+
+
+
+
+
+Check Network Interfaces
+ip a           # show interfaces and IP addresses
+ifconfig       # legacy command
+Check Connectivity
+ping google.com
+traceroute google.com
+Network Ports
+netstat -tulnp   # active ports and listening services
+ss -tulnp        # modern alternative to netstat
+Download / Test URLs
+curl -I https://google.com
+wget https://example.com
+
+
+
+
+
+APT Commands
+sudo apt update          # update repository info
+sudo apt upgrade -y      # upgrade installed packages
+sudo apt install htop    # install packages
+dpkg -l | grep nginx     # check installed packages
+Removing Packages
+sudo apt remove package_name
+sudo apt purge package_name  # remove with config files
+
+
+
+
+
+systemctl status nginx       # check service status
+systemctl start nginx        # start service
+systemctl stop nginx         # stop service
+systemctl restart nginx      # restart service
+systemctl enable nginx       # enable at boot
+systemctl disable nginx      # disable at boot
+Check all active services
+systemctl list-units --type=service --state=running
+
+
+
+
 
 
 
