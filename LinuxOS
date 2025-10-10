@@ -691,6 +691,95 @@ Run every Monday at 5 PM:
 
 
 
+at → run once at a specific time
+batch → run once when system load is low
+cron → run repeatedly at scheduled intervals
+
+
+
+
+
+1. ls — List Files
+ls
+Lists files in the current directory.
+Example:
+ls -ltr /var/log
+Shows logs in date order.
+
+
+
+
+
+2. pwd — Print Working Directory
+pwd
+Shows the current directory path.
+3. cd — Change Directory
+cd /etc
+Moves into /etc directory.
+cd ~ → Go to home directory
+cd - → Go to previous directory
+4. cat — View File Content
+cat filename.log
+Combine with less or more for large files:
+less filename.log
+Use ↑/↓ to scroll, q to quit.
+
+
+
+
+
+5. grep — Search Text
+Searches for patterns inside files.
+grep "error" /var/log/syslog
+Example:
+grep -i "failed" /var/log/auth.log
+Finds failed login attempts.
+
+
+
+
+
+6. rm — Remove Files
+rm filename.txt
+Removes a file.
+
+
+
+
+7. cp and mv — Copy & Move
+cp source.txt destination.txt
+mv oldname.txt newname.txt
+8. touch — Create Empty File
+touch test.log
+9. df — Disk Usage
+df -h
+Shows disk space in human-readable format.
+
+
+
+
+
+10. du — Directory Usage
+du -sh /var/log
+Shows total size of directory.
+Server Log Checking
+Server logs are stored in /var/log/ directory on Ubuntu/Linux.
+
+
+
+View Last 10 Lines:
+tail /var/log/syslog
+Continuously Monitor Logs:
+tail -f /var/log/syslog
+View Specific Keyword:
+grep "error" /var/log/syslog
+Combine:
+tail -f /var/log/syslog | grep "failed"
+View Top 20 Lines:
+head -n 20 /var/log/auth.log
+
+
+
 
 
 
