@@ -602,6 +602,30 @@ iostat -x 2                 # detailed CPU & disk I/O stats
 
 
 
+Check disk health
+sudo smartctl -a /dev/sda   # SMART disk info (install smartmontools)
+Check filesystem
+df -hT                     # type & usage
+sudo fsck /dev/sda1        # check and repair filesystem (unmounted)
+
+
+
+Cron jobs → automate scripts:
+crontab -e
+# Example: run backup.sh every day at 2am
+0 2 * * * /home/user/backup.sh
+Shell scripts → monitor CPU, memory, disk, network:
+#!/bin/bash
+echo "CPU usage:" > /tmp/sysstatus.log
+top -bn1 | grep "Cpu(s)" >> /tmp/sysstatus.log
+echo "Memory usage:" >> /tmp/sysstatus.log
+free -h >> /tmp/sysstatus.log
+
+
+
+
+
+
 
 
 
