@@ -17,6 +17,30 @@ Server log checks
 https://labex.io/labs/linux-your-first-linux-lab-270253?course=quick-start-with-linux&hideheader=true&hidelabby=true
 
 
+-rw-rw-r-- 1 monica monica   54 Oct  5 22:07 batch_log.txt
+-rwxrwxr-x 1 monica monica  156 Oct  5 21:19 bgfile.sh
+-rw-rw-r-- 1 monica monica   30 Oct  5 22:07 hello.txt
+drwxrwxr-x 2 monica monica 4096 Oct 10 10:17 mydir
+
+
+
+
+- : its a file
+d : its a dir
+3 letters in series of rwx : read write execute : rights for the user (owner)
+3 letters in series of rwx : read write execute : rights for the group (owner's group)
+3 letters in series of rwx : read write execute : rights for others
+if any right is missing it is represented by -
+
+the User ID: Inode ID
+User name
+group name
+Size
+date 
+time
+filename
+
+
 
 
 
