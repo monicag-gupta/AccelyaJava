@@ -594,6 +594,18 @@ systemctl list-units --type=service --state=running
 
 
 
+free -h                     # memory usage
+vmstat 2 5                  # memory & CPU stats every 2 sec for 5 times
+top                         # real-time CPU/memory usage
+htop                        # interactive monitor
+iostat -x 2                 # detailed CPU & disk I/O stats
+
+
+
+
+
+
+
 
 
 
