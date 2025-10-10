@@ -121,6 +121,34 @@ rename 's/\.txt$/\.pdf/' *.txt
 The wc command is used to count the lines, words, and characters in a file.
 wc <file name> 
 
+The su command provides administrative access to another user. In other words, it allows access of the Linux shell to another user.
+su <user name> 
+The useradd command is used to add or remove a user on a Linux server.
+useradd  username  
+The passwd command is used to create and change the password for a user.
+passwd <username> 
+
+
+
+
+The head command is used to display the content of a file. It displays the first 10 lines of a file.
+head <file name>  
+The tail command is similar to the head command. The difference between both commands is that it displays the last ten lines of the file content. It is useful for reading the error message.
+tail <file name>  
+The tac command is the reverse of cat command, as its name specified. It displays the file content in reverse order (from the last line).
+tac <file name>  
+more command
+The more command is quite similar to the cat command, as it is used to display the file content in the same way that the cat command does. The only difference between both commands is that, in case of larger files, the more command displays screenful output at a time.
+In more command, the following keys are used to scroll the page:
+ENTER key: To scroll down page by line.
+Space bar: To move to the next page.
+b key: To move to the previous page.
+/ key: To search the string.
+more <file name> 
+The less command is similar to the more command. It also includes some extra features such as 'adjustment in width and height of the terminal.' Comparatively, the more command cuts the output in the width of the terminal.
+less <file name> 
+
+
 
 
 
