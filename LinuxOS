@@ -65,4 +65,19 @@ I or a takes us to entry mode
 
 
 
+Knowing the version of Unix
+For Linux Systems:
+  lsb_release -i -r 
+or
+For RHEL, you should use:
+  cat /etc/redhat-release
+Red Hat Enterprise Linux Server release 6.4 (Santiago)
+Or
+For Other OS like Debian & Ubuntu use:
+  cat /etc/issue
+Red Hat Enterprise Linux Server release 6.4 (Santiago)
+  Kernel \r on an \m
+
+
+
 
