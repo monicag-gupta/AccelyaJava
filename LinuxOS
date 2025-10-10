@@ -342,6 +342,178 @@ Disk usage:
 
 
 
+Commands:
+touch filename.txt
+Creates an empty file if it doesn’t exist.
+Example in Script:
+#!/bin/bash
+echo "Enter filename:"
+read fname
+touch "$fname"
+echo "File '$fname' created successfully."
+
+
+
+
+Commands:
+cat filename.txt
+Displays file contents.
+more filename.txt
+less filename.txt
+Paginated view of large files.
+Script Example:
+#!/bin/bash
+echo "Enter filename to read:"
+read fname
+if [ -f "$fname" ]; then
+    cat "$fname"
+else
+    echo "File does not exist."
+fi
+
+
+
+
+Commands:
+echo "Hello World" > myfile.txt
+Creates or overwrites file with text.
+echo "New Line" >> myfile.txt
+Appends to the file.
+Script Example:
+#!/bin/bash
+echo "Enter text to write to file:"
+read text
+echo "$text" >> output.txt
+echo "Data written to output.txt"
+
+
+
+
+Command:
+cp source.txt destination.txt
+Script Example:
+#!/bin/bash
+echo "Enter source file:"
+read src
+echo "Enter destination file:"
+read dest
+cp "$src" "$dest"
+echo "File copied successfully."
+
+
+
+
+
+Command:
+mv oldname.txt newname.txt
+Script Example:
+#!/bin/bash
+echo "Enter old filename:"
+read old
+echo "Enter new filename:"
+read new
+mv "$old" "$new"
+echo "File renamed successfully."
+
+
+
+
+Command:
+rm filename.txt
+Script Example:
+#!/bin/bash
+echo "Enter filename to delete:"
+read fname
+if [ -f "$fname" ]; then
+    rm "$fname"
+    echo "File deleted."
+else
+    echo "File not found."
+fi
+
+
+
+
+
+
+
+#!/usr/bin/env bash
+# Menu-driven program for file CRUD operations
+
+while true
+do
+    echo "=================================="
+    echo "       FILE CRUD MENU"
+    echo "=================================="
+    echo "1. Create a file"
+    echo "2. Read a file"
+    echo "3. Update (append to) a file"
+    echo "4. Delete a file"
+    echo "5. Exit"
+    echo -n "Enter your choice [1-5]: "
+    read choice
+
+    case $choice in
+        1)
+            echo -n "Enter file name to create: "
+            read fname
+            if [ -f "$fname" ]; then
+                echo "File '$fname' already exists!"
+            else
+                touch "$fname"
+                echo "File '$fname' created successfully."
+            fi
+            ;;
+        2)
+            echo -n "Enter file name to read: "
+            read fname
+            if [ -f "$fname" ]; then
+                echo "---------- File Contents ----------"
+                cat "$fname"
+                echo "-----------------------------------"
+            else
+                echo "File '$fname' does not exist."
+            fi
+            ;;
+        3)
+            echo -n "Enter file name to update: "
+            read fname
+            if [ -f "$fname" ]; then
+                echo -n "Enter text to append: "
+                read text
+                echo "$text" >> "$fname"
+                echo "File '$fname' updated successfully."
+            else
+                echo "File '$fname' does not exist."
+            fi
+            ;;
+        4)
+            echo -n "Enter file name to delete: "
+            read fname
+            if [ -f "$fname" ]; then
+                rm "$fname"
+                echo "File '$fname' deleted successfully."
+            else
+                echo "File '$fname' does not exist."
+            fi
+            ;;
+        5)
+            echo "Exiting... Goodbye!"
+            exit 0
+            ;;
+        *)
+            echo "Invalid choice. Please try again."
+            ;;
+    esac
+
+    echo ""
+    sleep 1
+done
+
+
+
+
+
 
 
 
