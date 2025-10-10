@@ -308,6 +308,18 @@ Hello, Ubuntu User!
 
 
 
+Command-Line Arguments
+#!/usr/bin/env bash
+echo "Script name: $0"
+echo "First argument: $1"
+echo "Second argument: $2"
+
+Run it like:
+$ sh bgfile.sh mango grapes
+Script name: bgfile.sh
+First argument: mango
+Second argument: grapes
+
 
 
 
