@@ -184,6 +184,18 @@ $ chmod ugo+rx,go+w sort.c
 
 
 
+uptime reports the current time, how long the system has been up, and three load average figures. 
+The load average is a rough measure of CPU use. 
+% uptime 
+3:24pm up 2 days, 2:41, 16 users, load average: 1.90, 1.43, 1.33
+ps without any options will display the status of the active processes you own
+$ ps
+PID TTY TIME CMD
+7505 pts/3 00:00:00 ksh
+8078 pts/3 00:00:00 ps
+This output displays four pieces of information for each process. The process's ID (PID), the terminal controlling the process (TTY), how long the process has been running (TIME), and the command or program the process is running (CMD).
+
+
 
 
 
