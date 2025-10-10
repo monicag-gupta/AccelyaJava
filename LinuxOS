@@ -271,6 +271,9 @@ done
 
 
 
+
+
+
 For Loop
 
 #!/usr/bin/env bash
@@ -284,6 +287,10 @@ done
 
 $(( ... )):
 	This is arithmetic expansion, used to perform math operations in Bash of Ubuntu
+
+
+
+
 
 
 
