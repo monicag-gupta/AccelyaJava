@@ -239,6 +239,24 @@ Welcome, Monica!
 
 
 
+If-Else:
+#!/usr/bin/env bash
+echo "Enter a number:"
+read num
+
+if [ $num -gt 10 ]; then
+    echo "Number is greater than 10"
+else
+    echo "Number is 10 or less"
+fi
+
+$ sh bgfile.sh 
+Enter a number:
+5
+Number is 10 or less
+
+
+
 
 
 
