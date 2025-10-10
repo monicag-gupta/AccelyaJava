@@ -1,0 +1,52 @@
+Java:
+  Core 
+  OOPs
+  4 Pillars
+  Collection
+  Lambda
+  StreamAPI
+
+SQL:
+  CRUD
+  Constraints
+  Select ..
+  Group by
+  Joins
+
+Advanced Java:
+  HBM props
+  Objects
+  Mappings
+  JPA Annotation
+  JDBC steps
+
+
+Oracle PL/SQL:
+  Procedures
+  triggers
+
+Angular:
+  Component
+  RxJS
+  HTML tags : table, input
+  Directives
+  @input, @output
+  
+Spring Boot:
+  HTTP methods in Controller
+  JPA Repository CRUD Functions
+  Security
+  Testing
+
+Linux:
+  ls
+  pwd
+  at
+  batch
+  cat
+  cron
+  vi
+  shell programs : if, while, for
+
+Weblogic	Tools and more	AWS	:
+  None
