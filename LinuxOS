@@ -98,6 +98,18 @@ cd <directory name>
 The rm command is used to remove a file.
 rm <file name>
 
+The touch command is used to create empty files. We can create multiple empty files by executing it once.
+touch <file name>  
+touch <file1>  <file2> ....  
+cat Command
+The cat command is a multi-purpose utility in the Linux system. It can be used to create a file, display content of the file, copy the content of one file to another file, and more.
+cat [OPTION]... [FILE]..  
+To create a file, execute it as follows:
+cat > <file name>  
+// Enter file content  
+Press "CTRL+ D" keys to save the file. To display the content of the file, execute it as follows:
+cat <file name>  
+
 
 
 
