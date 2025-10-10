@@ -158,6 +158,28 @@ comm <file1> <file2>
 The grep is the most powerful and used filter in a Linux system. The 'grep' stands for "global regular expression print." It is useful for searching the content from a file. Generally, it is used with the pipe.
 command | grep <searchWord> 
 
+The sleep command is used to hold the terminal by the specified amount of time. By default, it takes time in seconds.
+sleep <time>  
+The time command is used to display the time to execute a command.
+time  
+The mount command is used to connect an external device file system to the system's file system.
+mount -t type <device> <directory> 
+Linux exit command is used to exit from the current shell. It takes a parameter as a number and exits the shell with a return of status number.
+exit  
+After pressing the ENTER key, it will exit the terminal.
+Linux clear command is used to clear the terminal screen.
+clear 
+
+Linux 'which' command locates the path of a command.
+which <command1> <command2> <command3>....  
+which ls pwd rmdir mkdir cp cd file man 
+Linux 'type' command tell us whether a command given to the shell is a built-in or external command.
+type <command>  
+type pwd 
+
+
+
+
 
 
 
