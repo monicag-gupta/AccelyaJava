@@ -648,6 +648,46 @@ Remove a scheduled job:
 		atrm JOB_ID
 
 
+batch Command – Schedule when system load permits
+Runs jobs when system load is low.
+Jobs are executed in order according to system load.
+Uses the same syntax as at.
+Example
+	batch
+	at> /home/user/heavy_script.sh
+	at> <Ctrl+D>
+Check queued jobs: 
+	atq
+Remove job: 
+	atrm JOB_ID
+batch is useful for CPU-intensive tasks that should not interfere with normal operations.
+
+
+
+
+cron Jobs – Recurring tasks
+Cron is for repetitive or scheduled tasks (daily, weekly, monthly, etc.)
+Controlled by crontab (cron table).
+Check crontab for current user
+	crontab -l
+Edit crontab
+	crontab -e
+Crontab Syntax
+	* * * * * command_to_run
+	│ │ │ │ │
+	│ │ │ │ └─ Day of week (0-7, Sunday=0 or 7)
+	│ │ │ └── Month (1-12)
+	│ │ └─── Day of month (1-31)
+	│ └──── Hour (0-23)
+	└───── Minute (0-59)
+Examples
+Run a script every day at 2:30 AM:
+	30 2 * * * /home/user/backup.sh
+Run a command every 10 minutes:
+	*/10 * * * * /home/user/check_disk.sh
+Run every Monday at 5 PM:
+	0 17 * * 1 /home/user/weekly_report.sh
+
 
 
 
