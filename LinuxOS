@@ -179,6 +179,12 @@ type pwd
 
 
 
+$ chmod ug=rwx,o=rx sort.c
+$ chmod ugo+rx,go+w sort.c
+
+
+
+
 
 
 
