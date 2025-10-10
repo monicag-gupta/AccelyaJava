@@ -626,6 +626,36 @@ free -h >> /tmp/sysstatus.log
 
 
 
+Scheduling allows you to run commands or scripts automatically at a later time or on a recurring basis.
+at Command – Schedule a job once at a specific time
+Usage: Run a command or script once at a future time.
+Installation:
+sudo apt install at
+sudo systemctl enable --now atd   # enable at daemon
+Syntax
+at TIME
+at> command1
+at> command2
+at> <Ctrl+D>
+Example
+Run a script at 5:30 PM today:
+at 17:30
+at> /home/user/myscript.sh
+at> <Ctrl+D>
+List pending jobs:
+atq
+Remove a scheduled job:
+atrm JOB_ID
+
+
+
+
+
+
+
+
+
+
 
 
 
