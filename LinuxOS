@@ -110,6 +110,19 @@ cat > <file name>
 Press "CTRL+ D" keys to save the file. To display the content of the file, execute it as follows:
 cat <file name>  
 
+The cp command is used to copy a file or directory.
+cp <existing file name> <new file name> 
+The mv command is used to move a file or a directory form one location to another location.
+mv <file name> <directory path>  
+The rename command is used to rename files. It is useful for renaming a large group of files.
+rename 's/old-name/new-name/' files  
+For example, to convert all the text files into pdf files, execute the below command:
+rename 's/\.txt$/\.pdf/' *.txt 
+The wc command is used to count the lines, words, and characters in a file.
+wc <file name> 
+
+
+
 
 
 
