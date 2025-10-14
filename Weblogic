@@ -11,3 +11,47 @@ Generic Installer for Oracle WebLogic Server and Oracle Coherence:
 Oracle WebLogic Server and Coherence (655 MB)
 
 
+Once downloaded,
+Start the installer, it will download a .zip file 
+Unzip the file
+We get a jar file as:
+fmw_14.1.2.0.0_wls.jar
+Open cmd as administrator
+Go to the folder where .jar is kept
+Run
+> java –jar fmw_14.1.2.0.0_wls.jar
+The GUI installer opens → choose:
+Oracle Home (e.g., C:\Oracle\Middleware)
+Select “WebLogic Server” component
+Proceed with installation.
+
+
+After installation, you’ll see:
+C:\Oracle\Middleware\Oracle_Home\
+ ├── wlserver\
+ ├── coherence\
+ └── oracle_common\
+
+
+
+Create a New Domain
+Run the Configuration Wizard or it will run the wizard automatically post installation:
+cd C:\Oracle\Middleware\Oracle_Home\wlserver\common\bin
+config.cmd
+Steps:
+Create a new domain
+Choose Basic WebLogic Server Domain
+Set credentials (username: weblogic, password: Webl0gic)
+Select JDK (choose your installed JDK)
+Choose optional components (Admin Server, Managed Server, etc.)
+Finish and save the domain (e.g., C:\Oracle\Middleware\user_projects\domains\mydomain)
+
+
+
+
+
+
+
+
+
+
