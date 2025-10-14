@@ -54,6 +54,63 @@ You should have WebLogic installed at something like:
 cd C:\Oracle\Middleware\Oracle_Home\wlserver
 
 
+Run the Configuration Wizard:
+cd C:\Oracle\Middleware\Oracle_Home\wlserver\common\bin
+config.cmd
+Steps:
+Create a new domain
+Choose Basic WebLogic Server Domain
+Set credentials (username: weblogic, password: Webl0gic)
+Select JDK (choose your installed JDK)
+Choose optional components (Admin Server, Managed Server, etc.)
+Finish and save the domain (e.g., C:\Oracle\Middleware\user_projects\domains\mydomain)
+
+
+
+To start the Admin Server:
+cd C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain
+startWebLogic.cmd
+Wait until you see:
+..<Server state changed to RUNNING>
+Then open your browser and visit:
+http://localhost:7001/console
+Log in using:
+Username: weblogic
+Password: Webl0gic
+
+
+For Weblogic 14.1.2+
+Download the remote Console:
+https://github.com/oracle/weblogic-remote-console/releases
+Download 
+WebLogic-Remote-Console-2.4.17-win.exe
+Once Installed
+Open Remote Weblogic app from start menu
+Choose Add Admin..
+Give a name to the Connection: weblogic11
+Give credentials
+
+
+
+Create a PrjhelloJsp in Eclipse as a dynamic web project with Web Module Version: 4.0
+Add index.jsp page
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to WebLogic JSP App</title>
+</head>
+<body>
+    <h2>Hello from WebLogic JSP Application!</h2>
+    <p>This is your index.jsp deployed on WebLogic 14.1.2.</p>
+</body>
+</html>
+
+
+
+
 
 
 
