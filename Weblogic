@@ -115,6 +115,7 @@ Add index.jsp page
 
 
 
+web.xml:
 
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
@@ -130,6 +131,10 @@ Add index.jsp page
     </welcome-file-list>
 
 </web-app>
+
+
+
+
 
 
 
