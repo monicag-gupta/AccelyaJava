@@ -47,6 +47,15 @@ Choose optional components (Admin Server, Managed Server, etc.)
 Finish and save the domain (e.g., C:\Oracle\Middleware\user_projects\domains\mydomain)
 
 
+We get the C drive as:
+C:\Users\Monica\AppData\Local\Temp\OraInstall2025-10-07_10-36-07PM>
+
+You should have WebLogic installed at something like:
+cd C:\Oracle\Middleware\Oracle_Home\wlserver
+
+
+
+
 
 
 
