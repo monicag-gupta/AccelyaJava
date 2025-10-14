@@ -135,6 +135,32 @@ web.xml:
 
 
 
+Right click prj->
+Export project as a war in the folder:
+C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain\autodeploy\
+Give name: WebPrj4War.war
+
+
+
+Run war in weblogic
+
+Add a new Deployment:
+EditTree -> Deployment -> App Deployment-> New
+MyWebPrjJsp
+Add : Admin Server
+Browse to the war file created
+Choose On Deployment: Start Application
+Click -> Create
+Click on Trolley at right->
+Commit the changes
+Save if required
+
+Browse back to the App Deployment List.
+Your War Project is ready to run..
+
+
+
+
 
 
 
